@@ -9,49 +9,61 @@ public class HexGridEditor : Editor
 {
 
     private GameObject tileToSnap; // Il GameObject da posizionare sulla griglia
+    public bool CoordVisible = false;
 
-    private void SnapSeeker()
-    {
-        HexGrid hexGrid = (HexGrid)target;
+    //private void SnapSeeker()
 
-        Event e = Event.current;
-        if (e.type == EventType.MouseDown && e.button == 0) // Controlla se è stato cliccato il pulsante sinistro del mouse
-        {
-            // Effettua un raycast per rilevare il GameObject sotto il cursore del mouse
-            Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                tileToSnap = hit.collider.gameObject;
-            }
-        }
+    //{
+    //    HexGrid hexGrid = (HexGrid)target;
 
-        if (tileToSnap != null)
-        {
-            // Rileva la posizione corrente del GameObject
-            Vector3 snapPosition = tileToSnap.transform.position;
+    //    Event e = Event.current;
+    //    if (e.type == EventType.MouseDown && e.button == 0) // Controlla se è stato cliccato il pulsante sinistro del mouse
+    //    {
+    //        // Effettua un raycast per rilevare il GameObject sotto il cursore del mouse
+    //        Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
+    //        RaycastHit hit;
+    //        if (Physics.Raycast(ray, out hit))
+    //        {
+    //            tileToSnap = hit.collider.gameObject;
+    //        }
+    //    }
 
-            // Converti la posizione corrente in coordinate offset
-            int x = Mathf.RoundToInt(snapPosition.x / (hexGrid.HexSize * 1.5f));
-            int z = Mathf.RoundToInt(snapPosition.z / (hexGrid.HexSize * 1.73205f));
+    //    if (tileToSnap != null)
+    //    {
+    //        // Rileva la posizione corrente del GameObject
+    //        Vector3 snapPosition = tileToSnap.transform.position;
 
-            // Calcola le coordinate cubiche del punto di snap
-            Vector3 cubeCoord = HexMetrics.OffsetToCube(x, z, hexGrid.Orientation);
+    //        // Converti la posizione corrente in coordinate offset
+    //        int x = Mathf.RoundToInt(snapPosition.x / (hexGrid.HexSize * 1.5f));
+    //        int z = Mathf.RoundToInt(snapPosition.z / (hexGrid.HexSize * 1.73205f));
 
-            // Calcola la posizione centrale dell'esagono corrispondente
-            Vector3 centerPosition = HexMetrics.Center(hexGrid.HexSize, x, z, hexGrid.Orientation) + hexGrid.transform.position;
+    //        // Calcola le coordinate cubiche del punto di snap
+    //        Vector3 cubeCoord = HexMetrics.OffsetToCube(x, z, hexGrid.Orientation);
 
-            // Posiziona il GameObject sulla griglia
-            tileToSnap.transform.position = centerPosition;
+    //        // Calcola la posizione centrale dell'esagono corrispondente
+    //        Vector3 centerPosition = HexMetrics.Center(hexGrid.HexSize, x, z, hexGrid.Orientation) + hexGrid.transform.position;
 
-            // Disegna una linea di debug per visualizzare il punto di snap
-            Debug.DrawLine(snapPosition, centerPosition, Color.red);
+    //        // Posiziona il GameObject sulla griglia
+    //        tileToSnap.transform.position = centerPosition;
 
-            // Eventuale aggiornamento dell'interfaccia utente
-            SceneView.RepaintAll();
-        }
-    }
+    //        // Disegna una linea di debug per visualizzare il punto di snap
+    //        Debug.DrawLine(snapPosition, centerPosition, Color.red);
+
+    //        // Eventuale aggiornamento dell'interfaccia utente
+    //        SceneView.RepaintAll();
+    //    }
+    //}
     void OnSceneGUI()
+    {
+        if (CoordVisible)
+        {
+            ShowHexCoords();
+        }
+        //SnapSeeker();
+    }
+
+
+    public void ShowHexCoords()
     {
         HexGrid hexGrid = (HexGrid)target;
 
@@ -69,7 +81,45 @@ public class HexGridEditor : Editor
                 Handles.Label(centerPosition, $"\n({cubeCoord.x},{cubeCoord.y},{cubeCoord.z})");
             }
         }
-
-        SnapSeeker();
     }
+
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        HexGrid grid = (HexGrid)target;
+
+
+        if (GUILayout.Button("Show/Hide Coordinates"))
+        {
+            CoordVisible = !(CoordVisible);
+        }
+
+        if (GUILayout.Button("Get position"))
+        {
+            grid.GetGridTilePositions();
+        }
+
+        
+
+        if (GUILayout.Button("Generate Tiles"))
+        {
+            grid.GenerateTiles();
+        }
+
+        if (GUILayout.Button("Load Prefab Tiles"))
+        {
+            grid.UpdateTiles();
+        }
+
+        if (GUILayout.Button("Clear Tiles"))
+        {
+
+            grid.ClearTiles();
+            
+        }
+
+
+    }
+
 }

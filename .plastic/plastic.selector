@@ -1,4 +1,4 @@
 repository "FurCity Survival@DBGA_Kintsugi_VerContr@cloud"
   path "/"
-    br "/main"
-    co "/main"
+    smartbranch "/main" changeset "60"    
+     

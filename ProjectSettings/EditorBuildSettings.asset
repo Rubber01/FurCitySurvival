@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/ScenaProveLuca.unity
     guid: 5e1f5bd04bd651d47808a18d9af84cd8
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/ScenaProvePietro.unity
     guid: 1dd1781b8dc2de14783cd9b9be61ddfb
+  - enabled: 1
+    path: Assets/_Scenes/Scene_Prototype.unity
+    guid: fd4d7805fff8f924a98853d800debdcd
   m_configObjects: {}

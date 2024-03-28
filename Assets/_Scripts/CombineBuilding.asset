@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: CombineBuilding
   m_EditorClassIdentifier: 
   buildingType: 2
-  buildingName: 
-  buildingCost: 0
-  currentUpgradeLevel: 1
+  buildingName: Combine
+  resourceCostType: 0
+  buildingCost: 30
+  currentUpgradeLevel: 5
   buildingModel: {fileID: 5651348924001716833, guid: 9553be1045321d546812575bbc480ab1, type: 3}
   resourceType: 0
+  refinedResource: {fileID: 0}
+  resourceRequirementNumber: 0
   resourceRefinementRate: 0
   creditGenerationRate: 0
-  resourceType1: 0
-  resourceType2: 0
-  resultingResourceType: 0
+  resourceType1: 1
+  resourceType1Number: 5
+  resourceType2: 3
+  resourceType2Number: 8
+  resultingResourceType: 5
+  combinedResource: {fileID: 11400000, guid: 1e9c512bd2be1c4409ce58a6ad572425, type: 2}

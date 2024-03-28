@@ -21,11 +21,12 @@ public class Player : MonoBehaviour
     private Vector3 _movePosition;
     private Rigidbody _ridigbody;
     private Animator _animator;
-    private Transform _model;
+    private Transform _model;   //animazioni varie body
     private const float _delta = 0.001f;
     private PlayerState _state;
     private bool _sellBlocks;
     private int _coinsToSpawn = 0;
+    private AudioSource _audioSource;
     private GameData _gameData;
     public GameData GameData
     {
@@ -46,27 +47,32 @@ public class Player : MonoBehaviour
     void Awake()
     {
         _ridigbody = GetComponent<Rigidbody>();
-        //_animator = GetComponentInChildren<Animator>();
-        //_model = _animator.gameObject.transform;
+        _animator = GetComponentInChildren<Animator>();
+        _model = _animator.gameObject.transform;
         _state = PlayerState.Idle;
         _stackedBlocks = new Stack<Transform>();
         _sellBlocks = false;
         _cameraSettings = _camera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     public void Move(Vector3 newPosition)
-    { 
+    {
         //lock Y from changes
         _movePosition = new Vector3(newPosition.x, 0, newPosition.y);
         if (!Mathf.Approximately(_movePosition.sqrMagnitude, 0))
         {
-            //MoveAnim(_movePosition.sqrMagnitude);
+            MoveAnim(_movePosition.sqrMagnitude);
             _isMoving = true;
         }
         //Debug.Log("Move pos: " + _movePosition);     
     }
 
-    /*private void MoveAnim(float strength)
+    private void MoveAnim(float strength)
     {
         _state = PlayerState.Moving;
         if (Mathf.Approximately(strength, 1) && !_animator.GetBool("IsAttacking"))
@@ -93,7 +99,7 @@ public class Player : MonoBehaviour
         _state = PlayerState.Idle;
         _animator.SetBool("isWalking", false);
         _animator.SetBool("isRunning", false);
-    }*/
+    }
     void FixedUpdate()
     {
         if (_isMoving)
@@ -104,30 +110,37 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //if (_state != PlayerState.Idle) StopAnim();
+            if (_state != PlayerState.Idle) StopAnim();
         }
     }
 
     private void OnTriggerEnter(Collider other) 
     {
+        /*
+        Debug.Log("Sto collidendo con: " + other.name);
         switch (other.tag)
         {
             case "Field":
-                //AttackAnim(true);
+                AttackAnim(true);
+                Debug.Log("attacco");
                 break;
             case "Stone":
                 other.GetComponent<Resource>().Cut();
+                Debug.Log("Stone");
                 break;
             case "Block":
                 CollectBlock(other.gameObject);
+                Debug.Log("Block");
                 break;
             case "Sell":
                 SellBlocks(other.gameObject);
+                Debug.Log("Sell");
                 break;
             default:
                 Debug.Log("Trigger enter not implemented: " + other.tag);
                 break;
         }
+        */
     }
 
     void OnTriggerExit(Collider other)
@@ -135,7 +148,7 @@ public class Player : MonoBehaviour
         switch (other.tag)
         {
             case "Field":
-                //AttackAnim(false);
+                AttackAnim(false);
                 break;
             case "Sell":
                 _sellBlocks = false;
@@ -146,11 +159,49 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "MetalScrap":
+                _audioSource.Play();
+                PlayerManager.metalScrapNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "PlasticWaste":
+                _audioSource.Play();
+                PlayerManager.plasticWasteNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "Metal":
+                _audioSource.Play();
+                PlayerManager.metalNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "Plastic":
+                _audioSource.Play();
+                PlayerManager.plasticNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "Chip":
+                _audioSource.Play();
+                PlayerManager.chipNumber++;
+                Destroy(collision.gameObject);
+                break;
+        }
+    }
+
+    /* Resource collection
     private void CollectBlock(GameObject block)
     {
+        
+        
+        }
+
+     
         if (_stackedBlocks.Count < _gameData.MaxStacked)
         {
-            _levelManager.AddWheat(1);
+            _levelManager.AddStone(1);
             _stackedBlocks.Push(block.transform);
             block.GetComponent<Block>().Stack(_stackBlocksPoint, _stackedBlocks.Count);
             SetCameraDistance(_stackedBlocks.Count);
@@ -159,7 +210,9 @@ public class Player : MonoBehaviour
         {
             block.GetComponent<Block>().SetLimitTexture();
         }
+        
     }
+    */
 
     private void SellBlocks(GameObject block)
     {
@@ -175,7 +228,7 @@ public class Player : MonoBehaviour
             if (_stackedBlocks.Count > 0)
             {
                 _coinsToSpawn++;
-                _levelManager.AddWheat(-1);
+                _levelManager.AddStone(-1);
                 _stackedBlocks.Pop().GetComponent<Block>().Unstack(block);
                 SetCameraDistance(_stackedBlocks.Count);
             }

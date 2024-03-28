@@ -1,6 +1,7 @@
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 using UnityEngine.UIElements;
+using System.Collections;
+using Unity.VisualScripting;
 
 // Enumerazione per i diversi tipi di edifici
 public enum BuildingType
@@ -10,20 +11,13 @@ public enum BuildingType
     CombineBuilding
 }
 
-// Enumerazione per i tipi di risorse
-public enum ResourceType
-{
-    Resource1,
-    Resource2,
-    // Aggiungi altri tipi di risorse necessari al tuo gioco
-}
-
 // Classe che rappresenta un tipo generico di edificio
 [CreateAssetMenu(fileName = "NewBuilding", menuName = "ScriptableObjects/Building")]
 public class Building : ScriptableObject
 {
     public BuildingType buildingType;
     public string buildingName;
+    public ResourceType resourceCostType;
     public int buildingCost;
     public int currentUpgradeLevel; // Livello di upgrade attuale
     public GameObject buildingModel;
@@ -31,7 +25,9 @@ public class Building : ScriptableObject
     // Variabili specifiche per l'edificio di raffinazione delle risorse
     [Header("ResourceRefinery")]
     public ResourceType resourceType;
-    [SerializeField] private int resourceRefinementRate;
+    public Resource refinedResource;
+    public int resourceRequirementNumber; // Numero di risorse richieste per generare 1 risorsa raffinata
+    [SerializeField] private int resourceRefinementRate; // Tempo necessario per convertire in risorsa raffinata
 
     // Variabili specifiche per l'edificio generatore di crediti
     [Header("CreditGenerator")]
@@ -39,9 +35,12 @@ public class Building : ScriptableObject
 
     // Variabili specifiche per l'edificio di combinazione
     [Header("CombineBuilding")]
-    [SerializeField] private ResourceType resourceType1;
-    [SerializeField] private ResourceType resourceType2;
-    [SerializeField] private ResourceType resultingResourceType;
+    [SerializeField] public ResourceType resourceType1;
+    [SerializeField] public int resourceType1Number;
+    [SerializeField] public ResourceType resourceType2;
+    [SerializeField] public int resourceType2Number;
+    [SerializeField] public ResourceType resultingResourceType;
+    [SerializeField] public Resource combinedResource;
 
     private void OnValidate()
     {
@@ -51,6 +50,7 @@ public class Building : ScriptableObject
                 // Implementa qui la logica specifica per l'edificio di raffinazione delle risorse
                 break;
             case BuildingType.CreditGenerator:
+                
                 // Implementa qui la logica specifica per l'edificio generatore di crediti
                 break;
             case BuildingType.CombineBuilding:
@@ -63,8 +63,28 @@ public class Building : ScriptableObject
 
     public void UpgradeToLevel(int _level)
     {
-        currentUpgradeLevel += _level;
+        currentUpgradeLevel = _level;
     }
 
-    
+    public IEnumerator GenerateCoins()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(creditGenerationRate); // Aspetta per il tempo specificato
+
+            // Aggiungi una moneta
+            AddCoin();
+
+            // Se vuoi aggiornare la grafica o eseguire altre operazioni quando una moneta viene generata, puoi farlo qui
+        }
+    }
+
+    private void AddCoin()
+    {
+        // Aggiungi una moneta al contatore dei crediti
+        // Assicurati di avere un sistema per tenere traccia dei crediti, potresti avere un singleton di gioco o qualcosa di simile
+        // Ad esempio:
+        
+        LevelManager.Instance.SpawnCoin(buildingModel.transform.position);
+    }
 }

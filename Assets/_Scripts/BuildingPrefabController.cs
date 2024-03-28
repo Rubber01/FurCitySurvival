@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Il2Cpp;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 using UnityEngine.UIElements;
 using com.cyborgAssets.inspectorButtonPro;
+using TMPro;
 
 public class BuildingPrefabController : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class BuildingPrefabController : MonoBehaviour
     public int currentLevel = 1;
     private int currentActiveMeshIndex = 0;
     private GameObject buildingmodel;
+
+    [SerializeField] private TextMeshPro buildingCost;
 
     private void Start()
     {
@@ -24,22 +25,35 @@ public class BuildingPrefabController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        buildingCost.text = buildingData.resourceCostType.ToString() + " " + buildingData.buildingCost.ToString();
+    }
+
     public void UpgradeBuilding()
     {
+        Debug.Log("Upgrading building");
         // Aumenta il livello di upgrade
         buildingData.currentUpgradeLevel++;
         // Attiva la mesh aggiuntiva successiva
-        ToggleAdditionalMesh(currentActiveMeshIndex + 1, true);
+        ToggleAdditionalMesh(currentActiveMeshIndex, true);
+        currentActiveMeshIndex++;
         buildingData.UpgradeToLevel(buildingData.currentUpgradeLevel);
+        Debug.Log("activeMeshIndex" + currentActiveMeshIndex);
+
+        if (buildingmodel != null && buildingmodel.GetComponent<CreditGeneration>() != null)
+        {
+            buildingmodel.GetComponent<CreditGeneration>().ReduceTimer();
+        }
     }
 
     [ProButton]
-    private void ToggleAdditionalMesh(int index, bool active)
+    public void ToggleAdditionalMesh(int index, bool active)
     {
         Debug.Log("index" + index);
         Debug.Log("children: " + buildingmodel.transform.childCount);
         // Controlla se il prefab ha le mesh aggiuntive
-        if (buildingmodel.transform.childCount >= 2 && index < buildingmodel.transform.childCount)
+        if (buildingmodel.transform.childCount >= 2 && index <= buildingmodel.transform.childCount)
         {
             
             // Attiva la mesh aggiuntiva specificata

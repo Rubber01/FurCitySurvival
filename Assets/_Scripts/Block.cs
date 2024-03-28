@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Oggetto droppato quando si attacca una risorsa
+
 public class Block : MonoBehaviour
 {
     [SerializeField] private float _destroyTime;

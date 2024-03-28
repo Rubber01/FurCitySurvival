@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115c1a4f2c19c984aadaceed0364cb50, type: 3}
+  m_Name: 3.Credit_Building
+  m_EditorClassIdentifier: 
+  buildingType: 1
+  buildingName: 
+  resourceCostType: 1
+  buildingCost: 8
+  currentUpgradeLevel: 3
+  buildingModel: {fileID: 5651348924001716833, guid: 8c0dc5d026525d1419cae796c529941d, type: 3}
+  resourceType: 0
+  refinedResource: {fileID: 0}
+  resourceRequirementNumber: 0
+  resourceRefinementRate: 0
+  creditGenerationRate: 1
+  resourceType1: 0
+  resourceType1Number: 0
+  resourceType2: 0
+  resourceType2Number: 0
+  resultingResourceType: 0
+  combinedResource: {fileID: 0}

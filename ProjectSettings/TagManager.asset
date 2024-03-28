@@ -8,6 +8,13 @@ TagManager:
   - Sell
   - Block
   - Field
+  - Wheat
+  - Resource
+  - Metal
+  - Plastic
+  - Chip
+  - MetalScrap
+  - PlasticWaste
   layers:
   - Default
   - TransparentFX
@@ -15,14 +22,14 @@ TagManager:
   - 
   - Water
   - UI
+  - Player_Col
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Field_Col
+  - Stone_Col
+  - Weapon_Col
+  - Pickable_Col
+  - Cut_Col
+  - Floor_Col
   - 
   - 
   - 

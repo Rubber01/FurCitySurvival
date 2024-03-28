@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b139ff64eeb7c47aaa41324fb6f6dd, type: 3}
+  m_Name: MetalStack
+  m_EditorClassIdentifier: 
+  resourceType: 1
+  resourceStackName: PileOfMetalScrap
+  resourceHitPoints: 5
+  spawnTime: 10
+  currentMiningLevel: 3
+  resourceStackModel: {fileID: 3096362543408022740, guid: 9254923e0b391f24fa56a665f3603065, type: 3}
+  resourceUnit: {fileID: 11400000, guid: 54153c5108c1c7143bae3376884912eb, type: 2}

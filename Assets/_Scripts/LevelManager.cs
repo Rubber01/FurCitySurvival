@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using NewTypes;
+using com.cyborgAssets.inspectorButtonPro;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] private GameData _gameData;
+    public GameData _GameData {  get { return _gameData; } }
+
     [SerializeField] private TextMeshProUGUI _coinsTMP;
     [SerializeField] private TextMeshProUGUI _stoneTMP;
     [SerializeField] private GameObject _coinImg;
@@ -36,10 +39,18 @@ public class LevelManager : MonoBehaviour
         _player.LevelManager = this.GetComponent<LevelManager>();
     }
 
+    
+
     void Update()
     {
         _inputSystem.ReadInput();
         LevelStateManager();
+        // Verifica se è stato premuto il tasto Esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Chiudi l'applicazione
+            QuitApplication();
+        }
     }
 
     void LevelStateManager()
@@ -99,14 +110,15 @@ public class LevelManager : MonoBehaviour
         GameObject coin = Instantiate(_coinImg, _coinsTMP.transform.parent);
         coin.GetComponent<Coin>().Move(Camera.main.WorldToScreenPoint(startPosition));
     }
+    
     public void AddCoins(int value)
     {
-        _gameData.Coins += (value * _gameData.StoneValue);
+        _gameData.Coins += (value);// * _gameData.StoneValue);
         if (_gameData.Coins > 9999) _gameData.Coins = 9999;
         UpdateTXT(_gameData.Coins.ToString(), _coinsTMP);
     }
 
-    public void AddWheat(int value)
+    public void AddStone(int value)
     {
         _gameData.Stone += value;
         UpdateTXT(_gameData.Stone.ToString("00") + "/" + _gameData.MaxStacked.ToString(), _stoneTMP);
@@ -126,4 +138,16 @@ public class LevelManager : MonoBehaviour
 
         txtObj.transform.localScale = new Vector3(1f, 1f, 1f);
     }
+
+    void QuitApplication()
+    {
+#if UNITY_EDITOR
+        // Se siamo in modalità di sviluppo, ferma il gioco nell'editor
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            // Altrimenti, esci dall'applicazione
+            Application.Quit();
+#endif
+    }
+
 }

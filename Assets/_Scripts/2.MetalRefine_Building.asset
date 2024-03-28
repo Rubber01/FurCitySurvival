@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115c1a4f2c19c984aadaceed0364cb50, type: 3}
+  m_Name: 2.MetalRefine_Building
+  m_EditorClassIdentifier: 
+  buildingType: 0
+  buildingName: Refinery
+  resourceCostType: 0
+  buildingCost: 15
+  currentUpgradeLevel: 1
+  buildingModel: {fileID: 5651348924001716833, guid: 5391ea31f8bb3f249895483b01121f0f, type: 3}
+  resourceType: 1
+  refinedResource: {fileID: 11400000, guid: 1776e255852f8ce4cbb7fcc506c9f117, type: 2}
+  resourceRequirementNumber: 4
+  resourceRefinementRate: 4
+  creditGenerationRate: 0
+  resourceType1: 0
+  resourceType1Number: 0
+  resourceType2: 1
+  resourceType2Number: 0
+  resultingResourceType: 2
+  combinedResource: {fileID: 0}
