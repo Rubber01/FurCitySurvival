@@ -1,4 +1,3 @@
-repository "FurCity Survival@DBGA_Kintsugi_VerContr@cloud"
+rep "FurCity Survival@DBGA_Kintsugi_VerContr@cloud"
   path "/"
-    smartbranch "/main" changeset "60"    
-     
+    smartbranch "/main"
