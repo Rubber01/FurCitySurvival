@@ -49,7 +49,6 @@ public class Block : MonoBehaviour
         _offset = new Vector3 (0, blockOrder * _collider.size.y, 0);
         transform.SetParent(_endPoint.parent);
         _startPoint = transform;
-        //завершай принудительно анимацю чтобы не прыгали в стеке
         _animator.Play("block_bounce", 0, 1);
         GetComponentInChildren<MeshRenderer>().sharedMaterial = _stackMaterial;
     }
@@ -110,7 +109,6 @@ public class Block : MonoBehaviour
             else
             {
                 _isMoving = false;
-                //установить блоки в точную позицию, движение по кривой даёт погрешность
                 transform.localPosition = Vector3.MoveTowards(transform.localPosition, _endPoint.localPosition + _offset, 100);
                 transform.localRotation =  _endPoint.localRotation;
                 transform.SetParent(_endPoint);

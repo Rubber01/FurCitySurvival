@@ -4,8 +4,24 @@ using UnityEngine;
 using Cinemachine;
 
 public class Player : MonoBehaviour
-{
+{   //zona attacco player
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float health;
+    [SerializeField] private int damage;
+    [SerializeField] private float timeBetweenAttacks;
+    [SerializeField] bool alreadyAttacked = false;
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private bool enemyInAttackRange = false;
+
+
+    //nemico
+    [SerializeField] GameObject enemy;
+    private GameObject lastCollisionObject; // Ultimo oggetto che ha colliso
+    private bool collisonOccured = false;
+
+    //alleati
+    [SerializeField] private GameObject[] allies;
+
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _sellTime;
     [SerializeField] private float _coinTime;
@@ -55,6 +71,10 @@ public class Player : MonoBehaviour
         _cameraSettings = _camera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
+    private void CheckAllies()
+    {
+        allies = GameObject.FindGameObjectsWithTag("Ally");
+    }
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -112,6 +132,7 @@ public class Player : MonoBehaviour
         {
             if (_state != PlayerState.Idle) StopAnim();
         }
+        
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -161,35 +182,60 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        switch (collision.gameObject.tag)
+        
+            //if (collisonOccured)
+            //    return;
+
+            // Controlla se l'oggetto colliso ha il tag "Enemy"
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+            CheckAllies();
+            foreach (GameObject ally in allies)
+            {
+                Debug.Log("alleati " + ally.gameObject.name);
+                ally.GetComponent<AllyAI>().SetTarget(collision.gameObject);
+            }
+            //collisonOccured = true;
+            }
+
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            case "MetalScrap":
-                _audioSource.Play();
-                PlayerManager.metalScrapNumber++;
-                Destroy(collision.gameObject);
-                break;
-            case "PlasticWaste":
-                _audioSource.Play();
-                PlayerManager.plasticWasteNumber++;
-                Destroy(collision.gameObject);
-                break;
-            case "Metal":
-                _audioSource.Play();
-                PlayerManager.metalNumber++;
-                Destroy(collision.gameObject);
-                break;
-            case "Plastic":
-                _audioSource.Play();
-                PlayerManager.plasticNumber++;
-                Destroy(collision.gameObject);
-                break;
-            case "Chip":
-                _audioSource.Play();
-                PlayerManager.chipNumber++;
-                Destroy(collision.gameObject);
-                break;
+            Debug.Log("Oggetto " + gameObject.name);
+            Attack(collision.gameObject);
         }
     }
+    /* switch (collision.gameObject.tag)
+     {
+         case "MetalScrap":
+             _audioSource.Play();
+             PlayerManager.metalScrapNumber++;
+             Destroy(collision.gameObject);
+             break;
+         case "PlasticWaste":
+             _audioSource.Play();
+             PlayerManager.plasticWasteNumber++;
+             Destroy(collision.gameObject);
+             break;
+         case "Metal":
+             _audioSource.Play();
+             PlayerManager.metalNumber++;
+             Destroy(collision.gameObject);
+             break;
+         case "Plastic":
+             _audioSource.Play();
+             PlayerManager.plasticNumber++;
+             Destroy(collision.gameObject);
+             break;
+         case "Chip":
+             _audioSource.Play();
+             PlayerManager.chipNumber++;
+             Destroy(collision.gameObject);
+             break;
+     }*/
+
 
     /* Resource collection
     private void CollectBlock(GameObject block)
@@ -262,4 +308,33 @@ public class Player : MonoBehaviour
         if (newCameraDistance > _cameraLimitDistance) _cameraSettings.m_CameraDistance = newCameraDistance;
         else _cameraSettings.m_CameraDistance = _cameraLimitDistance;
     }
+    private void Attack(GameObject enemy)
+    {
+        Debug.Log("sono dentro attacco");
+        if (!alreadyAttacked)
+        {
+
+            enemy.gameObject.GetComponent<EnemyAI>().TakeDamage(damage);
+            //animazione.start
+            Debug.Log("Attacco");
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
+    }
+    public void EnemyAttacked(GameObject enemyHit)
+    {
+        enemy = enemyHit;
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0) Destroy(gameObject);
+    }
+    
+    
 }
