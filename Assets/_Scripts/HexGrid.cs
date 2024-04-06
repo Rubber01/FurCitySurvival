@@ -216,8 +216,11 @@ public class HexGrid : MonoSingleton<HexGrid>
                         instantiatedPrefab.name = name;
                         tileData.instantiatedTile = instantiatedPrefab;
                         instantiatedPrefab.transform.SetParent(transform);
-
-                        DestroyImmediate(originalTile);
+                        //#if UNITY_EDITOR
+                        //                        DestroyImmediate(originalTile);
+                        //#endif
+                        if (originalTile != null) Destroy(originalTile);
+                        
                         //hexData.Add(tileKey, tileData);
                         hexData[tileposition.Key] = tileData;
 

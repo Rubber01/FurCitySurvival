@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,44 +6,39 @@ using UnityEngine;
 public class CreditGeneration : MonoBehaviour
 {
     public bool isActive;
-    //private LevelManager levelManager;
-    
-
-    
+    public GameObject creditPrefab; // Prefab degli oggetti crediti
+    public Transform spawnPoint; // Punto di spawn dei crediti
     public float coinGenerationTimer = 5; // Intervallo di tempo in secondi per generare una moneta
+    public int CoinsPool = 10;
     private Coroutine coinGenerationCoroutine;
 
     private void Start()
     {
-        // Avvia la coroutine per generare le monete
-        /*
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        levelManager.AddCoins(1);
-        */
         PlayerManager.credits++;
+        SpawnCredit();
         coinGenerationCoroutine = StartCoroutine(GenerateCoins());
     }
 
 
     private IEnumerator GenerateCoins()
     {
-        while (true)
+        while (CoinsPool > 0)
         {
             yield return new WaitForSeconds(coinGenerationTimer);
-            AddCoin();
+            SpawnCredit();
+            //AddCoin();
         }
+
+        yield break;
     }
 
-    private void AddCoin()
+    private void SpawnCredit()
     {
-        /*
-        Debug.Log("LvlMngr coins: "+ levelManager._GameData.Coins);
-        levelManager.AddCoins(1);
-        */
-        PlayerManager.credits++;
+        Instantiate(creditPrefab, spawnPoint.position, Quaternion.identity);
+        CoinsPool -= 1;
     }
 
-    // Metodo per aggiornare la coroutine quando il timer cambia
+
     public void UpdateCoinGenerationTimer(float newTimerValue)
     {
         coinGenerationTimer = newTimerValue;

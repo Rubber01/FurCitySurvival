@@ -15,6 +15,7 @@ TagManager:
   - Chip
   - MetalScrap
   - PlasticWaste
+  - CreditCoin
   layers:
   - Default
   - TransparentFX

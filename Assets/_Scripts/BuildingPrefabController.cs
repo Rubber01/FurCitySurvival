@@ -27,6 +27,7 @@ public class BuildingPrefabController : MonoBehaviour
 
     private void Update()
     {
+        
         buildingCost.text = buildingData.resourceCostType.ToString() + " " + buildingData.buildingCost.ToString();
     }
 

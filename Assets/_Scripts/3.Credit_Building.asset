@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: 1
   buildingName: 
-  resourceCostType: 1
-  buildingCost: 8
-  currentUpgradeLevel: 3
+  resourceCostType: 0
+  buildingCost: 0
+  currentUpgradeLevel: 1
   buildingModel: {fileID: 5651348924001716833, guid: 8c0dc5d026525d1419cae796c529941d, type: 3}
   resourceType: 0
   refinedResource: {fileID: 0}

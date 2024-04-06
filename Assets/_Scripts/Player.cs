@@ -163,6 +163,11 @@ public class Player : MonoBehaviour
     {
         switch (collision.gameObject.tag)
         {
+            case "CreditCoin":
+                _audioSource.Play();
+                PlayerManager.credits++;
+                Destroy(collision.gameObject);
+                break;
             case "MetalScrap":
                 _audioSource.Play();
                 PlayerManager.metalScrapNumber++;
