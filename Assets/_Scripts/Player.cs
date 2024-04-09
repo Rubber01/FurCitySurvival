@@ -7,12 +7,13 @@ public class Player : MonoBehaviour
 {   //zona attacco player
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float health;
+    [SerializeField] private float maxHealth;
+
     [SerializeField] private int damage;
     [SerializeField] private float timeBetweenAttacks;
     [SerializeField] bool alreadyAttacked = false;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private bool enemyInAttackRange = false;
-
 
     //nemico
     [SerializeField] GameObject enemy;
@@ -21,6 +22,9 @@ public class Player : MonoBehaviour
 
     //alleati
     [SerializeField] private GameObject[] allies;
+
+    //UI
+    private HealthBar healthBar;
 
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _sellTime;
@@ -77,6 +81,8 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
+        healthBar = GetComponentInChildren<HealthBar>();
+        healthBar.UpdateHealthBar(maxHealth, health);
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -318,6 +324,8 @@ public class Player : MonoBehaviour
             //animazione.start
             Debug.Log("Attacco");
             alreadyAttacked = true;
+            Debug.Log("Chiamo popup");
+            //TextPopup.Create(new Vector3(transform.position.x+2, transform.position.y +1, transform.position.z) , damage);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -332,7 +340,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
+        healthBar.UpdateHealthBar(maxHealth, health);
         if (health <= 0) Destroy(gameObject);
     }
     

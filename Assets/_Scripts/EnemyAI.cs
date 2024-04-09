@@ -7,6 +7,9 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour
 {
 	[SerializeField] private int health = 10;
+	[SerializeField] private int maxHealth = 10;
+	private HealthBar healthBar;
+
 	[SerializeField] private int damage = 2;
 	//Attacking
 	[SerializeField] private float timeBetweenAttacks;
@@ -20,6 +23,8 @@ public class EnemyAI : MonoBehaviour
 
 	void Start()
 	{
+		healthBar = GetComponentInChildren<HealthBar>();
+		healthBar.UpdateHealthBar(maxHealth, health);
 		agent = GetComponent<NavMeshAgent>();
 	}
 
@@ -78,7 +83,8 @@ public class EnemyAI : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
-
+		healthBar.UpdateHealthBar(maxHealth, health);
+		TextPopup.Create(new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z), damage);
 		if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
 	}
 	private void DestroyEnemy()

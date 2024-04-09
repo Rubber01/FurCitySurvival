@@ -5,6 +5,9 @@ using UnityEngine;
 public class AllyAI : MonoBehaviour
 {
     [SerializeField] private int health = 10;
+	[SerializeField] private int maxHealth = 10;
+	private HealthBar healthBar;
+
 	[SerializeField] private int damage = 2;
 	//Attacking
 	[SerializeField] private float timeBetweenAttacks;
@@ -19,6 +22,8 @@ public class AllyAI : MonoBehaviour
 
 	void Start()
 	{
+		healthBar = GetComponentInChildren<HealthBar>();
+		healthBar.UpdateHealthBar(maxHealth, health);
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 	}
 
@@ -92,7 +97,7 @@ public class AllyAI : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
-
+		healthBar.UpdateHealthBar(maxHealth, health);
 		if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
 	}
 	private void DestroyEnemy()
