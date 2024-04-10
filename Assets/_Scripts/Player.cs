@@ -14,7 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] bool alreadyAttacked = false;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private bool enemyInAttackRange = false;
-
+    [SerializeField] private bool hasCollideWithEnemy = false;
+    private float timeCollidedWithEnemy=0;
+    [SerializeField] private float outOfCombat=5;
+    
     //nemico
     [SerializeField] GameObject enemy;
     private GameObject lastCollisionObject; // Ultimo oggetto che ha colliso
@@ -128,6 +131,11 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (hasCollideWithEnemy && Time.time - timeCollidedWithEnemy >= outOfCombat)
+        {
+            hasCollideWithEnemy = false;
+            StartCoroutine(restoreHealth());
+        }
         if (_isMoving)
         {
             _ridigbody.velocity = _movePosition * _moveSpeed;
@@ -140,7 +148,16 @@ public class Player : MonoBehaviour
         }
         
     }
-
+    IEnumerator restoreHealth()
+    {
+        while(health<maxHealth)
+        {
+            Debug.Log("Restoring 1Hp");
+            health += 1;
+            healthBar.UpdateHealthBar(maxHealth, health);
+            yield return new WaitForSeconds(1f);
+        }
+    }
     private void OnTriggerEnter(Collider other) 
     {
         /*
@@ -195,13 +212,13 @@ public class Player : MonoBehaviour
             // Controlla se l'oggetto colliso ha il tag "Enemy"
             if (collision.gameObject.CompareTag("Enemy"))
             {
-            CheckAllies();
-            foreach (GameObject ally in allies)
-            {
-                Debug.Log("alleati " + ally.gameObject.name);
-                ally.GetComponent<AllyAI>().SetTarget(collision.gameObject);
-            }
-            //collisonOccured = true;
+                CheckAllies();
+                foreach (GameObject ally in allies)
+                {
+                    Debug.Log("alleati " + ally.gameObject.name);
+                    ally.GetComponent<AllyAI>().SetTarget(collision.gameObject);
+                }
+                //collisonOccured = true;
             }
 
     }
@@ -211,6 +228,14 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Oggetto " + gameObject.name);
             Attack(collision.gameObject);
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            hasCollideWithEnemy = true;
+            timeCollidedWithEnemy = Time.time;
         }
     }
     /* switch (collision.gameObject.tag)

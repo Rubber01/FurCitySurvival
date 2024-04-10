@@ -30,6 +30,13 @@ public class EnemyAI : MonoBehaviour
 
 	void Update()
 	{
+
+		if (target == null)
+		{
+			GameObject p = GameObject.FindGameObjectWithTag("Player");
+			Debug.Log("in target null " + p.name);
+			target = p.transform;
+		}
 		// Get the distance to the player
 		float distance = Vector3.Distance(target.position, transform.position);
 		Debug.Log("Distanza "+ distance);
