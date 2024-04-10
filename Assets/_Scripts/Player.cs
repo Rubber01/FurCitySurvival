@@ -226,9 +226,44 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+
             Debug.Log("Oggetto " + gameObject.name);
             Attack(collision.gameObject);
         }
+        switch(collision.gameObject.CompareTag("")){
+            case "CreditCoin":
+                _audioSource.Play();
+                PlayerManager.credits++;
+                Destroy(collision.gameObject);
+                break;
+            case "MetalScrap":
+                _audioSource.Play();
+                PlayerManager.metalScrapNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "PlasticWaste":
+                _audioSource.Play();
+                PlayerManager.plasticWasteNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "Metal":
+                _audioSource.Play();
+                PlayerManager.metalNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "Plastic":
+                _audioSource.Play();
+                PlayerManager.plasticNumber++;
+                Destroy(collision.gameObject);
+                break;
+            case "Chip":
+                _audioSource.Play();
+                PlayerManager.chipNumber++;
+                Destroy(collision.gameObject);
+                break;
+                            
+        }
+        
     }
     private void OnCollisionExit(Collision collision)
     {

@@ -11,6 +11,7 @@ public class BuildingPrefabController : MonoBehaviour
     public int currentLevel = 1;
     private int currentActiveMeshIndex = 0;
     private GameObject buildingmodel;
+    public int influencePoints = 1;
 
     [SerializeField] private TextMeshPro buildingCost;
 
@@ -27,6 +28,7 @@ public class BuildingPrefabController : MonoBehaviour
 
     private void Update()
     {
+        
         buildingCost.text = buildingData.resourceCostType.ToString() + " " + buildingData.buildingCost.ToString();
     }
 
@@ -66,12 +68,10 @@ public class BuildingPrefabController : MonoBehaviour
    
     public void SpawnBuilding(Vector3 position, Quaternion rotation)
     {
-         
-        
         GameObject newBuilding = Instantiate(buildingData.buildingModel, position, rotation);
         buildingmodel = newBuilding;
         newBuilding.transform.rotation = rotation * Quaternion.Euler(90f, 0f, 0f);
         newBuilding.transform.SetParent(transform);
-
+        PlayerManager.influencePoints += influencePoints;
     }
 }

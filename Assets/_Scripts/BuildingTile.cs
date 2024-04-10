@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using static CreditGeneration;
 
 public class BuildingTile : BasicTile
 {
@@ -72,8 +73,22 @@ public class BuildingTile : BasicTile
                         PlayerManager.credits -= buildingCost;
                         isSpawned = true;
                     }
+                    if (isSpawned && !(gameObject.GetComponentInChildren<CreditGeneration>().IsActive()))
+                    {
+                        CreditGeneration creditgeneration = gameObject.GetComponentInChildren<CreditGeneration>();
+
+                        if (creditgeneration.CoinsPool == 0 && creditgeneration.respawnTime == 0)
+                        {
+                            creditgeneration.RestartCoinGeneration();
+                            //Debug.Log("credit Generation: " + gameObject.GetComponentInChildren<CreditGeneration>().name);
+                            creditgeneration.ResetRespawnTime();
+                        }
+                        
+                    }
                     break;
             }
         }
     }
+    
+
 }

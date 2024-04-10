@@ -870,7 +870,7 @@ MonoBehaviour:
   unlockCost: 0
   resourceRequiredToUnlock: 0
   adjacentTiles: []
-  triggerBoxPrefab: {fileID: 0}
+  triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
   buildingData: {fileID: 11400000, guid: 2c72ffefeebd66a4fb623836128d2dd1, type: 2}
 --- !u!114 &5001752847665025799
 MonoBehaviour:
