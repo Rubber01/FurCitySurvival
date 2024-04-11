@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
         if (hasCollideWithEnemy && Time.time - timeCollidedWithEnemy >= outOfCombat)
         {
             hasCollideWithEnemy = false;
-            StartCoroutine(restoreHealth());
+            StartCoroutine(RestoreHealth());
         }
         if (_isMoving)
         {
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
         }
         
     }
-    IEnumerator restoreHealth()
+    IEnumerator RestoreHealth()
     {
         while(health<maxHealth)
         {
@@ -158,36 +158,37 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
-        /*
-        Debug.Log("Sto collidendo con: " + other.name);
-        switch (other.tag)
-        {
-            case "Field":
-                AttackAnim(true);
-                Debug.Log("attacco");
-                break;
-            case "Stone":
-                other.GetComponent<Resource>().Cut();
-                Debug.Log("Stone");
-                break;
-            case "Block":
-                CollectBlock(other.gameObject);
-                Debug.Log("Block");
-                break;
-            case "Sell":
-                SellBlocks(other.gameObject);
-                Debug.Log("Sell");
-                break;
-            default:
-                Debug.Log("Trigger enter not implemented: " + other.tag);
-                break;
+        
+            /*
+            Debug.Log("Sto collidendo con: " + other.name);
+            switch (other.tag)
+            {
+                case "Field":
+                    AttackAnim(true);
+                    Debug.Log("attacco");
+                    break;
+                case "Stone":
+                    other.GetComponent<Resource>().Cut();
+                    Debug.Log("Stone");
+                    break;
+                case "Block":
+                    CollectBlock(other.gameObject);
+                    Debug.Log("Block");
+                    break;
+                case "Sell":
+                    SellBlocks(other.gameObject);
+                    Debug.Log("Sell");
+                    break;
+                default:
+                    Debug.Log("Trigger enter not implemented: " + other.tag);
+                    break;
+            }
+            */
         }
-        */
-    }
 
-    void OnTriggerExit(Collider other)
+        void OnTriggerExit(Collider other)
     {
         switch (other.tag)
         {
@@ -205,12 +206,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-            //if (collisonOccured)
-            //    return;
+        //if (collisonOccured)
+        //    return;
 
-            // Controlla se l'oggetto colliso ha il tag "Enemy"
-            if (collision.gameObject.CompareTag("Enemy"))
+        // Controlla se l'oggetto colliso ha il tag "Enemy"
+        if (collision.gameObject.CompareTag("Enemy"))
             {
                 CheckAllies();
                 foreach (GameObject ally in allies)
@@ -224,13 +224,13 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        
+        switch(collision.gameObject.tag)
         {
-
-            Debug.Log("Oggetto " + gameObject.name);
-            Attack(collision.gameObject);
-        }
-        switch(collision.gameObject.CompareTag("")){
+            case "Enemy":
+                Debug.Log("Oggetto " + gameObject.name);
+                Attack(collision.gameObject);
+                break;
             case "CreditCoin":
                 _audioSource.Play();
                 PlayerManager.credits++;
