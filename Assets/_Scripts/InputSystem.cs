@@ -42,7 +42,8 @@ public class InputSystem
     }
 
     private void TouchEvents(int touchId, Vector3 touchPos, TouchPhase touchPhase)
-    {    
+    {
+        Debug.Log("tocco avvenuto");
         _touchInfo.Phase = touchPhase;
         switch (touchPhase)
         {
