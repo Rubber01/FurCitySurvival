@@ -11,7 +11,7 @@ public class AllyAI : MonoBehaviour
 	[SerializeField] private int damage = 2;
 	//Attacking
 	[SerializeField] private float timeBetweenAttacks;
-	[SerializeField] bool alreadyAttacked = false;
+	[SerializeField] public bool alreadyAttacked = false;
 	//States
 	[SerializeField] float attackRange, lookRadius = 10f;
 	[SerializeField] bool playerInSightRange, playerInAttackRange;
@@ -87,7 +87,10 @@ public class AllyAI : MonoBehaviour
 			Debug.Log("Attacco nemico Ally sto attaccando " + target.name);
 			alreadyAttacked = true;
 			Invoke(nameof(ResetAttack), timeBetweenAttacks);
-			target.GetComponent<EnemyAI>().TakeDamage(damage);
+			if (target != null) // inserito controllo
+			{
+				target.GetComponent<EnemyAI>().TakeDamage(damage);
+			}
 		}
 	}
 	private void ResetAttack()

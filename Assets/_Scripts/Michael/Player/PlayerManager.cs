@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoSingleton<PlayerManager>
 {
-    public static PlayerManager instance;
+    //public static PlayerManager instance;
 
     public static int credits;
     public static int influencePoints;
+    public static int henchmenSlots = 3;
+    public static int currentHench = 0;
     public static int metalScrapNumber;
     public static int metalNumber;
     public static int plasticWasteNumber;
@@ -17,18 +19,21 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI creditsText;
     [SerializeField] private TextMeshProUGUI influencePointText;
+    [SerializeField] private TextMeshProUGUI henchmenSlotsText;
     [SerializeField] private TextMeshProUGUI metalScrapText;
     [SerializeField] private TextMeshProUGUI metalText;
     [SerializeField] private TextMeshProUGUI plasticWasteText;
     [SerializeField] private TextMeshProUGUI plasticText;
     [SerializeField] private TextMeshProUGUI chipText;
 
-    public static PlayerManager Instance { get { return instance; } }
+    //public static PlayerManager Instance { get { return instance; } }
 
-    private void Awake()
-    {
-        instance = this;
-    }
+    //private void Awake()
+    //{
+    //    instance = this;
+    //}
+
+    
 
     private void Update()
     {
@@ -39,5 +44,6 @@ public class PlayerManager : MonoBehaviour
         plasticText.text = "P:" + plasticNumber.ToString();
         chipText.text = "Ch:" + chipNumber.ToString();
         influencePointText.text = "Inf:" + influencePoints.ToString();
+        henchmenSlotsText.text = "\n" + "h_s:" + "\n" + currentHench + "/" + henchmenSlots.ToString();
     }
 }

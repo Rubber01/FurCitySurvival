@@ -189,7 +189,7 @@ public class HexGrid : MonoSingleton<HexGrid>
             }
         }
     }
-
+    [ExecuteInEditMode]
     public void ChangeSpecificTile(BasicTile _basicTile, GameObject _tilePrefab)
     {
         Debug.Log("ChangeSpecificTile: Tile Position"+ _basicTile.TileCoords);

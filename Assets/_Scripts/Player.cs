@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
         healthBar = GetComponentInChildren<HealthBar>();
         healthBar.UpdateHealthBar(maxHealth, health);
         _audioSource = GetComponent<AudioSource>();
+        Debug.Log("Audiosource: "+_audioSource.name);
     }
 
     public void Move(Vector3 newPosition)

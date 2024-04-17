@@ -6,9 +6,11 @@ using Unity.VisualScripting;
 // Enumerazione per i diversi tipi di edifici
 public enum BuildingType
 {
+    None,
     ResourceRefinery,
     CreditGenerator,
-    CombineBuilding
+    CombineBuilding,
+    PubBuilding
 }
 
 // Classe che rappresenta un tipo generico di edificio
@@ -23,6 +25,7 @@ public class Building : ScriptableObject
     public GameObject buildingModel;
 
     // Variabili specifiche per l'edificio di raffinazione delle risorse
+    public bool showResourceRefineryVariables;
     [Header("ResourceRefinery")]
     public ResourceType resourceType;
     public Resource refinedResource;
@@ -30,10 +33,12 @@ public class Building : ScriptableObject
     [SerializeField] private int resourceRefinementRate; // Tempo necessario per convertire in risorsa raffinata
 
     // Variabili specifiche per l'edificio generatore di crediti
+    public bool showCreditGeneratorVariables;
     [Header("CreditGenerator")]
     [SerializeField] private int creditGenerationRate;
 
     // Variabili specifiche per l'edificio di combinazione
+    public bool showCombineBuildingVariables;
     [Header("CombineBuilding")]
     [SerializeField] public ResourceType resourceType1;
     [SerializeField] public int resourceType1Number;
@@ -42,7 +47,9 @@ public class Building : ScriptableObject
     [SerializeField] public ResourceType resultingResourceType;
     [SerializeField] public Resource combinedResource;
 
-    
+    public bool showPubBuildingVariables;
+    [Header("Pub")]
+    [SerializeField] public int test;
 
     public void UpgradeToLevel(int _level)
     {

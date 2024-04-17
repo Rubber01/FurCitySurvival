@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -10,6 +11,9 @@ public class HexGridEditor : Editor
 
     private GameObject tileToSnap; // Il GameObject da posizionare sulla griglia
     public bool CoordVisible = false;
+
+    private BasicTile basicTile;
+    private GameObject tilePrefab;
 
     //private void SnapSeeker()
 
@@ -119,6 +123,25 @@ public class HexGridEditor : Editor
             
         }
 
+        EditorGUI.BeginChangeCheck();
+        basicTile = EditorGUILayout.ObjectField("Basic Tile:", basicTile, typeof(BasicTile), true) as BasicTile;
+        tilePrefab = EditorGUILayout.ObjectField("Tile Prefab:", tilePrefab, typeof(GameObject), true) as GameObject;
+        if (EditorGUI.EndChangeCheck())
+        {
+            // Quando viene cambiato uno dei campi, assicuriamoci di aggiornare l'interfaccia
+            SceneView.RepaintAll();
+        }
+        if (GUILayout.Button("Load Specific Tile"))
+        {
+            if (basicTile != null && tilePrefab != null)
+            {
+                grid.ChangeSpecificTile(basicTile, tilePrefab);
+            }
+            else
+            {
+                Debug.LogWarning("Please assign both Basic Tile and Tile Prefab before loading specific tile.");
+            }
+        }
 
     }
 
