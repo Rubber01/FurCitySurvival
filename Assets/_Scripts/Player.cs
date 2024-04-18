@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject[] allies;
 
     //UI
-    private HealthBar healthBar;
+    [SerializeField] private HealthBar healthBar;
 
     [SerializeField] private float _turnSpeed;
     [SerializeField] private float _sellTime;
@@ -218,8 +218,8 @@ private GameData _gameData;
                 _audioSource.Play();
                 PlayerManager.credits++;
                 Destroy(collision.gameObject);
-                break;
-            case "MetalScrap":
+               break;
+        /*     case "MetalScrap":
                 _audioSource.Play();
                 PlayerManager.metalScrapNumber++;
                 Destroy(collision.gameObject);
@@ -244,7 +244,7 @@ private GameData _gameData;
                 PlayerManager.chipNumber++;
                 Destroy(collision.gameObject);
                 break;
-                            
+            */       
         }
         
     }
