@@ -11,18 +11,26 @@ public class AnimatorController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }*/
-
+    private void Update()
+    {
+        Debug.Log("Is moving :" + _animator.GetBool("IsMoving"));
+        Debug.Log("Is attacking :" + _animator.GetBool("IsAttacking"));
+    }
     public void PlayIdle()
     {
-        _animator.Play("Idle");
+        _animator.SetBool("IsMoving", false);
+        //_animator.Play("Idle");
     }
 
     public void PlayRun()
     {
-        _animator.Play("Run");
+        _animator.SetBool("IsMoving", true);
+        //_animator.Play("Run");
     }
     public void PlayHit()
     {
+        _animator.SetBool("IsAttacking", true);
+/*
         if (Random.Range(0, 1) == 0)
         {
             _animator.Play("LowHit");
@@ -30,6 +38,11 @@ public class AnimatorController : MonoBehaviour
         else
         {
             _animator.Play("HighHit");
-        }
+        }*/
+    }
+    public void PlayStopHit()
+    {
+        _animator.SetBool("IsAttacking", false);
+
     }
 }

@@ -370,6 +370,7 @@ private GameData _gameData;
     }
     private void ResetAttack()
     {
+        _animatorController.PlayStopHit();
         alreadyAttacked = false;
     }
     public void EnemyAttacked(GameObject enemyHit)
