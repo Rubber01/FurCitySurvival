@@ -208,12 +208,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c12d43325ebc854d8b92bf744b868c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileCoords: {x: 0, y: 0}
+  tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 0}
   buildingData: {fileID: 0}
+  isSpawned: 0
 --- !u!114 &8825977393610622873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingData: {fileID: 0}
   currentLevel: 1
+  influencePoints: 1
   buildingCost: {fileID: 7984429705747520295}
 --- !u!65 &2411109336535910233
 BoxCollider:
@@ -248,8 +252,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.04742383, y: 0.0369616, z: 0.024534909}
-  m_Center: {x: 0.0071139894, y: 0.00045771242, z: 0.010767491}
+  m_Size: {x: 0.051189166, y: 0.046891198, z: 0.024534909}
+  m_Center: {x: 0.005231304, y: 0.0012947989, z: 0.010767491}
 --- !u!1 &5260586365991546789
 GameObject:
   m_ObjectHideFlags: 0

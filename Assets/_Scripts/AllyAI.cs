@@ -87,11 +87,18 @@ public class AllyAI : MonoBehaviour
 			Debug.Log("Attacco nemico Ally sto attaccando " + target.name);
 			alreadyAttacked = true;
 			Invoke(nameof(ResetAttack), timeBetweenAttacks);
-			if (target != null) // inserito controllo
-			{
-				target.GetComponent<EnemyAI>().TakeDamage(damage);
-			}
-		}
+            if (target != null) // Controllo inserito
+            {
+                try
+                {
+                    target.GetComponent<EnemyAI>().TakeDamage(damage);
+                }
+                catch (System.Exception e) // Correzione: "catch" richiede solo il tipo di eccezione
+                {
+                    Debug.Log(e + "<-----Exception");
+                }
+            }
+        }
 	}
 	private void ResetAttack()
 	{
