@@ -9,11 +9,10 @@ public class TextPopup : MonoBehaviour
     [SerializeField] private float disappearTimer;
     public static TextPopup Create(Vector3 position, int damageAmount)
     {
-        Debug.Log("Popup entrato ");
+        
         Transform textPopupTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
         TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
         textPopup.Setup(damageAmount);
-        Debug.Log("Popup creato");
 
         return textPopup;
     }

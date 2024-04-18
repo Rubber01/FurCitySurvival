@@ -6,9 +6,11 @@ using Unity.VisualScripting;
 // Enumerazione per i diversi tipi di edifici
 public enum BuildingType
 {
+    None,
     ResourceRefinery,
     CreditGenerator,
-    CombineBuilding
+    CombineBuilding,
+    PubBuilding
 }
 
 // Classe che rappresenta un tipo generico di edificio
@@ -23,6 +25,7 @@ public class Building : ScriptableObject
     public GameObject buildingModel;
 
     // Variabili specifiche per l'edificio di raffinazione delle risorse
+    public bool showResourceRefineryVariables;
     [Header("ResourceRefinery")]
     public ResourceType resourceType;
     public Resource refinedResource;
@@ -30,10 +33,12 @@ public class Building : ScriptableObject
     [SerializeField] private int resourceRefinementRate; // Tempo necessario per convertire in risorsa raffinata
 
     // Variabili specifiche per l'edificio generatore di crediti
+    public bool showCreditGeneratorVariables;
     [Header("CreditGenerator")]
     [SerializeField] private int creditGenerationRate;
 
     // Variabili specifiche per l'edificio di combinazione
+    public bool showCombineBuildingVariables;
     [Header("CombineBuilding")]
     [SerializeField] public ResourceType resourceType1;
     [SerializeField] public int resourceType1Number;
@@ -42,49 +47,13 @@ public class Building : ScriptableObject
     [SerializeField] public ResourceType resultingResourceType;
     [SerializeField] public Resource combinedResource;
 
-    private void OnValidate()
-    {
-        switch (buildingType)
-        {
-            case BuildingType.ResourceRefinery:
-                // Implementa qui la logica specifica per l'edificio di raffinazione delle risorse
-                break;
-            case BuildingType.CreditGenerator:
-                
-                // Implementa qui la logica specifica per l'edificio generatore di crediti
-                break;
-            case BuildingType.CombineBuilding:
-                // Implementa qui la logica specifica per l'edificio di combinazione
-                break;
-            default:
-                break;
-        }
-    }
+    public bool showPubBuildingVariables;
+    [Header("Pub")]
+    [SerializeField] public int test;
 
     public void UpgradeToLevel(int _level)
     {
         currentUpgradeLevel = _level;
     }
 
-    public IEnumerator GenerateCoins()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(creditGenerationRate); // Aspetta per il tempo specificato
-
-            // Aggiungi una moneta
-            AddCoin();
-
-            // Se vuoi aggiornare la grafica o eseguire altre operazioni quando una moneta viene generata, puoi farlo qui
-        }
-    }
-
-    private void AddCoin()
-    {
-        // Aggiungi una moneta al contatore dei crediti
-        // Assicurati di avere un sistema per tenere traccia dei crediti, potresti avere un singleton di gioco o qualcosa di simile
-        // Ad esempio:
-        
-        LevelManager.Instance.SpawnCoin(buildingModel.transform.position);
-    }
 }

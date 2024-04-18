@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfDamagePopup: {fileID: 180835527539013102, guid: 2f9e1e7d1254df94cbccf04be9a5aec5, type: 3}
+  healthBar: {fileID: 8413746589147898927, guid: c514b39b07e60bc498973a55565fc373, type: 3}
