@@ -1,18 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class ReputationSystem : MonoBehaviour
+public class ReputationSystem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public event EventHandler OnExperinceChanged;
+    public event EventHandler OnLevelChanged;
 
-    // Update is called once per frame
-    void Update()
+    private int level;
+    private int experience;
+    private int experienceToNextLevel;
+    
+    public ReputationSystem()
     {
-        
+        level = 0;
+        experience = 0;
+        experienceToNextLevel = 100;
+    }
+    public void AddExperience(int amount)
+    {
+        experience += amount;
+        while (experience >= experienceToNextLevel)
+        {
+            level++;
+            experience -= experienceToNextLevel;
+            if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
+        }
+        if (OnExperinceChanged != null) OnExperinceChanged(this, EventArgs.Empty);
+    }
+    public int GetLevelNumber()
+    {
+        return level;
+    }
+    public int GetExperienceNumber()
+    {
+        return experience;
+    }
+    public int GetExperienceToNextLevelNumber()
+    {
+        return experienceToNextLevel;
+    }
+    public float GetExperienceNormalized()
+    {
+        return (float)experience / experienceToNextLevel;
     }
 }
