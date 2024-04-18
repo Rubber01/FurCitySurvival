@@ -10373,6 +10373,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d83e9874cceea44dbe576f821d6f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creditPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  coinGenerationTimer: 5
+  CoinsPool: 10
+  respawnTime: 10
 --- !u!65 &342403414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14082,6 +14087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditsText: {fileID: 2016040080}
   influencePointText: {fileID: 1367005313}
+  henchmenSlotsText: {fileID: 0}
   metalScrapText: {fileID: 2026267263}
   metalText: {fileID: 2109222611}
   plasticWasteText: {fileID: 1430095141}
@@ -38401,6 +38407,7 @@ MonoBehaviour:
   - {fileID: 510109586}
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
   buildingData: {fileID: 11400000, guid: 2c72ffefeebd66a4fb623836128d2dd1, type: 2}
+  isSpawned: 0
 --- !u!64 &1208813655
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -52341,7 +52348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88011612cc9d5042bb8e831eda30c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptToAttach: {fileID: 0}
 --- !u!1 &1582752325
 GameObject:
   m_ObjectHideFlags: 0
@@ -65541,6 +65547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623c292773eccaa46a402f6654c1c5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingPrefabController: {fileID: 0}
 --- !u!65 &1988376629
 BoxCollider:
   m_ObjectHideFlags: 0
