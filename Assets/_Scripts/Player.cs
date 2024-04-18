@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEditor.Animations;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {   //zona attacco player
     [SerializeField] private float _moveSpeed;
@@ -46,33 +48,31 @@ public class Player : MonoBehaviour
     private Animator _animator;
     private Transform _model;   //animazioni varie body
     private const float _delta = 0.001f;
-    private PlayerState _state;
     private bool _sellBlocks;
     private int _coinsToSpawn = 0;
     private AudioSource _audioSource;
-    private GameData _gameData;
+    [SerializeField] private FloatingJoystick _joystick;
+
+    [SerializeField] private AnimatorController _animatorController;
+
+    private Rigidbody _rigidbody;
+
+    private Vector3 _moveVector;
+
+
+
+private GameData _gameData;
     public GameData GameData
     {
         set => _gameData = value;
     }
 
-    private LevelManager _levelManager;
-    public LevelManager LevelManager
-    {
-        set => _levelManager = value;
-    }
     
-    enum PlayerState
-    {
-        Idle,
-        Moving
-    }
     void Awake()
     {
-        _ridigbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
         _model = _animator.gameObject.transform;
-        _state = PlayerState.Idle;
         _stackedBlocks = new Stack<Transform>();
         _sellBlocks = false;
         _cameraSettings = _camera.GetCinemachineComponent<CinemachineFramingTransposer>();
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
         Debug.Log("Audiosource: "+_audioSource.name);
     }
 
-    public void Move(Vector3 newPosition)
+    /*public void Move(Vector3 newPosition)
     {
         //lock Y from changes
         _movePosition = new Vector3(newPosition.x, 0, newPosition.y);
@@ -100,36 +100,31 @@ public class Player : MonoBehaviour
             _isMoving = true;
         }
         //Debug.Log("Move pos: " + _movePosition);     
-    }
-
-    private void MoveAnim(float strength)
+    }*/
+    private void Move()
     {
-        _state = PlayerState.Moving;
-        if (Mathf.Approximately(strength, 1) && !_animator.GetBool("IsAttacking"))
+        _moveVector = Vector3.zero;
+        _moveVector.x = _joystick.Horizontal * _moveSpeed * Time.deltaTime;
+        _moveVector.z = _joystick.Vertical * _moveSpeed * Time.deltaTime;
+
+        if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
         {
-            _animator.SetBool("isWalking", false);
-            _animator.SetBool("isRunning", true);
+            Vector3 direction = Vector3.RotateTowards(transform.forward, _moveVector, _turnSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(direction);
+
+            _animatorController.PlayRun();
         }
-        else
+
+        else if (_joystick.Horizontal == 0 && _joystick.Vertical == 0)
         {
-            _animator.SetBool("isWalking", true);
-            _animator.SetBool("isRunning", false);
+            _animatorController.PlayIdle();
         }
+
+        _rigidbody.MovePosition(_rigidbody.position + _moveVector);
     }
 
-    private void AttackAnim(bool value)
-    {
-        _animator.SetBool("IsAttacking", value);
-        _weaponAttack.SetActive(value);
-        _weaponIdle.SetActive(!value);
-    }
-
-    private void StopAnim()
-    {
-        _state = PlayerState.Idle;
-        _animator.SetBool("isWalking", false);
-        _animator.SetBool("isRunning", false);
-    }
+    
+   
     void FixedUpdate()
     {
         if (hasCollideWithEnemy && Time.time - timeCollidedWithEnemy >= outOfCombat)
@@ -137,7 +132,7 @@ public class Player : MonoBehaviour
             hasCollideWithEnemy = false;
             StartCoroutine(RestoreHealth());
         }
-        if (_isMoving)
+        /*if (_isMoving)
         {
             _ridigbody.velocity = _movePosition * _moveSpeed;
             _model.rotation = Quaternion.Slerp(_model.rotation, Quaternion.LookRotation(_movePosition), _turnSpeed * Time.fixedDeltaTime);
@@ -146,7 +141,8 @@ public class Player : MonoBehaviour
         else
         {
             if (_state != PlayerState.Idle) StopAnim();
-        }
+        }*/
+        Move();
         
     }
     IEnumerator RestoreHealth()
@@ -189,21 +185,7 @@ public class Player : MonoBehaviour
             */
         }
 
-        void OnTriggerExit(Collider other)
-    {
-        switch (other.tag)
-        {
-            case "Field":
-                AttackAnim(false);
-                break;
-            case "Sell":
-                _sellBlocks = false;
-                break;
-            default:
-                Debug.Log("Trigger exit not implemented: " + other.tag);
-                break;
-        }
-    }
+       
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -341,7 +323,6 @@ public class Player : MonoBehaviour
             if (_stackedBlocks.Count > 0)
             {
                 _coinsToSpawn++;
-                _levelManager.AddStone(-1);
                 _stackedBlocks.Pop().GetComponent<Block>().Unstack(block);
                 SetCameraDistance(_stackedBlocks.Count);
             }
@@ -364,7 +345,6 @@ public class Player : MonoBehaviour
         while (_coinsToSpawn > 0)
         {
             _coinsToSpawn--;
-            _levelManager.SpawnCoin(startPoint);
             yield return new WaitForSeconds(time);
         }
         
@@ -377,12 +357,11 @@ public class Player : MonoBehaviour
     }
     private void Attack(GameObject enemy)
     {
-        Debug.Log("sono dentro attacco");
         if (!alreadyAttacked)
         {
-
+            _animatorController.PlayHit();
             enemy.gameObject.GetComponent<EnemyAI>().TakeDamage(damage);
-            //animazione.start
+            
             Debug.Log("Attacco");
             alreadyAttacked = true;
             Debug.Log("Chiamo popup");
@@ -392,6 +371,7 @@ public class Player : MonoBehaviour
     }
     private void ResetAttack()
     {
+        _animatorController.PlayStopHit();
         alreadyAttacked = false;
     }
     public void EnemyAttacked(GameObject enemyHit)

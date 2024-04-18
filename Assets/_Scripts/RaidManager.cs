@@ -17,17 +17,13 @@ public class RaidManager : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        // Verifica se il collider con cui si è colliso appartiene ai layers "Player" o "Ally"
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            // Verifica se l'oggetto che ha causato la collisione è già stato controllato precedentemente
             if (!previousCollidedObjects.Contains(collision.gameObject))
             {
-                // Aggiungi l'oggetto corrente alla lista degli oggetti precedenti
                 previousCollidedObjects.Add(collision.gameObject);
 
-                // Avvia il conto alla rovescia solo se non è già stato avviato
                 if (!countdownStarted)
                 {
                     StartCoroutine(CountDown());
