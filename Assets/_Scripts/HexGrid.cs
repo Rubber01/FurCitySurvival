@@ -192,44 +192,118 @@ public class HexGrid : MonoSingleton<HexGrid>
     [ExecuteInEditMode]
     public void ChangeSpecificTile(BasicTile _basicTile, GameObject _tilePrefab)
     {
-        Debug.Log("ChangeSpecificTile: Tile Position"+ _basicTile.TileCoords);
+        //Debug.Log("ChangeSpecificTile: Tile Position"+ _basicTile.TileCoords);
+        //TileData tileData;
+
+        //foreach (var tileposition in HexPositions)
+        //{
+        //    if (tileposition.Key == _basicTile.TileCoords)
+        //    {
+        //        if (hexData.TryGetValue(tileposition.Key, out tileData))
+        //        {
+        //            Vector3 position = tileData.position;
+        //            GameObject PrefabToLoad = _tilePrefab;
+        //            GameObject originalTile = tileData.instantiatedTile;
+
+        //            if (PrefabToLoad != null)
+        //            {
+
+        //                string name = originalTile.name;
+
+        //                GameObject instantiatedPrefab = Instantiate(PrefabToLoad, position, Quaternion.identity);
+        //                instantiatedPrefab.transform.parent = tileData.instantiatedTile.transform;
+        //                instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
+        //                instantiatedPrefab.name = name;
+        //                tileData.instantiatedTile = instantiatedPrefab;
+        //                instantiatedPrefab.transform.SetParent(transform);
+        //                //#if UNITY_EDITOR
+        //                //                        DestroyImmediate(originalTile);
+        //                //#endif
+        //                if (originalTile != null) Destroy(originalTile);
+
+        //                //hexData.Add(tileKey, tileData);
+        //                hexData[tileposition.Key] = tileData;
+
+        //                DestroyImmediate(originalTile);
+        //                Debug.Log(originalTile.name);
+
+        //                //tileData.instantiatedTile = instantiatedPrefab; // Salva l'istanza nella classe TileData
+        //            }
+        //        }
+
+        //    }
+        //}
+        Debug.Log("ChangeSpecificTile: Tile Position" + _basicTile.TileCoords);
         TileData tileData;
 
-        foreach (var tileposition in HexPositions)
+        // Cerca tra i tiles memorizzati nella mappa
+        if (hexData.TryGetValue(_basicTile.TileCoords, out tileData))
         {
-            if (tileposition.Key == _basicTile.TileCoords)
+            Vector3 position = tileData.position;
+            GameObject instantiatedPrefab = Instantiate(_tilePrefab, position, Quaternion.identity);
+            instantiatedPrefab.name = tileData.name;
+            instantiatedPrefab.transform.SetParent(transform);
+            instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
+
+            //Da aggiungere le coordinate della posizione
+
+            // Ottieni tutti i componenti TriggerTileUnlocker presenti in _basicTile e nei suoi figli
+            TriggerTileUnlocker[] triggerTileUnlockers = _basicTile.GetComponentsInChildren<TriggerTileUnlocker>();
+
+            // Se l'array triggerTileUnlockers non è vuoto, impara i suoi trasform come figli di instantiatedPrefab
+            if (triggerTileUnlockers != null && triggerTileUnlockers.Length > 0)
             {
-                if (hexData.TryGetValue(tileposition.Key, out tileData))
+                foreach (TriggerTileUnlocker triggerTileUnlocker in triggerTileUnlockers)
                 {
-                    Vector3 position = tileData.position;
-                    GameObject PrefabToLoad = _tilePrefab;
-                    GameObject originalTile = tileData.instantiatedTile;
-
-                    if (PrefabToLoad != null)
-                    {
-
-                        string name = originalTile.name;
-
-                        GameObject instantiatedPrefab = Instantiate(PrefabToLoad, position, Quaternion.identity);
-                        instantiatedPrefab.transform.parent = tileData.instantiatedTile.transform;
-                        instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
-                        instantiatedPrefab.name = name;
-                        tileData.instantiatedTile = instantiatedPrefab;
-                        instantiatedPrefab.transform.SetParent(transform);
-                        //#if UNITY_EDITOR
-                        //                        DestroyImmediate(originalTile);
-                        //#endif
-                        if (originalTile != null) Destroy(originalTile);
-                        
-                        //hexData.Add(tileKey, tileData);
-                        hexData[tileposition.Key] = tileData;
-
-
-                        //tileData.instantiatedTile = instantiatedPrefab; // Salva l'istanza nella classe TileData
-                    }
+                    // Imparenta triggerTileUnlocker con l'instantiatedPrefab
+                    triggerTileUnlocker.transform.SetParent(instantiatedPrefab.transform);
                 }
+            }
+            else
+            {
+                Debug.Log("No TriggerTileUnlocker components found in _basicTile.");
+            }
+
+
+            // Se il tile originale esiste, lo distruggi
+            if (tileData != null)
+            {
+                Debug.Log("TileDestroyed?");
+
+                
+#if UNITY_EDITOR
+                if (!Application.isPlaying)
+            { 
+                    Debug.Log("UnityEDITOR!!");
+                DestroyImmediate(_basicTile.gameObject);
+            }
+                else
+                {
+                    //_basicTile.gameObject.SetActive(false);
+                    Destroy(_basicTile.gameObject);
+                }
+#else
+                Debug.Log("NOT IN EDITOR!!");
+                //_basicTile.gameObject.SetActive(false);
+                Destroy(_basicTile.gameObject);
+#endif
 
             }
+
+            // Aggiorna le informazioni del tile nella mappa
+            tileData.instantiatedTile = instantiatedPrefab;
+            tileData.prefabType = _tilePrefab;
+            hexData[_basicTile.TileCoords] = tileData;
+
+            // Opzionalmente, aggiorna le proprietà del tile
+            instantiatedPrefab.GetComponent<BasicTile>().tileCoords = _basicTile.TileCoords;
+            instantiatedPrefab.GetComponent<BasicTile>().tilePosition = position;
+
+            Debug.Log("Tile changed successfully.");
+        }
+        else
+        {
+            Debug.LogWarning("Tile not found at position: " + _basicTile.TileCoords);
         }
     }
 

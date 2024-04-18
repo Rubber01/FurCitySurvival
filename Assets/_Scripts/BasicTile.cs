@@ -50,17 +50,14 @@ public class BasicTile : MonoBehaviour
         
         //Debug.Log("LevelManager + " + LevelManager.Instance._GameData.Coins);
 
-
-        
         Debug.Log("Is it locked1? " + isLocked);
         if (isLocked)
         {
             
             //Debug.Log(LevelManager.Instance._GameData.Coins);
-
-            
             Debug.Log("Tile Unlocked!");
             GameObject childObject = this.transform.GetChild(0).gameObject;
+            
             childObject.SetActive(false);
             //LevelManager.Instance._GameData.Coins -= unlockCost;
             isLocked = false;

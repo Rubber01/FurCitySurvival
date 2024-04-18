@@ -131,6 +131,7 @@ public class HexGridEditor : Editor
             // Quando viene cambiato uno dei campi, assicuriamoci di aggiornare l'interfaccia
             SceneView.RepaintAll();
         }
+
         if (GUILayout.Button("Load Specific Tile"))
         {
             if (basicTile != null && tilePrefab != null)

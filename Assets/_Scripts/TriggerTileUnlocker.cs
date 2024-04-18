@@ -35,52 +35,65 @@ public class TriggerTileUnlocker : MonoBehaviour
             if (tileToUnlock != null)
             {
 
+                if (PlayerManager.credits >= tileToUnlock.unlockCost) 
                 {
-                    switch (tileToUnlock.resourceRequiredToUnlock)
+                    PlayerManager.credits -= tileToUnlock.unlockCost;
+                    if (tileUnlockedPrefab != null)
                     {
-                        case ResourceType.MetalScrap:
-                            if (PlayerManager.metalScrapNumber >= tileToUnlock.unlockCost)
-                            {
-                                PlayerManager.metalScrapNumber -= tileToUnlock.unlockCost;
-                                tileToUnlock.UnlockTile();
-                                hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
-                            }
-                            break;
-                        case ResourceType.Metal:
-                            if (PlayerManager.metalNumber >= tileToUnlock.unlockCost)
-                            {
-                                PlayerManager.metalNumber -= tileToUnlock.unlockCost;
-                                tileToUnlock.UnlockTile();
-                                hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
-                            }
-                            break;
-                        case ResourceType.PlasticWaste:
-                            if (PlayerManager.plasticWasteNumber >= tileToUnlock.unlockCost)
-                            {
-                                PlayerManager.plasticWasteNumber -= tileToUnlock.unlockCost;
-                                tileToUnlock.UnlockTile();
-                                hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
-                            }
-                            break;
-                        case ResourceType.Plastic:
-                            if (PlayerManager.plasticNumber >= tileToUnlock.unlockCost)
-                            {
-                                PlayerManager.plasticNumber -= tileToUnlock.unlockCost;
-                                tileToUnlock.UnlockTile();
-                                hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
-                            }
-                            break;
-                        case ResourceType.Credit:
-                            if (PlayerManager.credits >= tileToUnlock.unlockCost)
-                            {
-                                PlayerManager.credits -= tileToUnlock.unlockCost;
-                                tileToUnlock.UnlockTile();
-                                hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
-                            }
-                            break;
+                        switch (tileToUnlock.resourceRequiredToUnlock)
+                        {
+                            //case ResourceType.MetalScrap:
+                            //    if (PlayerManager.metalScrapNumber >= tileToUnlock.unlockCost)
+                            //    {
+                            //        PlayerManager.metalScrapNumber -= tileToUnlock.unlockCost;
+                            //        tileToUnlock.UnlockTile();
+                            //        hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
+                            //    }
+                            //    break;
+                            //case ResourceType.Metal:
+                            //    if (PlayerManager.metalNumber >= tileToUnlock.unlockCost)
+                            //    {
+                            //        PlayerManager.metalNumber -= tileToUnlock.unlockCost;
+                            //        tileToUnlock.UnlockTile();
+                            //        hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
+                            //    }
+                            //    break;
+                            //case ResourceType.PlasticWaste:
+                            //    if (PlayerManager.plasticWasteNumber >= tileToUnlock.unlockCost)
+                            //    {
+                            //        PlayerManager.plasticWasteNumber -= tileToUnlock.unlockCost;
+                            //        tileToUnlock.UnlockTile();
+                            //        hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
+                            //    }
+                            //    break;
+                            //case ResourceType.Plastic:
+                            //    if (PlayerManager.plasticNumber >= tileToUnlock.unlockCost)
+                            //    {
+                            //        PlayerManager.plasticNumber -= tileToUnlock.unlockCost;
+                            //        tileToUnlock.UnlockTile();
+                            //        hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
+                            //    }
+                            //    break;
+                            case ResourceType.Credit:
+                                if (PlayerManager.credits >= tileToUnlock.unlockCost)
+                                {
+                                    PlayerManager.credits -= tileToUnlock.unlockCost;
+                                    tileToUnlock.UnlockTile();
+
+                                    hexgrid.ChangeSpecificTile(tileToUnlock, tileUnlockedPrefab);
+
+                                    Destroy(this.gameObject);
+                                }
+                                break;
+                        }
                     }
+                    else
+                    {
+                        tileToUnlock.UnlockTile();
+                        Destroy(this.gameObject);
+                    }
+
                 }
-               
             }
         }
     }
