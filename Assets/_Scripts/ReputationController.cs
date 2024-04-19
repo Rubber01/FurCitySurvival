@@ -14,7 +14,13 @@ public class ReputationController : MonoBehaviour
     private void Awake()
     {
         levelText = transform.Find("LevelText").GetComponent<TMP_Text>();
-        experienceBarImage = transform.Find("ExperienceBar").Find("Bar").GetComponent<Image>();        
+        experienceBarImage = transform.Find("ExperienceBar").Find("Bar").GetComponent<Image>();
+        transform.Find("Experience5Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(5));
+        Debug.Log("bottone " + transform.Find("Experience5Btn").GetComponent<Button>());
+        transform.Find("Experience50Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(50));
+        transform.Find("Experience500Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(500));
+        levelText.text = "Level 5";
+
     }
     private void SetExperienceBarSize(float experinceNormalized)
     {
@@ -28,27 +34,32 @@ public class ReputationController : MonoBehaviour
     }
     public void SetLevelSystem(ReputationSystem levelSystem)
     {
-        //setta l'oggetto ReputationSystem
         this.levelSystem = levelSystem;
+    }
+
+    public void SetLevelSystemAnimated(ReputationSystemAnimated  levelSystemAnimated)
+    {
+        //setta l'oggetto ReputationSystem
+        this.levelSystemAnimated = levelSystemAnimated;
 
         //aggiorna i valori di partenza
-        SetLevelNumber(levelSystem.GetLevelNumber());
-        SetExperienceBarSize(levelSystem.GetExperienceNormalized());
+        SetLevelNumber(levelSystemAnimated.GetLevelNumber());
+        SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());
 
         //iscriviti all'evento
-        levelSystem.OnExperinceChanged += LevelSystem_OnExperienceChanged;
-        levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+        levelSystemAnimated.OnExperinceChanged += LevelSystemAnimated_OnExperienceChanged;
+        levelSystemAnimated.OnLevelChanged += LevelSystemAnimated_OnLevelChanged;
 
     }
-    private void LevelSystem_OnLevelChanged(object sender, System.EventArgs e)
+    private void LevelSystemAnimated_OnLevelChanged(object sender, System.EventArgs e)
     {
         //se cambia livello, aggiorna il testo
-        SetLevelNumber(levelSystem.GetLevelNumber());
+        SetLevelNumber(levelSystemAnimated.GetLevelNumber());
 
     }
-    private void LevelSystem_OnExperienceChanged(object sender, System.EventArgs e)
+    private void LevelSystemAnimated_OnExperienceChanged(object sender, System.EventArgs e)
     {
         //se cambia l'esperienza, aggiorna la barra
-        SetExperienceBarSize(levelSystem.GetExperienceNormalized());   
+        SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());   
     }
 }

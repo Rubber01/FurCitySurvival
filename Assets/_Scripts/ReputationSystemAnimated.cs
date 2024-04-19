@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class ReputationSystemAnimated 
 {
+    public event EventHandler OnExperinceChanged;
+    public event EventHandler OnLevelChanged;
+
     private ReputationSystem levelSystem;
     private bool isAnimating;
-
+    private float updateTimer;
+    private float updateTimerMax;
     private int level;
     private int experience;
     private int experienceToNextLevel;
@@ -14,7 +18,12 @@ public class ReputationSystemAnimated
     public ReputationSystemAnimated(ReputationSystem levelSystem)
     {
         SetLevelSystem(levelSystem);
-
+        updateTimerMax = 0.016f;
+        FunctionUpdater.OnUpdate += Update;
+    }
+    ~ReputationSystemAnimated()
+    {
+        FunctionUpdater.OnUpdate -= Update;
     }
     public void SetLevelSystem(ReputationSystem levelSystem)
     {
@@ -22,7 +31,7 @@ public class ReputationSystemAnimated
 
         level = levelSystem.GetLevelNumber();
         experience = levelSystem.GetExperienceNumber();
-        experienceToNextLevel = levelSystem.GetExperienceToNextLevelNumber();
+        experienceToNextLevel = levelSystem.GetExperienceToNextLevelNumber(levelSystem.GetLevelNumber());
         levelSystem.OnExperinceChanged += LevelSystem_OnExperienceChanged;
         levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
     }
@@ -37,27 +46,38 @@ public class ReputationSystemAnimated
     }
     public void Update()
     {
+        Debug.Log("Update chiamato");
         if (isAnimating)
         {
-            if (level < levelSystem.GetLevelNumber())
+            updateTimer += Time.deltaTime;
+            while (updateTimer > updateTimerMax)
             {
-                //livello locale<target level
+                updateTimer -= updateTimerMax;
+                UpdateAddExperience();
+            }
+            
+        }
+        Debug.Log("Level " + level + " Experience " + experience);
+    }
+    private void UpdateAddExperience()
+    {
+        if (level < levelSystem.GetLevelNumber())
+        {
+            //livello locale<target level
+            AddExperience();
+        }
+        else
+        {
+            //livello locale=target level
+            if (experience < levelSystem.GetExperienceNumber())
+            {
                 AddExperience();
             }
             else
             {
-                //livello locale=target level
-                if (experience < levelSystem.GetExperienceNumber())
-                {
-                    AddExperience();
-                }
-                else
-                {
-                    isAnimating = false;
-                }
+                isAnimating = false;
             }
         }
-        Debug.Log("Level " + level + " Experience " + experience);
     }
     private void AddExperience()
     {
@@ -65,6 +85,20 @@ public class ReputationSystemAnimated
         if (experience >= experienceToNextLevel)
         {
             level++;
+            experience = 0;
+            if(OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
         }
+        if (OnExperinceChanged != null) OnExperinceChanged(this, EventArgs.Empty);
+
+    }
+
+    public int GetLevelNumber()
+    {
+        return level;
+    }
+ 
+    public float GetExperienceNormalized()
+    {
+        return (float)experience / experienceToNextLevel;
     }
 }
