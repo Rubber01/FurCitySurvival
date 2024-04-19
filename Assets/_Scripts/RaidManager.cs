@@ -80,5 +80,9 @@ public class RaidManager : MonoBehaviour
 
             StartCoroutine(CountUp(delay));
         }
+        if (countdownTime == 0)
+        {
+            Debug.Log("Claim Done!");
+        }
     }
 }
