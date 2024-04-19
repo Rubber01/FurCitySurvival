@@ -7,7 +7,7 @@ public class ReputationSystem
 {
     public event EventHandler OnExperinceChanged;
     public event EventHandler OnLevelChanged;
-
+    private int coeff=2;
     private int level;
     private int experience;
     private int experienceToNextLevel;
@@ -40,9 +40,9 @@ public class ReputationSystem
     {
         return experience;
     }
-    public int GetExperienceToNextLevelNumber()
+    public int GetExperienceToNextLevelNumber(int level)
     {
-        return experienceToNextLevel;
+        return experienceToNextLevel^(level* coeff);
     }
     public float GetExperienceNormalized()
     {
