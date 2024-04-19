@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class ReputationSystemAnimated 
 {
+    public event EventHandler OnExperinceChanged;
+    public event EventHandler OnLevelChanged;
+
     private ReputationSystem levelSystem;
     private bool isAnimating;
 
@@ -14,7 +17,11 @@ public class ReputationSystemAnimated
     public ReputationSystemAnimated(ReputationSystem levelSystem)
     {
         SetLevelSystem(levelSystem);
-
+        FunctionUpdater.OnUpdate += Update;
+    }
+    ~ReputationSystemAnimated()
+    {
+        FunctionUpdater.OnUpdate -= Update;
     }
     public void SetLevelSystem(ReputationSystem levelSystem)
     {
@@ -37,6 +44,7 @@ public class ReputationSystemAnimated
     }
     public void Update()
     {
+        Debug.Log("Update chiamato");
         if (isAnimating)
         {
             if (level < levelSystem.GetLevelNumber())
@@ -65,6 +73,20 @@ public class ReputationSystemAnimated
         if (experience >= experienceToNextLevel)
         {
             level++;
+            experience = 0;
+            if(OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
         }
+        if (OnExperinceChanged != null) OnExperinceChanged(this, EventArgs.Empty);
+
+    }
+
+    public int GetLevelNumber()
+    {
+        return level;
+    }
+ 
+    public float GetExperienceNormalized()
+    {
+        return (float)experience / experienceToNextLevel;
     }
 }

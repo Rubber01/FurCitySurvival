@@ -2,11 +2,24 @@ using UnityEngine;
 
 public class FunctionUpdater : MonoBehaviour
 {
-    ReputationSystemAnimated a;
+
+    private static FunctionUpdater instance = null;
+    public static System.Action OnUpdate;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else if (this != instance)
+            Destroy(this);
+    }
+
     void Update()
     {
-        a.Update();
-    } 
+        if (OnUpdate != null)
+            OnUpdate();
+    }
 }
-
-

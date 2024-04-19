@@ -10,7 +10,9 @@ public class ReputationLinker : MonoBehaviour
     {
         ReputationSystem reputationSystem = new ReputationSystem();
         reputationController.SetLevelSystem(reputationSystem);
-        ReputationSystemAnimated reputationSystemAnimated = new ReputationSystemAnimated(reputationSystem);
         //player.SetLevelSystem(reputationSystem); 
+
+        ReputationSystemAnimated levelSystemAnimated = new ReputationSystemAnimated(reputationSystem);
+        reputationController.SetLevelSystemAnimated(levelSystemAnimated);
     }
 }

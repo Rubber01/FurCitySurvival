@@ -20,7 +20,10 @@ public class ReputationSystem
     }
     public void AddExperience(int amount)
     {
+        Debug.Log("Add experince " + amount);
         experience += amount;
+        Debug.Log("experince " + experience + " experienceToNextLevel "+ experienceToNextLevel);
+
         while (experience >= experienceToNextLevel)
         {
             level++;
