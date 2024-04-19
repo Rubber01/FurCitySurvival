@@ -10,7 +10,13 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private float delay = 2;
     [SerializeField] private float countdownTime = 10f; 
     [SerializeField] private float originalCountdownTime=10f; // Memorizza il tempo di partenza originale
+    [SerializeField] private int reputation;
+    private ReputationSystem reputationSystem;
     private HealthBar healthBar;
+    public void SetLevelSystem(ReputationSystem reputationSystem)
+    {
+        this.reputationSystem = reputationSystem;
+    }
     private void Start()
     {
         healthBar=HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
@@ -82,7 +88,7 @@ public class RaidManager : MonoBehaviour
         }
         if (countdownTime == 0)
         {
-            Debug.Log("Claim Done!");
+            reputationSystem.AddExperience(reputation);
         }
     }
 }
