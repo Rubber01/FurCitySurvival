@@ -3673,7 +3673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 779
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11480,8 +11480,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d83e9874cceea44dbe576f821d6f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creditPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
+  creditPrefab: {fileID: 1958953447687724768, guid: 5087dfcab724b8b4b9254fc8bd7d14b2, type: 3}
+  spawnPoint: {fileID: 1879404325}
   coinGenerationTimer: 5
   CoinsPool: 10
   respawnTime: 10
@@ -32110,7 +32110,7 @@ MonoBehaviour:
   delay: 2
   countdownTime: 30
   originalCountdownTime: 30
-  reputation: 500
+  reputation: 50
 --- !u!114 &937436890
 MonoBehaviour:
   m_ObjectHideFlags: 0

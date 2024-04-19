@@ -7,6 +7,7 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private List<GameObject> previousCollidedObjects = new List<GameObject>();
     [SerializeField] private bool countdownStarted = false;
     [SerializeField] private bool countupStarted = false;
+    private bool raided = false;
     [SerializeField] private float delay = 2;
     [SerializeField] private float countdownTime = 10f; 
     [SerializeField] private float originalCountdownTime=10f; // Memorizza il tempo di partenza originale
@@ -17,6 +18,7 @@ public class RaidManager : MonoBehaviour
     {
         this.reputationSystem = reputationSystem;
     }
+
     private void Start()
     {
         healthBar=HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
@@ -32,7 +34,7 @@ public class RaidManager : MonoBehaviour
 
                 if (!countdownStarted)
                 {
-                    StartCoroutine(CountDown());
+                    StartCoroutine(CountUp());
                 }
             }
         }
@@ -55,40 +57,47 @@ public class RaidManager : MonoBehaviour
             }
             
         }
+        if (previousCollidedObjects.Count == 0)
+            StartCoroutine(CountUp());
     }
-    IEnumerator CountDown()
+  
+    IEnumerator CountUp()
     {
-        while (countdownTime > 0 && previousCollidedObjects.Count>0)
+        if (previousCollidedObjects.Count == 0 && countupStarted == false && countdownTime < originalCountdownTime)
         {
-            countdownStarted = true;
-            Debug.Log("Countdown: " + countdownTime.ToString("F1") + " seconds" + " numero di oggetti " + previousCollidedObjects.Count);
-            countdownTime -= previousCollidedObjects.Count;
-            healthBar.UpdateHealthBar(originalCountdownTime, countdownTime);
-            yield return new WaitForSeconds(1f);
-        }
-    }
-    IEnumerator CountUp(float delay)
-    {
 
-        while (countdownTime < originalCountdownTime)
+            while (countdownTime < originalCountdownTime)
+            {
+                countdownStarted = false;
+                countupStarted = true;
+                Debug.Log("Countup: " + countdownTime.ToString("F1") + " seconds" + " numero di oggetti " + previousCollidedObjects.Count);
+                countdownTime++;
+                healthBar.UpdateHealthBar(originalCountdownTime, countdownTime);
+                yield return new WaitForSeconds(1f);
+            }
+        }else if (previousCollidedObjects.Count != 0 && countdownStarted==false && countdownTime!=0)
         {
-            countupStarted = true;
-            Debug.Log("Countup: " + countdownTime.ToString("F1") + " seconds" + " numero di oggetti " + previousCollidedObjects.Count);
-            countdownTime ++;
-            healthBar.UpdateHealthBar(originalCountdownTime, countdownTime);
-            yield return new WaitForSeconds(1f);
+            while (countdownTime > 0 && previousCollidedObjects.Count > 0)
+            {
+                countupStarted = false;
+                countdownStarted = true;
+                Debug.Log("Countdown: " + countdownTime.ToString("F1") + " seconds" + " numero di oggetti " + previousCollidedObjects.Count);
+                countdownTime -= previousCollidedObjects.Count;
+                healthBar.UpdateHealthBar(originalCountdownTime, countdownTime);
+                yield return new WaitForSeconds(1f);
+            }
         }
     }
     private void Update()
     {
-        if (previousCollidedObjects.Count == 0 && countupStarted==false && countdownTime < originalCountdownTime)
+        
+         
+        if (countdownTime == 0 && raided == false)
         {
-
-            StartCoroutine(CountUp(delay));
-        }
-        if (countdownTime == 0)
-        {
+            raided = true;
+            transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
             reputationSystem.AddExperience(reputation);
+
         }
     }
 }
