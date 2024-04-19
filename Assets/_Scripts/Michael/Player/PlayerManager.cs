@@ -20,11 +20,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private TextMeshProUGUI creditsText;
     [SerializeField] private TextMeshProUGUI influencePointText;
     [SerializeField] private TextMeshProUGUI henchmenSlotsText;
-    [SerializeField] private TextMeshProUGUI metalScrapText;
-    [SerializeField] private TextMeshProUGUI metalText;
-    [SerializeField] private TextMeshProUGUI plasticWasteText;
-    [SerializeField] private TextMeshProUGUI plasticText;
-    [SerializeField] private TextMeshProUGUI chipText;
+    //[SerializeField] private TextMeshProUGUI metalScrapText;
+    //[SerializeField] private TextMeshProUGUI metalText;
+    //[SerializeField] private TextMeshProUGUI plasticWasteText;
+    //[SerializeField] private TextMeshProUGUI plasticText;
+    //[SerializeField] private TextMeshProUGUI chipText;
 
     //public static PlayerManager Instance { get { return instance; } }
 
@@ -38,11 +38,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void Update()
     {
         creditsText.text = "Cr:" + credits.ToString();
-        metalScrapText.text = "MS:" + metalScrapNumber.ToString();
-        metalText.text = "M:" + metalNumber.ToString();
-        plasticWasteText.text = "PW:" + plasticWasteNumber.ToString();
-        plasticText.text = "P:" + plasticNumber.ToString();
-        chipText.text = "Ch:" + chipNumber.ToString();
+        //metalScrapText.text = "MS:" + metalScrapNumber.ToString();
+        //metalText.text = "M:" + metalNumber.ToString();
+        //plasticWasteText.text = "PW:" + plasticWasteNumber.ToString();
+        //plasticText.text = "P:" + plasticNumber.ToString();
+        //chipText.text = "Ch:" + chipNumber.ToString();
         influencePointText.text = "Inf:" + influencePoints.ToString();
         henchmenSlotsText.text = "\n" + "h_s:" + "\n" + currentHench + "/" + henchmenSlots.ToString();
     }

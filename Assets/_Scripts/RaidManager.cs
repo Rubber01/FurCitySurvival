@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RaidManager : MonoBehaviour
@@ -86,9 +87,15 @@ public class RaidManager : MonoBehaviour
 
             StartCoroutine(CountUp(delay));
         }
+
+        //CLAIM
         if (countdownTime == 0)
         {
             reputationSystem.AddExperience(reputation);
+
+            gameObject.GetComponent<BuildingOwnerController>().SetPlayerOwnership(true);
+            
         }
     }
 }
+

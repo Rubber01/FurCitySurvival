@@ -7,7 +7,7 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class HireHenchmen : MonoBehaviour
 {
-    public bool isActive = false;
+    private bool isActive = false;
     
     public GameObject allyPrefab;
     public Transform spawnPoint; // Punto di spawn
@@ -82,6 +82,15 @@ public class HireHenchmen : MonoBehaviour
         
     }
 
+    public bool IsActive()
+    {
+        return isActive;
+    }
+    public void SetActive(bool value)
+    {
+        isActive = value;
+    }
+
     private IEnumerator StartRespawnCountdown()
     {
         // Avvia il conteggio alla rovescia
@@ -95,4 +104,7 @@ public class HireHenchmen : MonoBehaviour
         allyNumText.text = totalAllies + " / " + totalAllies;
         yield break;
     }
+
+
+
 }

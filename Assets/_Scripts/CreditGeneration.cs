@@ -30,6 +30,7 @@ public class CreditGeneration : MonoBehaviour
         coinText = GetComponentInChildren<TMP_Text>();
         totalCoins = CoinsPool;
         startingTime = respawnTime;
+
         SpawnCredit();
     }
 

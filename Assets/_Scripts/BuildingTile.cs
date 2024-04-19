@@ -25,78 +25,105 @@ public class BuildingTile : BasicTile
         Debug.Log(other.gameObject.GetComponent<Player>());
         if (other.gameObject.GetComponent<Player>())
         {
-            switch (buildingData.resourceCostType)
-            {
-                //case ResourceType.MetalScrap:
-                //    if (PlayerManager.metalScrapNumber >= buildingCost && !(isSpawned))
-                //    {
-                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                //        PlayerManager.metalScrapNumber -= buildingCost;
-                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+            //if (isControlledByPlayer == false)
+            //{
 
-                //        isSpawned = true;
-                //    }
-                //    break;
-                //case ResourceType.Metal:
-                //    if (PlayerManager.metalNumber >= buildingCost && !(isSpawned))
-                //    {
-                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                //        PlayerManager.metalScrapNumber -= buildingCost;
-                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                switch (buildingData.resourceCostType)
+                {
+                    //case ResourceType.MetalScrap:
+                    //    if (PlayerManager.metalScrapNumber >= buildingCost && !(isSpawned))
+                    //    {
+                    //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                    //        PlayerManager.metalScrapNumber -= buildingCost;
+                    //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
 
-                //        isSpawned = true;
-                //    }
-                //    break;
-                //case ResourceType.PlasticWaste:
-                //    if (PlayerManager.plasticWasteNumber >= buildingCost && !(isSpawned))
-                //    {
-                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
-                //        PlayerManager.plasticWasteNumber -= buildingCost;
-                //        isSpawned = true;
-                //    }
-                //    break;
-                //case ResourceType.Plastic:
-                //    if (PlayerManager.plasticNumber >= buildingCost && !(isSpawned))
-                //    {
-                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
-                //        PlayerManager.plasticWasteNumber -= buildingCost;
-                //        isSpawned = true;
-                //    }
-                //    break;
-                case ResourceType.Credit:
-                    if (PlayerManager.credits >= buildingCost && !(isSpawned))
-                    {
-                        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
-                        PlayerManager.credits -= buildingCost;
-                        isSpawned = true;
-                    }
-                    if (isSpawned && gameObject.GetComponentInChildren<CreditGeneration>() && !(gameObject.GetComponentInChildren<CreditGeneration>().IsActive()))
-                    {
-                        CreditGeneration creditgeneration = gameObject.GetComponentInChildren<CreditGeneration>();
+                    //        isSpawned = true;
+                    //    }
+                    //    break;
+                    //case ResourceType.Metal:
+                    //    if (PlayerManager.metalNumber >= buildingCost && !(isSpawned))
+                    //    {
+                    //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                    //        PlayerManager.metalScrapNumber -= buildingCost;
+                    //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
 
-                        if (creditgeneration.CoinsPool == 0 && creditgeneration.respawnTime == 0)
+                    //        isSpawned = true;
+                    //    }
+                    //    break;
+                    //case ResourceType.PlasticWaste:
+                    //    if (PlayerManager.plasticWasteNumber >= buildingCost && !(isSpawned))
+                    //    {
+                    //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                    //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                    //        PlayerManager.plasticWasteNumber -= buildingCost;
+                    //        isSpawned = true;
+                    //    }
+                    //    break;
+                    //case ResourceType.Plastic:
+                    //    if (PlayerManager.plasticNumber >= buildingCost && !(isSpawned))
+                    //    {
+                    //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                    //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                    //        PlayerManager.plasticWasteNumber -= buildingCost;
+                    //        isSpawned = true;
+                    //    }
+                    //    break;
+                    case ResourceType.Credit:
+                        if (PlayerManager.credits >= buildingCost && !(isSpawned))
                         {
-                            creditgeneration.RestartCoinGeneration();
-                            //Debug.Log("credit Generation: " + gameObject.GetComponentInChildren<CreditGeneration>().name);
-                            creditgeneration.ResetRespawnTime();
+                            Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                            gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                            PlayerManager.credits -= buildingCost;
+                            isSpawned = true;
                         }
-                    }
+                        if (isSpawned && gameObject.GetComponentInChildren<CreditGeneration>() && !(gameObject.GetComponentInChildren<CreditGeneration>().IsActive()))
+                        {
+                            CreditGeneration creditgeneration = gameObject.GetComponentInChildren<CreditGeneration>();
 
-                    if (isSpawned && gameObject.GetComponentInChildren<HireHenchmen>() && gameObject.GetComponentInChildren<HireHenchmen>().isActive)
-                    {
-                        Debug.Log("HenchmenHired!");
-                        gameObject.GetComponentInChildren<HireHenchmen>().SpawnAlly();
-                    }
+                            if (creditgeneration.CoinsPool == 0 && creditgeneration.respawnTime == 0)
+                            {
+                                creditgeneration.RestartCoinGeneration();
+                                //Debug.Log("credit Generation: " + gameObject.GetComponentInChildren<CreditGeneration>().name);
+                                creditgeneration.ResetRespawnTime();
+                            }
+                        }
 
+                        if (isSpawned && gameObject.GetComponentInChildren<HireHenchmen>() && gameObject.GetComponentInChildren<HireHenchmen>().IsActive())
+                        {
+                            Debug.Log("HenchmenHired!");
+                            gameObject.GetComponentInChildren<HireHenchmen>().SpawnAlly();
+                        }
 
+                        break;
+
+                    case ResourceType.Henchmen:
+                        Debug.Log("------> ResoyrceTypeHenchmen");
+                        if (PlayerManager.currentHench >= buildingCost && !(isSpawned))
+                        {
+                            gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                            PlayerManager.currentHench -= buildingCost;
+                            isSpawned = true;
+                        }
+                        if (isSpawned && gameObject.GetComponentInChildren<HireHenchmen>() && !(gameObject.GetComponentInChildren<HireHenchmen>().IsActive()))
+                        {
+                            CreditGeneration creditgeneration = gameObject.GetComponentInChildren<CreditGeneration>();
+
+                            if (creditgeneration.CoinsPool == 0 && creditgeneration.respawnTime == 0)
+                            {
+                                creditgeneration.RestartCoinGeneration();
+                                //Debug.Log("credit Generation: " + gameObject.GetComponentInChildren<CreditGeneration>().name);
+                                creditgeneration.ResetRespawnTime();
+                            }
+                        }
+
+                        if (isSpawned && gameObject.GetComponentInChildren<HireHenchmen>() && gameObject.GetComponentInChildren<HireHenchmen>().IsActive())
+                        {
+                            Debug.Log("HenchmenHired!");
+                            gameObject.GetComponentInChildren<HireHenchmen>().SpawnAlly();
+                        }
                     break;
-                case ResourceType.Henchmen:
-                    Debug.Log("------> ResoyrceTypeHenchmen");
-                    break;
-            }
+                }
+            //}
         }
     }
     
