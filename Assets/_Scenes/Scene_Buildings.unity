@@ -563,6 +563,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &6924286
@@ -1864,6 +1866,177 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 1.3900032}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &55656400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 55656401}
+  - component: {fileID: 55656403}
+  - component: {fileID: 55656402}
+  m_Layer: 0
+  m_Name: Cost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &55656401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55656400}
+  m_LocalRotation: {x: 0, y: 0.08715578, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 727723887}
+  m_LocalEulerAnglesHint: {x: 0, y: 10, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 4.82}
+  m_SizeDelta: {x: 20, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &55656402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55656400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Cost
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 17
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 55656403}
+  m_maskType: 0
+--- !u!23 &55656403
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55656400}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &56538612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,6 +2340,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &61171915
@@ -2558,6 +2733,8 @@ MonoBehaviour:
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
   buildingData: {fileID: 11400000, guid: 89476788af2b3ed41a5e698e90ceb34f, type: 2}
@@ -2710,6 +2887,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &75430893
@@ -3686,6 +3865,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &107725617
@@ -4060,6 +4241,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &114363086
@@ -4308,6 +4491,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles:
   - {fileID: 1864182286}
   - {fileID: 748439001}
@@ -4754,6 +4939,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &138044734
@@ -6070,6 +6257,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &177789280
@@ -6519,6 +6708,177 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199126985}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &200015949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200015950}
+  - component: {fileID: 200015952}
+  - component: {fileID: 200015951}
+  m_Layer: 0
+  m_Name: Cost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &200015950
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200015949}
+  m_LocalRotation: {x: 0, y: 0.08715578, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450593692}
+  m_LocalEulerAnglesHint: {x: 0, y: 10, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 4.82}
+  m_SizeDelta: {x: 20, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &200015951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200015949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Cost
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 17
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 200015952}
+  m_maskType: 0
+--- !u!23 &200015952
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200015949}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &205154644
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,6 +8043,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &228371679
@@ -8554,6 +8916,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &263662498
@@ -9083,6 +9447,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &285329467
@@ -10275,6 +10641,7 @@ Transform:
   - {fileID: 1820824194}
   - {fileID: 1122556202}
   - {fileID: 937436888}
+  - {fileID: 2149012991947928774}
   - {fileID: 987609842}
   - {fileID: 799124108}
   - {fileID: 816029784}
@@ -12050,6 +12417,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &356712610
@@ -13323,6 +13692,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &384884497
@@ -13555,6 +13926,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &386278268
@@ -13892,6 +14265,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &397704975
@@ -14295,6 +14670,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &404323737
@@ -14872,6 +15249,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &415209232
@@ -17021,6 +17400,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &500602812
@@ -17979,6 +18360,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &507665335
@@ -18106,6 +18489,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 5
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &510109587
@@ -18574,6 +18959,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 10
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &513062138
@@ -19187,6 +19574,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &548039668
@@ -19788,6 +20177,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &557942046
@@ -21088,6 +21479,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &594583643
@@ -23465,6 +23858,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &667909412
@@ -23697,6 +24092,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &670401165
@@ -23824,6 +24221,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &679034992
@@ -23951,6 +24350,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &679165585
@@ -24757,6 +25158,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &705041644
@@ -25076,6 +25479,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &717069572
@@ -25249,6 +25654,128 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718086439}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &727723886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727723887}
+  - component: {fileID: 727723891}
+  - component: {fileID: 727723890}
+  - component: {fileID: 727723889}
+  - component: {fileID: 727723888}
+  m_Layer: 0
+  m_Name: UnlockArea(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &727723887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727723886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.683085, y: -0.18274263, z: -0.18274263, w: 0.683085}
+  m_LocalPosition: {x: -0.01945, y: -0.033750005, z: 0.0019999957}
+  m_LocalScale: {x: 0.0009999999, y: 0.0009999998, z: 0.0024999992}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 55656401}
+  m_Father: {fileID: 2131192116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &727723888
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727723886}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &727723889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727723886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47090239a6eb784eb415abf23babcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileToUnlock: {fileID: 2149012991947928778}
+  tileUnlockedPrefab: {fileID: 0}
+  requiredResourceNumber: {fileID: 55656402}
+--- !u!23 &727723890
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727723886}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &727723891
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727723886}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &736621987
 GameObject:
   m_ObjectHideFlags: 0
@@ -25500,6 +26027,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles:
   - {fileID: 513062137}
   - {fileID: 1864182286}
@@ -25635,6 +26164,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &755677791
@@ -25867,6 +26398,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &761827235
@@ -26741,6 +27274,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &784093977
@@ -26955,6 +27490,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &799124106
@@ -27082,6 +27619,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &813260065
@@ -27209,6 +27748,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &814140497
@@ -27336,6 +27877,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &816029782
@@ -28207,6 +28750,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &857602990
@@ -29477,6 +30022,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &893575352
@@ -29691,6 +30238,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &904616108
@@ -29905,6 +30454,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &908351690
@@ -30137,6 +30688,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &916320562
@@ -30435,6 +30988,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &922209066
@@ -31203,6 +31758,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &937436886
@@ -31306,6 +31863,8 @@ MonoBehaviour:
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles:
   - {fileID: 0}
   - {fileID: 1952521011}
@@ -31374,6 +31933,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &942222399
@@ -32587,6 +33148,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &972523855
@@ -33287,6 +33850,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &987609840
@@ -34368,6 +34933,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1026083688
@@ -34600,6 +35167,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1028851816
@@ -36467,6 +37036,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1115189619
@@ -36681,6 +37252,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1122556200
@@ -36895,6 +37468,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1135554018
@@ -38579,6 +39154,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1173951391
@@ -40146,6 +40723,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1204081722
@@ -40377,6 +40956,8 @@ MonoBehaviour:
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles:
   - {fileID: 748439001}
   - {fileID: 0}
@@ -40639,6 +41220,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1213621580
@@ -43468,6 +44051,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1282255623
@@ -44185,6 +44770,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1289836864
@@ -44990,6 +45577,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1306277555
@@ -46459,6 +47048,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1363942421
@@ -47677,6 +48268,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1409963496
@@ -48616,6 +49209,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1433550212
@@ -49170,6 +49765,128 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1450593691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450593692}
+  - component: {fileID: 1450593696}
+  - component: {fileID: 1450593695}
+  - component: {fileID: 1450593694}
+  - component: {fileID: 1450593693}
+  m_Layer: 0
+  m_Name: UnlockArea(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1450593692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450593691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.03897114, y: -2.9802322e-10, z: 0.002}
+  m_LocalScale: {x: 0.001, y: 0.0009999998, z: 0.0025000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 200015950}
+  m_Father: {fileID: 2131192116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1450593693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450593691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1450593694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450593691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47090239a6eb784eb415abf23babcac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileToUnlock: {fileID: 510109586}
+  tileUnlockedPrefab: {fileID: 0}
+  requiredResourceNumber: {fileID: 200015951}
+--- !u!23 &1450593695
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450593691}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1450593696
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450593691}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1450806824
 GameObject:
   m_ObjectHideFlags: 0
@@ -49316,6 +50033,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1454488065
@@ -49758,6 +50477,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1464602937
@@ -50437,6 +51158,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1479035597
@@ -52493,6 +53216,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1539889548
@@ -52725,6 +53450,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1553074000
@@ -53062,6 +53789,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1560965626
@@ -53889,6 +54618,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1574575822
@@ -55681,6 +56412,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1641024110
@@ -56173,6 +56906,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1660293326
@@ -56300,6 +57035,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1664495393
@@ -57560,6 +58297,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1717857876
@@ -58299,6 +59038,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1745485163
@@ -58748,6 +59489,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752935778}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1756711657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1357286739480045403, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_Name
+      value: Tile_RaidablePub
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4503829341785672574, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3453303856733789013, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7526321331498168306, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 9430ee718f2ffc240ac09a00a9f69f5f, type: 3}
 --- !u!1 &1757251253
 GameObject:
   m_ObjectHideFlags: 0
@@ -59932,6 +60739,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1787646188
@@ -60404,6 +61213,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1811674618
@@ -60951,6 +61762,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1820824192
@@ -61078,6 +61891,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1822349151
@@ -61653,6 +62468,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1850675713
@@ -62200,6 +63017,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1864182287
@@ -62603,6 +63422,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1871019787
@@ -62866,6 +63687,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1880914017
@@ -62993,6 +63816,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1881377649
@@ -63120,6 +63945,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1885050036
@@ -64384,6 +65211,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1916484622
@@ -64767,6 +65596,8 @@ MonoBehaviour:
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 0}
   buildingData: {fileID: 11400000, guid: 89476788af2b3ed41a5e698e90ceb34f, type: 2}
@@ -66065,6 +66896,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1952521012
@@ -66681,6 +67514,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1968171663
@@ -67297,6 +68132,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &1985880933
@@ -68456,6 +69293,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2021088774
@@ -68927,6 +69766,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2034449649
@@ -69693,6 +70534,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2053070031
@@ -69907,6 +70750,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2063419974
@@ -70139,6 +70984,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2067366579
@@ -70884,6 +71731,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2084433215
@@ -73013,6 +73862,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2123882508
@@ -73692,9 +74543,11 @@ MonoBehaviour:
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles:
-  - {fileID: 0}
   - {fileID: 510109586}
+  - {fileID: 2149012991947928778}
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2131192114
 MeshRenderer:
@@ -73760,6 +74613,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 780216765}
+  - {fileID: 1450593692}
+  - {fileID: 727723887}
   m_Father: {fileID: 327882408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135416847
@@ -74031,6 +74886,8 @@ MonoBehaviour:
   isLocked: 1
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!23 &2139070615
@@ -74196,6 +75053,105 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c514b39b07e60bc498973a55565fc373, type: 3}
+--- !u!1001 &2149012991947928773
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 327882408}
+    m_Modifications:
+    - target: {fileID: 1357286739480045403, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_Name
+      value: Tile_RaidableCreditBuilding
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599815552720830171, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: adjacentTiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1952521011}
+    - target: {fileID: 4599815552720830171, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: adjacentTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1641024109}
+    - target: {fileID: 4599815552720830171, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: adjacentTiles.Array.data[3]
+      value: 
+      objectReference: {fileID: 748439001}
+    - target: {fileID: 4599815552720830171, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: adjacentTiles.Array.data[4]
+      value: 
+      objectReference: {fileID: 510109586}
+    - target: {fileID: 5815132363521159598, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      propertyPath: isControlledByPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4503829341785672574, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4722996216431389751, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+--- !u!4 &2149012991947928774 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2794638288798262263, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+  m_PrefabInstance: {fileID: 2149012991947928773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2149012991947928778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5815132363521159598, guid: 642dd6909ad05e04394694d5af744103, type: 3}
+  m_PrefabInstance: {fileID: 2149012991947928773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7594ef1c806d7ed479878863cc81f76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -74209,3 +75165,4 @@ SceneRoots:
   - {fileID: 421050301}
   - {fileID: 95557123664083022}
   - {fileID: 2017849827}
+  - {fileID: 1756711657}

@@ -37,7 +37,7 @@ public class AllyAI : MonoBehaviour
 		}
 		// Get the distance to the player
 		float distance = Vector3.Distance(target.position, transform.position);
-		Debug.Log("Distanza " + distance);
+		//Debug.Log("Distanza " + distance);
         // If inside the radius
         
 		if (distance <= lookRadius)

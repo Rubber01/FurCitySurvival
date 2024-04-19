@@ -213,8 +213,10 @@ MonoBehaviour:
   isLocked: 0
   unlockCost: 0
   resourceRequiredToUnlock: 0
+  isControlledByPlayer: 1
+  isRaidable: 0
   adjacentTiles: []
-  triggerBoxPrefab: {fileID: 0}
+  triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
   buildingData: {fileID: 0}
   isSpawned: 0
 --- !u!114 &8825977393610622873
@@ -445,7 +447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6745433294057758147
 Transform:
   m_ObjectHideFlags: 0
@@ -567,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623c292773eccaa46a402f6654c1c5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefabController: {fileID: 8825977393610622873}
 --- !u!1 &6486313500507406025
 GameObject:
   m_ObjectHideFlags: 0

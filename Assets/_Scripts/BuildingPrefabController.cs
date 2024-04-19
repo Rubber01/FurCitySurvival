@@ -7,6 +7,8 @@ using TMPro;
 
 public class BuildingPrefabController : MonoBehaviour
 {
+
+
     public Building buildingData; // Riferimento allo ScriptableObject dell'edificio
     public int currentLevel = 1;
     private int currentActiveMeshIndex = 0;
@@ -32,38 +34,38 @@ public class BuildingPrefabController : MonoBehaviour
         buildingCost.text = buildingData.resourceCostType.ToString() + " " + buildingData.buildingCost.ToString();
     }
 
-    public void UpgradeBuilding()
-    {
-        Debug.Log("Upgrading building");
-        // Aumenta il livello di upgrade
-        buildingData.currentUpgradeLevel++;
-        // Attiva la mesh aggiuntiva successiva
-        ToggleAdditionalMesh(currentActiveMeshIndex, true);
-        currentActiveMeshIndex++;
-        buildingData.UpgradeToLevel(buildingData.currentUpgradeLevel);
-        Debug.Log("activeMeshIndex" + currentActiveMeshIndex);
+    //public void UpgradeBuilding()
+    //{
+    //    Debug.Log("Upgrading building");
+    //    // Aumenta il livello di upgrade
+    //    buildingData.currentUpgradeLevel++;
+    //    // Attiva la mesh aggiuntiva successiva
+    //    ToggleAdditionalMesh(currentActiveMeshIndex, true);
+    //    currentActiveMeshIndex++;
+    //    buildingData.UpgradeToLevel(buildingData.currentUpgradeLevel);
+    //    Debug.Log("activeMeshIndex" + currentActiveMeshIndex);
 
-        if (buildingmodel != null && buildingmodel.GetComponent<CreditGeneration>() != null)
-        {
-            buildingmodel.GetComponent<CreditGeneration>().ReduceTimer();
-        }
-    }
+    //    if (buildingmodel != null && buildingmodel.GetComponent<CreditGeneration>() != null)
+    //    {
+    //        buildingmodel.GetComponent<CreditGeneration>().ReduceTimer();
+    //    }
+    //}
 
-    [ProButton]
-    public void ToggleAdditionalMesh(int index, bool active)
-    {
-        Debug.Log("index" + index);
-        Debug.Log("children: " + buildingmodel.transform.childCount);
-        // Controlla se il prefab ha le mesh aggiuntive
-        if (buildingmodel.transform.childCount >= 2 && index <= buildingmodel.transform.childCount)
-        {
+    //[ProButton]
+    //public void ToggleAdditionalMesh(int index, bool active)
+    //{
+    //    Debug.Log("index" + index);
+    //    Debug.Log("children: " + buildingmodel.transform.childCount);
+    //    // Controlla se il prefab ha le mesh aggiuntive
+    //    if (buildingmodel.transform.childCount >= 2 && index <= buildingmodel.transform.childCount)
+    //    {
             
-            // Attiva la mesh aggiuntiva specificata
-            buildingmodel.transform.GetChild(index).gameObject.SetActive(active);
-            // Aggiorna l'indice della mesh aggiuntiva attualmente attiva
-            currentActiveMeshIndex = index;
-        }
-    }
+    //        // Attiva la mesh aggiuntiva specificata
+    //        buildingmodel.transform.GetChild(index).gameObject.SetActive(active);
+    //        // Aggiorna l'indice della mesh aggiuntiva attualmente attiva
+    //        currentActiveMeshIndex = index;
+    //    }
+    //}
 
    
     public void SpawnBuilding(Vector3 position, Quaternion rotation)

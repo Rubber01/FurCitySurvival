@@ -16,7 +16,7 @@ public class BuildingTile : BasicTile
     private void Awake()
     {
         buildingCost = buildingData.buildingCost;
-        Debug.Log("Building cost: " + buildingCost);
+        //Debug.Log("Building cost: " + buildingCost);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,44 +27,44 @@ public class BuildingTile : BasicTile
         {
             switch (buildingData.resourceCostType)
             {
-                case ResourceType.MetalScrap:
-                    if (PlayerManager.metalScrapNumber >= buildingCost && !(isSpawned))
-                    {
-                        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                        PlayerManager.metalScrapNumber -= buildingCost;
-                        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                //case ResourceType.MetalScrap:
+                //    if (PlayerManager.metalScrapNumber >= buildingCost && !(isSpawned))
+                //    {
+                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                //        PlayerManager.metalScrapNumber -= buildingCost;
+                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
 
-                        isSpawned = true;
-                    }
-                    break;
-                case ResourceType.Metal:
-                    if (PlayerManager.metalNumber >= buildingCost && !(isSpawned))
-                    {
-                        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                        PlayerManager.metalScrapNumber -= buildingCost;
-                        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                //        isSpawned = true;
+                //    }
+                //    break;
+                //case ResourceType.Metal:
+                //    if (PlayerManager.metalNumber >= buildingCost && !(isSpawned))
+                //    {
+                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                //        PlayerManager.metalScrapNumber -= buildingCost;
+                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
 
-                        isSpawned = true;
-                    }
-                    break;
-                case ResourceType.PlasticWaste:
-                    if (PlayerManager.plasticWasteNumber >= buildingCost && !(isSpawned))
-                    {
-                        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
-                        PlayerManager.plasticWasteNumber -= buildingCost;
-                        isSpawned = true;
-                    }
-                    break;
-                case ResourceType.Plastic:
-                    if (PlayerManager.plasticNumber >= buildingCost && !(isSpawned))
-                    {
-                        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
-                        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
-                        PlayerManager.plasticWasteNumber -= buildingCost;
-                        isSpawned = true;
-                    }
-                    break;
+                //        isSpawned = true;
+                //    }
+                //    break;
+                //case ResourceType.PlasticWaste:
+                //    if (PlayerManager.plasticWasteNumber >= buildingCost && !(isSpawned))
+                //    {
+                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                //        PlayerManager.plasticWasteNumber -= buildingCost;
+                //        isSpawned = true;
+                //    }
+                //    break;
+                //case ResourceType.Plastic:
+                //    if (PlayerManager.plasticNumber >= buildingCost && !(isSpawned))
+                //    {
+                //        Debug.Log("triggered building tile by: " + other.gameObject.GetComponent<Player>().name);
+                //        gameObject.GetComponent<BuildingPrefabController>().SpawnBuilding(transform.position, transform.rotation);
+                //        PlayerManager.plasticWasteNumber -= buildingCost;
+                //        isSpawned = true;
+                //    }
+                //    break;
                 case ResourceType.Credit:
                     if (PlayerManager.credits >= buildingCost && !(isSpawned))
                     {
@@ -92,6 +92,9 @@ public class BuildingTile : BasicTile
                     }
 
 
+                    break;
+                case ResourceType.Henchmen:
+                    Debug.Log("------> ResoyrceTypeHenchmen");
                     break;
             }
         }

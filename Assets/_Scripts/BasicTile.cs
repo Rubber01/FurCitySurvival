@@ -15,6 +15,8 @@ public class BasicTile : MonoBehaviour
     public bool isLocked;
     public int unlockCost;
     public ResourceType resourceRequiredToUnlock;
+    public bool isControlledByPlayer = false;
+    public bool isRaidable = true;
 
     
     private MeshCollider meshCollider;

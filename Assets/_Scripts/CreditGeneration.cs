@@ -90,7 +90,7 @@ public class CreditGeneration : MonoBehaviour
         // Avvia il conteggio alla rovescia
         while (respawnTime > 0)
         {
-            Debug.Log("Respawn in: " + respawnTime + " seconds");
+            //Debug.Log("Respawn in: " + respawnTime + " seconds");
             yield return new WaitForSeconds(1f);
             respawnTime--;
         }

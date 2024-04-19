@@ -5,11 +5,12 @@ using UnityEngine;
 public enum ResourceType
 {
     Credit,
-    MetalScrap,
-    Metal,
-    PlasticWaste,
-    Plastic,
-    Chip,
+    Henchmen,
+    //MetalScrap,
+    //Metal,
+    //PlasticWaste,
+    //Plastic,
+    //Chip,
     // Aggiungi altri tipi di risorse necessari al tuo gioco
 }
 
