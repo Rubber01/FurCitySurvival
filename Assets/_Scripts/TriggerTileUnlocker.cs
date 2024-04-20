@@ -10,6 +10,8 @@ public class TriggerTileUnlocker : MonoBehaviour
     // Riferimento al componente BasicTile
     public BasicTile tileToUnlock;
     public GameObject tileUnlockedPrefab;
+    private ReputationSystem reputationSystem;
+
     private void Awake()
     {
         hexgrid = GameObject.Find("Grid").GetComponent<HexGrid>();
@@ -20,6 +22,10 @@ public class TriggerTileUnlocker : MonoBehaviour
     private void Update()
     {
         requiredResourceNumber.text = tileToUnlock.resourceRequiredToUnlock + " " + tileToUnlock.unlockCost.ToString();
+    }
+    public void SetLevelSystem(ReputationSystem reputationSystem)
+    {
+        this.reputationSystem = reputationSystem;
     }
 
 
