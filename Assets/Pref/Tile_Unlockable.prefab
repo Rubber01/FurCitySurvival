@@ -374,8 +374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7594ef1c806d7ed479878863cc81f76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileCoords: {x: 0, y: 0}
+  tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
+  resourceRequiredToUnlock: 0
+  isControlledByPlayer: 0
+  isRaidable: 1
   adjacentTiles: []
   triggerBoxPrefab: {fileID: 2167923522976785674, guid: 08e913b27f88bbe429eee81494729800, type: 3}
 --- !u!64 &6040349125158304779

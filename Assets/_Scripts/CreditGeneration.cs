@@ -24,13 +24,7 @@ public class CreditGeneration : MonoBehaviour
 
     private void Start()
     {
-        PlayerManager.credits++;
-        
-        coinGenerationCoroutine = StartCoroutine(GenerateCoins());
-        coinText = GetComponentInChildren<TMP_Text>();
-        totalCoins = CoinsPool;
-        startingTime = respawnTime;
-        SpawnCredit();
+        StartingGeneration();
     }
 
 
@@ -102,5 +96,16 @@ public class CreditGeneration : MonoBehaviour
     public void ResetRespawnTime()
     {
         respawnTime = startingTime;
+    }
+
+    public void StartingGeneration()
+    {
+        PlayerManager.credits++;
+
+        coinGenerationCoroutine = StartCoroutine(GenerateCoins());
+        coinText = GetComponentInChildren<TMP_Text>();
+        totalCoins = CoinsPool;
+        startingTime = respawnTime;
+        SpawnCredit();
     }
 }

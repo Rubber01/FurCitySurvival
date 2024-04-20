@@ -14,11 +14,15 @@ public class BuildingPrefabController : MonoBehaviour
     private int currentActiveMeshIndex = 0;
     private GameObject buildingmodel;
     public int influencePoints = 1;
+    private Transform childTransform;
+    private Transform buildingActivator;
 
     [SerializeField] private TextMeshPro buildingCost;
 
     private void Start()
     {
+        childTransform = transform.Find("Plane");
+        buildingActivator = transform.Find("BuildingActivator");
         // Verifica che il riferimento allo ScriptableObject sia valido
         if (buildingData != null)
         {
@@ -75,5 +79,16 @@ public class BuildingPrefabController : MonoBehaviour
         newBuilding.transform.rotation = rotation * Quaternion.Euler(90f, 0f, 0f);
         newBuilding.transform.SetParent(transform);
         PlayerManager.influencePoints += influencePoints;
+
+        //Disattiva l'icona del building
+        if (childTransform != null)
+        {
+            childTransform.gameObject.SetActive(false);
+        }
+
+        if (buildingActivator != null)
+        {
+            buildingActivator.gameObject.SetActive(true);
+        }
     }
 }

@@ -74,11 +74,12 @@ public class HireHenchmen : MonoBehaviour
             allyPool -= 1;
             PlayerManager.currentHench += 1;
             allyNumText.text = allyPool.ToString() + " / " + totalAllies;
-            
-            
+            Debug.Log("HenchmenHired!");
+
             //if ()
             //StartCoroutine(StartRespawnCountdown());
         }
+
         
     }
 

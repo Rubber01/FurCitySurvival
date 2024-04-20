@@ -73,25 +73,7 @@ public class BuildingTile : BasicTile
                         PlayerManager.credits -= buildingCost;
                         isSpawned = true;
                     }
-                    if (isSpawned && gameObject.GetComponentInChildren<CreditGeneration>() && !(gameObject.GetComponentInChildren<CreditGeneration>().IsActive()))
-                    {
-                        CreditGeneration creditgeneration = gameObject.GetComponentInChildren<CreditGeneration>();
-
-                        if (creditgeneration.CoinsPool == 0 && creditgeneration.respawnTime == 0)
-                        {
-                            creditgeneration.RestartCoinGeneration();
-                            //Debug.Log("credit Generation: " + gameObject.GetComponentInChildren<CreditGeneration>().name);
-                            creditgeneration.ResetRespawnTime();
-                        }
-                    }
-
-                    if (isSpawned && gameObject.GetComponentInChildren<HireHenchmen>() && gameObject.GetComponentInChildren<HireHenchmen>().isActive)
-                    {
-                        Debug.Log("HenchmenHired!");
-                        gameObject.GetComponentInChildren<HireHenchmen>().SpawnAlly();
-                    }
-
-
+                    //Codice tagliato in BuildingActivator.cs
                     break;
                 case ResourceType.Henchmen:
                     Debug.Log("------> ResoyrceTypeHenchmen");
