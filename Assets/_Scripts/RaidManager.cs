@@ -23,8 +23,10 @@ public class RaidManager : MonoBehaviour
     {
         healthBar=HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
     }
+
     private void OnCollisionStay(Collision collision)
     {
+        Debug.LogError("Collision Stay");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
@@ -97,7 +99,7 @@ public class RaidManager : MonoBehaviour
             raided = true;
             transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
             reputationSystem.AddExperience(reputation);
-
+            //buildingActivator = transform.Find("BuildingActivator");
         }
     }
 }
