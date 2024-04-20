@@ -14,6 +14,8 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private int reputation;
     private ReputationSystem reputationSystem;
     private HealthBar healthBar;
+    private BuildingTile tile;
+    private Transform buildingActivator;
     public void SetLevelSystem(ReputationSystem reputationSystem)
     {
         this.reputationSystem = reputationSystem;
@@ -21,12 +23,14 @@ public class RaidManager : MonoBehaviour
 
     private void Start()
     {
-        healthBar=HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
+        buildingActivator = transform.Find("BuildingActivator");
+        healthBar =HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
+        tile = GetComponentInParent<BuildingTile>();    
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        Debug.LogError("Collision Stay");
+        //Debug.LogError("Collision Stay");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
@@ -97,7 +101,15 @@ public class RaidManager : MonoBehaviour
         if (countdownTime == 0 && raided == false)
         {
             raided = true;
-            transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
+            //transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
+            transform.GetComponentInChildren<CreditGeneration>().enabled = true;
+            if (buildingActivator != null)
+            {
+                buildingActivator.gameObject.SetActive(true);
+            }
+
+            tile.isRaidable = false;
+            tile.isControlledByPlayer = true;
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
         }
