@@ -107,10 +107,20 @@ public class RaidManager : MonoBehaviour
         {
             raided = true;
             //transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
-            transform.GetComponentInChildren<CreditGeneration>().enabled = true;
-            if (buildingActivator != null)
+            if (transform.GetComponentInChildren<CreditGeneration>())
             {
-                buildingActivator.gameObject.SetActive(true);
+                transform.GetComponentInChildren<CreditGeneration>().enabled = true;
+                if (buildingActivator != null)
+                {
+                    buildingActivator.gameObject.SetActive(true);
+                }
+            }
+            else if (transform.GetComponentInChildren<HireHenchmen>())
+            {
+                if (buildingActivator != null)
+                {
+                    buildingActivator.gameObject.SetActive(true);
+                }
             }
 
             tile.isRaidable = false;
