@@ -10,8 +10,8 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private int alliesRequired;
     private bool raided = false;
     [SerializeField] private float delay = 2;
-    [SerializeField] private float countdownTime = 10f; 
-    [SerializeField] private float originalCountdownTime=10f; // Memorizza il tempo di partenza originale
+    [SerializeField] private float countdownTime = 10f;
+    [SerializeField] private float originalCountdownTime = 10f; // Memorizza il tempo di partenza originale
     [SerializeField] private int reputation;
     private ReputationSystem reputationSystem;
     private HealthBar healthBar;
@@ -25,8 +25,8 @@ public class RaidManager : MonoBehaviour
     private void Start()
     {
         buildingActivator = transform.Find("BuildingActivator");
-        healthBar =HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
-        tile = GetComponentInParent<BuildingTile>();    
+        healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
+        tile = GetComponentInParent<BuildingTile>();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -34,7 +34,7 @@ public class RaidManager : MonoBehaviour
         Debug.Log("allies hitting " + previousCollidedObjects.Count);
         //Debug.LogError("Collision Stay");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
-            collision.gameObject.layer == LayerMask.NameToLayer("Ally") )
+            collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
             if (!previousCollidedObjects.Contains(collision.gameObject))
             {
@@ -61,9 +61,9 @@ public class RaidManager : MonoBehaviour
                 previousCollidedObjects.Remove(collision.gameObject);
 
                 // Avvia il conto alla rovescia solo se non è già stato avviato
-                
+
             }
-            
+
         }
         if (previousCollidedObjects.Count == 0)
             StartCoroutine(CountUp(delay));
@@ -127,6 +127,15 @@ public class RaidManager : MonoBehaviour
             tile.isControlledByPlayer = true;
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
+
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            //sacrificio Henchmen
+            for (int i = 0; i <= alliesRequired; i++)
+            {
+                    Destroy(playerObject.GetComponent<Player>().allies[i]);
+            }
+                
+            
         }
     }
 }
