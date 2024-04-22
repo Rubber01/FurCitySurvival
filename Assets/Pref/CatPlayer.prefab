@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c1f2f66c6b73a48a4711889730a9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 6
+  _moveSpeed: 4
   health: 30
   maxHealth: 30
   damage: 3
@@ -63,6 +63,7 @@ MonoBehaviour:
   outOfCombat: 5
   enemy: {fileID: 0}
   allies: []
+  healthBar: {fileID: 0}
   _turnSpeed: 15
   _sellTime: 0.1
   _coinTime: 0
@@ -74,7 +75,6 @@ MonoBehaviour:
   _cameraStep: 2.5
   _joystick: {fileID: 0}
   _animatorController: {fileID: 3893241399966190913}
-  _rotateSpeed: 3
 --- !u!114 &3893241399966190913
 MonoBehaviour:
   m_ObjectHideFlags: 0

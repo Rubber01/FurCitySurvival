@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5641287401147672094}
   - component: {fileID: 7620505593211731824}
   - component: {fileID: 4432553692495094369}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8555500488575790406}
   - component: {fileID: 4983791941382769747}
   - component: {fileID: 2591120418312445167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 171502732407183149}
   - component: {fileID: 2790742099762244311}
   - component: {fileID: 6040349125158304779}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tile_Unlockable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,6 +378,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
+  RepCost: 0
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -416,7 +417,7 @@ GameObject:
   - component: {fileID: 6794100374053080132}
   - component: {fileID: 2986021752885478751}
   - component: {fileID: 2736656098041879727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,7 +505,7 @@ GameObject:
   - component: {fileID: 6031380856001200214}
   - component: {fileID: 4443591986884729115}
   - component: {fileID: 4346104895549659404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +610,7 @@ GameObject:
   - component: {fileID: 8592472953605227562}
   - component: {fileID: 7024112984546969630}
   - component: {fileID: 5321533346327286951}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
