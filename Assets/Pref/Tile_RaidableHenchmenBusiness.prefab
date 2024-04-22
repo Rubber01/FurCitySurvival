@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 4599815552720830171}
   - component: {fileID: 4908999998039533081}
   m_Layer: 16
-  m_Name: Tile_RaidablePub
+  m_Name: Tile_RaidableHenchmenBusiness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
