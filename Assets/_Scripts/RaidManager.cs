@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RaidManager : MonoBehaviour
 {
@@ -50,17 +51,17 @@ public class RaidManager : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Oggetto " + collision.gameObject.name + " sta uscendo");
-        // Verifica se il collider con cui si è colliso appartiene ai layers "Player" o "Ally"
+        // Verifica se il collider con cui si ï¿½ colliso appartiene ai layers "Player" o "Ally"
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            // Verifica se l'oggetto che ha causato la collisione è già stato controllato precedentemente
+            // Verifica se l'oggetto che ha causato la collisione ï¿½ giï¿½ stato controllato precedentemente
             if (previousCollidedObjects.Contains(collision.gameObject))
             {
                 // Aggiungi l'oggetto corrente alla lista degli oggetti precedenti
                 previousCollidedObjects.Remove(collision.gameObject);
 
-                // Avvia il conto alla rovescia solo se non è già stato avviato
+                // Avvia il conto alla rovescia solo se non ï¿½ giï¿½ stato avviato
                 
             }
             
@@ -125,6 +126,7 @@ public class RaidManager : MonoBehaviour
 
             tile.isRaidable = false;
             tile.isControlledByPlayer = true;
+
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
         }

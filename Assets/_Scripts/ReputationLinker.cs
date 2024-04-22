@@ -7,6 +7,7 @@ public class ReputationLinker : MonoBehaviour
     [SerializeField] private ReputationController reputationController;
     //[SerializeField] private Player player;
     [SerializeField] private RaidManager[] raidManager;
+
     [SerializeField] private TriggerTileUnlocker[] tileUnlocker;
 
     private void Awake()
@@ -17,7 +18,6 @@ public class ReputationLinker : MonoBehaviour
         //player.SetLevelSystem(reputationSystem); 
         ReputationSystemAnimated levelSystemAnimated = new ReputationSystemAnimated(reputationSystem);
         reputationController.SetLevelSystemAnimated(levelSystemAnimated);
-
         tileUnlocker = GameObject.FindObjectsOfType<TriggerTileUnlocker>();
         if (tileUnlocker.Length > 0)
         {
@@ -26,12 +26,13 @@ public class ReputationLinker : MonoBehaviour
             {
                 // Fai qualcosa con ogni oggetto trovato
                 obj.SetLevelSystem(reputationSystem);
+
                 Debug.Log("Oggetto con lo script TriggerTileUnlocker trovato: " + obj.gameObject.name);
             }
         }
         else
         {
-            // Nessun oggetto con lo script è stato trovato
+            // Nessun oggetto con lo script ï¿½ stato trovato
             Debug.Log("Nessun oggetto con lo script TriggerTileUnlocker trovato in scena.");
         }
 
@@ -48,10 +49,12 @@ public class ReputationLinker : MonoBehaviour
         }
         else
         {
-            // Nessun oggetto con lo script è stato trovato
+            // Nessun oggetto con lo script ï¿½ stato trovato
             //Debug.Log("Nessun oggetto con lo script raidManager trovato in scena.");
         }
     }
+
+    
 
 }
 
