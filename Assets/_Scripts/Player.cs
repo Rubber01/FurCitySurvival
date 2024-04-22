@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using UnityEditor.Animations;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoSingleton<Player>
