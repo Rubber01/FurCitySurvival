@@ -28,10 +28,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     //public static PlayerManager Instance { get { return instance; } }
 
-    //private void Awake()
-    //{
-    //    instance = this;
-    //}
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
 
     
 

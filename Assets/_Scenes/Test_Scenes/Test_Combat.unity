@@ -20618,8 +20618,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: outOfCombat
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: allies.Array.size
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: tickRestoringHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: healthRestoringOverTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7838639739091879634, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: m_Name
