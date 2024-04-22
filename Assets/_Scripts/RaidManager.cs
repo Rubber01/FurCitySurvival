@@ -139,7 +139,7 @@ public class RaidManager : MonoBehaviour
 
             GameObject playerObject = GameObject.FindWithTag("Player");
             //sacrificio Henchmen ?
-            for (int i = 0; i <= alliesRequired; i++)
+            for (int i = 0; i < alliesRequired; i++)
             {
                     Destroy(playerObject.GetComponent<Player>().allies[i]);
             }

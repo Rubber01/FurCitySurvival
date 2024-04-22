@@ -19,7 +19,8 @@ public class Player : MonoSingleton<Player>
     [SerializeField] private bool hasCollideWithEnemy = false;
     private float timeCollidedWithEnemy=0;
     [SerializeField] private float outOfCombat=5;
-    
+    [SerializeField] private float healthRestoringOverTime;
+    [SerializeField] private float tickRestoringHealth;
     //nemico
     [SerializeField] GameObject enemy;
     private GameObject lastCollisionObject; // Ultimo oggetto che ha colliso
@@ -153,10 +154,10 @@ private GameData _gameData;
     {
         while(health<maxHealth)
         {
-            Debug.Log("Restoring 1Hp");
-            health += 1;
+            Debug.Log("Restoring: "+healthRestoringOverTime+"hp");
+            health += healthRestoringOverTime;
             healthBar.UpdateHealthBar(maxHealth, health);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(tickRestoringHealth);
         }
     }
     private void OnTriggerEnter(Collider other)
