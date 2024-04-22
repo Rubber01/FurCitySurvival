@@ -31,6 +31,7 @@ public class CreditGeneration : MonoBehaviour
         coinText = GetComponentInChildren<TMP_Text>();
         
         totalCoins = CoinsPool;
+        CoinsPool = 0;
         coinText.text = CoinsPool.ToString() + " / " + totalCoins;
         regenerationCoroutine = StartCoroutine(CoinPoolRegeneration());
     }
