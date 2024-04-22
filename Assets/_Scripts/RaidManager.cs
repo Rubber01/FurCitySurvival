@@ -7,16 +7,32 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private List<GameObject> previousCollidedObjects = new List<GameObject>();
     [SerializeField] private bool countdownStarted = false;
     [SerializeField] private bool countupStarted = false;
+    [SerializeField] private int alliesRequired;
+    private bool raided = false;
     [SerializeField] private float delay = 2;
-    [SerializeField] private float countdownTime = 10f; 
-    [SerializeField] private float originalCountdownTime=10f; // Memorizza il tempo di partenza originale
+    [SerializeField] private float countdownTime = 10f;
+    [SerializeField] private float originalCountdownTime = 10f; // Memorizza il tempo di partenza originale
+    [SerializeField] private int reputation;
+    private ReputationSystem reputationSystem;
     private HealthBar healthBar;
+    private BuildingTile tile;
+    private Transform buildingActivator;
+    public void SetLevelSystem(ReputationSystem reputationSystem)
+    {
+        this.reputationSystem = reputationSystem;
+    }
+
     private void Start()
     {
-        healthBar=HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z-3f), originalCountdownTime, countdownTime);
+        buildingActivator = transform.Find("BuildingActivator");
+        healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
+        tile = GetComponentInParent<BuildingTile>();
     }
+
     private void OnCollisionStay(Collision collision)
     {
+        Debug.Log("allies hitting " + previousCollidedObjects.Count);
+        //Debug.LogError("Collision Stay");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
@@ -24,7 +40,7 @@ public class RaidManager : MonoBehaviour
             {
                 previousCollidedObjects.Add(collision.gameObject);
 
-                if (!countdownStarted)
+                if (!countdownStarted && previousCollidedObjects.Count - 1 >= alliesRequired)
                 {
                     StartCoroutine(CountDown());
                 }
@@ -45,40 +61,81 @@ public class RaidManager : MonoBehaviour
                 previousCollidedObjects.Remove(collision.gameObject);
 
                 // Avvia il conto alla rovescia solo se non è già stato avviato
-                
+
             }
-            
+
         }
+        if (previousCollidedObjects.Count == 0)
+            StartCoroutine(CountUp(delay));
     }
+
     IEnumerator CountDown()
     {
-        while (countdownTime > 0 && previousCollidedObjects.Count>0)
+        while (countdownTime > 0 && previousCollidedObjects.Count > 0)
         {
+            countupStarted = false;
             countdownStarted = true;
             Debug.Log("Countdown: " + countdownTime.ToString("F1") + " seconds" + " numero di oggetti " + previousCollidedObjects.Count);
             countdownTime -= previousCollidedObjects.Count;
             healthBar.UpdateHealthBar(originalCountdownTime, countdownTime);
             yield return new WaitForSeconds(1f);
         }
+
     }
     IEnumerator CountUp(float delay)
     {
-
+        yield return new WaitForSeconds(delay);
         while (countdownTime < originalCountdownTime)
         {
+            countdownStarted = false;
             countupStarted = true;
             Debug.Log("Countup: " + countdownTime.ToString("F1") + " seconds" + " numero di oggetti " + previousCollidedObjects.Count);
-            countdownTime ++;
+            countdownTime++;
             healthBar.UpdateHealthBar(originalCountdownTime, countdownTime);
             yield return new WaitForSeconds(1f);
         }
     }
     private void Update()
     {
-        if (previousCollidedObjects.Count == 0 && countupStarted==false && countdownTime < originalCountdownTime)
+        if (previousCollidedObjects.Count == 0 && countupStarted == false && countdownTime < originalCountdownTime)
         {
 
             StartCoroutine(CountUp(delay));
+        }
+
+        if (countdownTime == 0 && raided == false)
+        {
+            raided = true;
+            //transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
+            if (transform.GetComponentInChildren<CreditGeneration>())
+            {
+                transform.GetComponentInChildren<CreditGeneration>().enabled = true;
+                if (buildingActivator != null)
+                {
+                    buildingActivator.gameObject.SetActive(true);
+                }
+            }
+            else if (transform.GetComponentInChildren<HireHenchmen>())
+            {
+                if (buildingActivator != null)
+                {
+                    buildingActivator.gameObject.SetActive(true);
+                }
+            }
+
+            tile.isRaidable = false;
+            tile.isControlledByPlayer = true;
+            reputationSystem.AddExperience(reputation);
+            //buildingActivator = transform.Find("BuildingActivator");
+
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            //sacrificio Henchmen
+            for (int i = 0; i <= alliesRequired; i++)
+            {
+                    Destroy(playerObject.GetComponent<Player>().allies[i]);
+            }
+                
+            
         }
     }
 }

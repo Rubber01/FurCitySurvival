@@ -19,6 +19,7 @@ public class AllyAI : MonoBehaviour
 	[SerializeField] Transform target;
 	private Transform temp;
 	UnityEngine.AI.NavMeshAgent agent;
+	[SerializeField] private AnimatorController _animatorController;
 
 	void Start()
 	{
@@ -37,19 +38,29 @@ public class AllyAI : MonoBehaviour
 		}
 		// Get the distance to the player
 		float distance = Vector3.Distance(target.position, transform.position);
-		Debug.Log("Distanza " + distance);
-        // If inside the radius
-        
+		//Debug.Log("Distanza " + distance);
+		// If inside the radius
+		_animatorController.PlayIdle();
+		Debug.Log("CONTROLLO " + target.CompareTag("Player"));
 		if (distance <= lookRadius)
 		{
 			// Move towards the player
 			agent.SetDestination(target.position);
+			_animatorController.PlayRun();
 			if (distance <= agent.stoppingDistance /*|| distance <= attackRange*/)
 			{
-				// Attack (animazioni e funzione che sottrae da player la vita)
-				Debug.Log("chiamo attacco");
-				AttackPlayer();
-				FaceTarget();
+                //FARE CONTROLLO SE è PLAYER
+                if (target.CompareTag("Player") == false)
+                {
+					Debug.Log("chiamo attacco");
+					AttackPlayer();
+					FaceTarget();
+                }else
+                {
+					_animatorController.PlayIsHappy();
+					FaceTarget();
+				}
+
 			}
 		}
 	}
@@ -86,12 +97,13 @@ public class AllyAI : MonoBehaviour
 			//animazione.start
 			Debug.Log("Attacco nemico Ally sto attaccando " + target.name);
 			alreadyAttacked = true;
+			_animatorController.PlayHit();
 			Invoke(nameof(ResetAttack), timeBetweenAttacks);
             if (target != null) // Controllo inserito
             {
                 try
                 {
-                    target.GetComponent<EnemyAI>().TakeDamage(damage);
+					target.GetComponent<EnemyAI>().TakeDamage(damage);
                 }
                 catch (System.Exception e) // Correzione: "catch" richiede solo il tipo di eccezione
                 {
@@ -102,6 +114,7 @@ public class AllyAI : MonoBehaviour
 	}
 	private void ResetAttack()
 	{
+		_animatorController.PlayStopHit();
 		alreadyAttacked = false;
 	}
 	public void TakeDamage(int damage)

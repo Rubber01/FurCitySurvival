@@ -5,7 +5,7 @@ using Cinemachine;
 using UnityEditor.Animations;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Player : MonoBehaviour
+public class Player : MonoSingleton<Player>
 {   //zona attacco player
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float health;
@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
     private bool collisonOccured = false;
 
     //alleati
-    [SerializeField] private GameObject[] allies;
+    //[SerializeField] public GameObject[] allies;
+    [SerializeField] public List<GameObject> allies = new List<GameObject>();
 
     //UI
     [SerializeField] private HealthBar healthBar;
@@ -76,11 +77,13 @@ private GameData _gameData;
         _stackedBlocks = new Stack<Transform>();
         _sellBlocks = false;
         _cameraSettings = _camera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        allies = new List<GameObject>();
     }
 
-    private void CheckAllies()
+    public void CheckAllies()
     {
-        allies = GameObject.FindGameObjectsWithTag("Ally");
+        //allies = GameObject.FindGameObjectsWithTag("Ally");
+        
     }
     private void Start()
     {
@@ -88,6 +91,7 @@ private GameData _gameData;
         healthBar.UpdateHealthBar(maxHealth, health);
         _audioSource = GetComponent<AudioSource>();
         Debug.Log("Audiosource: "+_audioSource.name);
+        
     }
 
     /*public void Move(Vector3 newPosition)
@@ -384,6 +388,9 @@ private GameData _gameData;
         healthBar.UpdateHealthBar(maxHealth, health);
         if (health <= 0) Destroy(gameObject);
     }
-    
-    
+
+    //public void AddAlly(GameObject newAlly)
+    //{
+    //    allies[PlayerManager.currentHench] = newAlly;
+    //}
 }

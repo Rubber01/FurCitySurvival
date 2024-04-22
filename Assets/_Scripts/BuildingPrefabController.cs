@@ -7,16 +7,22 @@ using TMPro;
 
 public class BuildingPrefabController : MonoBehaviour
 {
+
+
     public Building buildingData; // Riferimento allo ScriptableObject dell'edificio
     public int currentLevel = 1;
     private int currentActiveMeshIndex = 0;
     private GameObject buildingmodel;
     public int influencePoints = 1;
+    private Transform childTransform;
+    private Transform buildingActivator;
 
     [SerializeField] private TextMeshPro buildingCost;
 
     private void Start()
     {
+        childTransform = transform.Find("Plane");
+        buildingActivator = transform.Find("BuildingActivator");
         // Verifica che il riferimento allo ScriptableObject sia valido
         if (buildingData != null)
         {
@@ -32,38 +38,38 @@ public class BuildingPrefabController : MonoBehaviour
         buildingCost.text = buildingData.resourceCostType.ToString() + " " + buildingData.buildingCost.ToString();
     }
 
-    public void UpgradeBuilding()
-    {
-        Debug.Log("Upgrading building");
-        // Aumenta il livello di upgrade
-        buildingData.currentUpgradeLevel++;
-        // Attiva la mesh aggiuntiva successiva
-        ToggleAdditionalMesh(currentActiveMeshIndex, true);
-        currentActiveMeshIndex++;
-        buildingData.UpgradeToLevel(buildingData.currentUpgradeLevel);
-        Debug.Log("activeMeshIndex" + currentActiveMeshIndex);
+    //public void UpgradeBuilding()
+    //{
+    //    Debug.Log("Upgrading building");
+    //    // Aumenta il livello di upgrade
+    //    buildingData.currentUpgradeLevel++;
+    //    // Attiva la mesh aggiuntiva successiva
+    //    ToggleAdditionalMesh(currentActiveMeshIndex, true);
+    //    currentActiveMeshIndex++;
+    //    buildingData.UpgradeToLevel(buildingData.currentUpgradeLevel);
+    //    Debug.Log("activeMeshIndex" + currentActiveMeshIndex);
 
-        if (buildingmodel != null && buildingmodel.GetComponent<CreditGeneration>() != null)
-        {
-            buildingmodel.GetComponent<CreditGeneration>().ReduceTimer();
-        }
-    }
+    //    if (buildingmodel != null && buildingmodel.GetComponent<CreditGeneration>() != null)
+    //    {
+    //        buildingmodel.GetComponent<CreditGeneration>().ReduceTimer();
+    //    }
+    //}
 
-    [ProButton]
-    public void ToggleAdditionalMesh(int index, bool active)
-    {
-        Debug.Log("index" + index);
-        Debug.Log("children: " + buildingmodel.transform.childCount);
-        // Controlla se il prefab ha le mesh aggiuntive
-        if (buildingmodel.transform.childCount >= 2 && index <= buildingmodel.transform.childCount)
-        {
+    //[ProButton]
+    //public void ToggleAdditionalMesh(int index, bool active)
+    //{
+    //    Debug.Log("index" + index);
+    //    Debug.Log("children: " + buildingmodel.transform.childCount);
+    //    // Controlla se il prefab ha le mesh aggiuntive
+    //    if (buildingmodel.transform.childCount >= 2 && index <= buildingmodel.transform.childCount)
+    //    {
             
-            // Attiva la mesh aggiuntiva specificata
-            buildingmodel.transform.GetChild(index).gameObject.SetActive(active);
-            // Aggiorna l'indice della mesh aggiuntiva attualmente attiva
-            currentActiveMeshIndex = index;
-        }
-    }
+    //        // Attiva la mesh aggiuntiva specificata
+    //        buildingmodel.transform.GetChild(index).gameObject.SetActive(active);
+    //        // Aggiorna l'indice della mesh aggiuntiva attualmente attiva
+    //        currentActiveMeshIndex = index;
+    //    }
+    //}
 
    
     public void SpawnBuilding(Vector3 position, Quaternion rotation)
@@ -73,5 +79,16 @@ public class BuildingPrefabController : MonoBehaviour
         newBuilding.transform.rotation = rotation * Quaternion.Euler(90f, 0f, 0f);
         newBuilding.transform.SetParent(transform);
         PlayerManager.influencePoints += influencePoints;
+
+        //Disattiva l'icona del building
+        if (childTransform != null)
+        {
+            childTransform.gameObject.SetActive(false);
+        }
+
+        if (buildingActivator != null)
+        {
+            buildingActivator.gameObject.SetActive(true);
+        }
     }
 }

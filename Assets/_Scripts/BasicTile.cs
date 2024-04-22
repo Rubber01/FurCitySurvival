@@ -14,7 +14,10 @@ public class BasicTile : MonoBehaviour
     public Vector3 TilePosition { get { return tilePosition; } set { tilePosition = value; } }
     public bool isLocked;
     public int unlockCost;
+    public int RepCost;
     public ResourceType resourceRequiredToUnlock;
+    public bool isControlledByPlayer = false;
+    public bool isRaidable = true;
 
     
     private MeshCollider meshCollider;

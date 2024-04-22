@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -9185932874150951834, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -443,7 +443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1158605853818415722, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4440044981552323939, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_Mesh
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  allyPrefab: {fileID: 7026419196648989112, guid: 1e12fb2fb089faa45aa57a780523dfc8, type: 3}
+  allyPrefab: {fileID: 7026419196648989112, guid: 549beafb1c449b44fa35f85a5163ab06, type: 3}
   spawnPoint: {fileID: 8018539511914525590}
   allyPool: 3
   allyCost: 10

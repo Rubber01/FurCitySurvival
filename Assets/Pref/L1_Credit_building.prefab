@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -9185932874150951834, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -264,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: -2130472597218803499, guid: 97420bb7320a9184389daf7ea88635dc, type: 3}
     - target: {fileID: 919132149155446097, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_Name
-      value: L1_Credit_building 2
+      value: L1_Credit_building
       objectReference: {fileID: 0}
     - target: {fileID: 1158605853818415722, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_Name
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1158605853818415722, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4440044981552323939, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
       propertyPath: m_Mesh
@@ -328,8 +328,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.0500915, y: 6.587961, z: 4.995414}
-  m_Center: {x: 0.091501355, y: 3.2939806, z: -0.45320952}
+  m_Size: {x: 2.2368631, y: 6.587961, z: 3.542612}
+  m_Center: {x: -0.0008378029, y: 3.2939806, z: -0.091296196}
 --- !u!114 &8775980210122173592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditPrefab: {fileID: 1958953447687724768, guid: 5087dfcab724b8b4b9254fc8bd7d14b2, type: 3}
   spawnPoint: {fileID: 8018539511914525590}
-  coinGenerationTimer: 3
+  coinGenerationTimer: 1
   CoinsPool: 10
   respawnTime: 10
