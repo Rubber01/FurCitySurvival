@@ -42,7 +42,7 @@ public class TriggerTileUnlocker : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("!!!!!!!!!! LIVELLO: " + reputationSystem.GetLevelNumber() + "!!!!!!!!!!!!!! REP COST: "+ tileToUnlock.RepCost);
-        if (reputationSystem.GetLevelNumber() >= tileToUnlock.RepCost)
+        if (reputationSystem.GetLevelNumber()+1 >= tileToUnlock.RepCost)
         {
             Debug.Log("Trigger Unlock");
             // Controlla se il collider con cui si è verificato il contatto è il giocatore
