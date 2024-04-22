@@ -21,24 +21,37 @@ public class BuildingActivator : MonoBehaviour
     }
 
     //da implementare ontriggerStay
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<Player>()  /* && resources */)
         {
+            if (buildingTile.isSpawned/* && (creditGeneration.IsActive())*/)
+            {
+                //if (creditGeneration.CoinsPool <= 0 && creditGeneration.inCooldown == false)
+                //{
+                //    creditGeneration.StartCooldown();
+                //    //creditGeneration.ResetRespawnTime();
+                //}
+            }
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.gameObject.GetComponent<Player>()  /* && resources */)
+        {
+            
             if (creditGeneration != null)
             {
                 
                 if (buildingTile.isSpawned && !(creditGeneration.IsActive()))
                 {
-                    //creditGeneration.StartingGeneration();
-                    //CreditGeneration creditgeneration = gameObject.GetComponentInChildren<CreditGeneration>();
 
-                    if (creditGeneration.CoinsPool == 0 && creditGeneration.respawnTime == 0)
+                    if (/*creditGeneration.inCooldown == false &&*/ creditGeneration.CoinsPool>0)
                     {
-                        Debug.Log("Building Activated!");
-                        creditGeneration.RestartCoinGeneration();
-                        //Debug.Log("credit Generation: " + gameObject.GetComponentInChildren<CreditGeneration>().name);
-                        creditGeneration.ResetRespawnTime();
+                        creditGeneration.StartingGeneration();
                     }
                 }
 
@@ -46,11 +59,7 @@ public class BuildingActivator : MonoBehaviour
             }
             else if(buildingTile.isSpawned  && hireHenchmen.isActive)//Da specificare il caso in cui l'edificio sia di Recruitment
             {
-                
-                    
                     hireHenchmen.SpawnAlly();
-                
-
             }
             else
             {
@@ -60,5 +69,15 @@ public class BuildingActivator : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player>()  /* && resources */)
+        {
+            if (creditGeneration != null)
+            {
+                creditGeneration.StopCoinGeneration();
+                creditGeneration.SetActive(false);
+            }
+        }
+    }
 }

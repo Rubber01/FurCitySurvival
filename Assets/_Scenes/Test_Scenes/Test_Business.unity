@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936f29a88ddcc1c4a87844f564fc75f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creditGeneration: {fileID: 0}
+  creditGeneration: {fileID: 1275915248}
 --- !u!65 &167395914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24983,6 +24983,7 @@ MonoBehaviour:
   creditPrefab: {fileID: 1958953447687724768, guid: 5087dfcab724b8b4b9254fc8bd7d14b2, type: 3}
   spawnPoint: {fileID: 1196603061}
   coinGenerationTimer: 0.35
+  regenerationTimer: 5
   CoinsPool: 10
   respawnTime: 10
 --- !u!65 &1275742583
@@ -25110,8 +25111,9 @@ MonoBehaviour:
   creditPrefab: {fileID: 1958953447687724768, guid: 5087dfcab724b8b4b9254fc8bd7d14b2, type: 3}
   spawnPoint: {fileID: 637893804}
   coinGenerationTimer: 0.35
+  regenerationTimer: 5
   CoinsPool: 20
-  respawnTime: 30
+  respawnTime: 10
 --- !u!65 &1275915249
 BoxCollider:
   m_ObjectHideFlags: 0

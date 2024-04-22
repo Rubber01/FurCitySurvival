@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CreditGeneration : MonoBehaviour
@@ -12,19 +13,26 @@ public class CreditGeneration : MonoBehaviour
     public GameObject creditPrefab; // Prefab degli oggetti crediti
     public Transform spawnPoint; // Punto di spawn dei crediti
     public float coinGenerationTimer = 5; // Intervallo di tempo in secondi per generare una moneta
+    public float regenerationTimer = 5;
     private int totalCoins;
     public int CoinsPool = 10;
     public int respawnTime = 10;
     private int startingTime;
-    private Coroutine coinGenerationCoroutine;
+    public Coroutine coinGenerationCoroutine;
+    public Coroutine regenerationCoroutine;
     private TMP_Text coinText;
+    //public bool inCooldown = false;
 
     public delegate void RespawnCompleted();
     public event RespawnCompleted OnRespawnCompleted;
 
     private void Start()
     {
-        StartingGeneration();
+        coinText = GetComponentInChildren<TMP_Text>();
+        
+        totalCoins = CoinsPool;
+        coinText.text = CoinsPool.ToString() + " / " + totalCoins;
+        regenerationCoroutine = StartCoroutine(CoinPoolRegeneration());
     }
 
 
@@ -36,10 +44,8 @@ public class CreditGeneration : MonoBehaviour
             yield return new WaitForSeconds(coinGenerationTimer);
             SpawnCredit();
             
-            //AddCoin();
         }
-        isActive = false;
-        StartCoroutine(StartRespawnCountdown());
+        
         yield break;
     }
 
@@ -47,21 +53,9 @@ public class CreditGeneration : MonoBehaviour
     {
         Instantiate(creditPrefab, spawnPoint.position, Quaternion.identity);
         CoinsPool -= 1;
-        coinText.text = CoinsPool.ToString() + " / " + totalCoins;
+        coinText.text = CoinsPool.ToString() + " / " + totalCoins.ToString();
     }
 
-
-    public void UpdateCoinGenerationTimer(float newTimerValue)
-    {
-        coinGenerationTimer = newTimerValue;
-        if (coinGenerationCoroutine != null)
-        {
-            StopCoroutine(coinGenerationCoroutine);
-        }
-        coinGenerationCoroutine = StartCoroutine(GenerateCoins());
-    }
-
-    public void ReduceTimer() { coinGenerationTimer /= 2; }
 
     public bool IsActive()
     {
@@ -72,26 +66,30 @@ public class CreditGeneration : MonoBehaviour
         isActive = value;
     }
 
-    [ProButton]
-    public void RestartCoinGeneration()
-    {
-        CoinsPool = totalCoins;
-        coinGenerationCoroutine = StartCoroutine(GenerateCoins());
-    }
+    //[ProButton]
+    //public void RestartCoinGeneration()
+    //{
+    //    CoinsPool = totalCoins;
+    //    coinGenerationCoroutine = StartCoroutine(GenerateCoins());
+    //}
 
-    private IEnumerator StartRespawnCountdown()
-    {
-        // Avvia il conteggio alla rovescia
-        while (respawnTime > 0)
-        {
-            //Debug.Log("Respawn in: " + respawnTime + " seconds");
-            yield return new WaitForSeconds(1f);
-            respawnTime--;
-        }
+    //private IEnumerator StartRespawnCountdown()
+    //{
+    //    // Avvia il conteggio alla rovescia
+    //    while (respawnTime > 0)
+    //    {
+    //        inCooldown = true;
+    //        //Debug.Log("Respawn in: " + respawnTime + " seconds");
+    //        yield return new WaitForSeconds(1f);
+    //        respawnTime--;
+    //    }
+    //    inCooldown = false;
+
+    //    //CoinsPool = totalCoins;
         
-        coinText.text = totalCoins + " / " + totalCoins;
-        yield break;
-    }
+    //    coinText.text = CoinsPool.ToString() + " / " + totalCoins;
+    //    yield break;
+    //}
 
     public void ResetRespawnTime()
     {
@@ -100,12 +98,45 @@ public class CreditGeneration : MonoBehaviour
 
     public void StartingGeneration()
     {
-        PlayerManager.credits++;
+        //PlayerManager.credits++;
+        
+        
 
         coinGenerationCoroutine = StartCoroutine(GenerateCoins());
-        coinText = GetComponentInChildren<TMP_Text>();
-        totalCoins = CoinsPool;
-        startingTime = respawnTime;
-        SpawnCredit();
+        
+        //totalCoins = CoinsPool;
+        //startingTime = respawnTime;
+        //SpawnCredit();
+        
+    }
+
+    //public void StartCooldown()
+    //{
+    //    StartCoroutine(StartRespawnCountdown());
+        
+    //}
+
+    public void StopCoinGeneration()
+    {
+        if (coinGenerationCoroutine != null)
+        {
+            StopCoroutine(coinGenerationCoroutine);
+            coinGenerationCoroutine = null; // Resetta il riferimento alla coroutine
+            isActive = false;
+        }
+    }
+
+    private IEnumerator CoinPoolRegeneration()
+    {
+        while (true)
+        {
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!Regen coin: " + CoinsPool + " | " + totalCoins);
+            if (CoinsPool < totalCoins)
+            {
+                CoinsPool = CoinsPool + 1;
+            }
+            coinText.text = CoinsPool.ToString() + " / " + totalCoins;
+            yield return new WaitForSeconds(regenerationTimer);
+        }
     }
 }
