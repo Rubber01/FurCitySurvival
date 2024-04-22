@@ -39,4 +39,8 @@ public class HealthBar : MonoBehaviour
         Debug.Log("Health bar: Max Health=" + maxHealth + " Current Health=" + currentHealth+ " Bar value= " + currentHealth/maxHealth);
         target = currentHealth / maxHealth;
     }
+    public void DestroyHealthBar()
+    {
+        Destroy(gameObject);
+    }
 }

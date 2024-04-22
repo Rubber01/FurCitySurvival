@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RaidManager : MonoBehaviour
 {
@@ -50,23 +51,24 @@ public class RaidManager : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Oggetto " + collision.gameObject.name + " sta uscendo");
-        // Verifica se il collider con cui si è colliso appartiene ai layers "Player" o "Ally"
+        // Verifica se il collider con cui si ï¿½ colliso appartiene ai layers "Player" o "Ally"
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            // Verifica se l'oggetto che ha causato la collisione è già stato controllato precedentemente
+            // Verifica se l'oggetto che ha causato la collisione ï¿½ giï¿½ stato controllato precedentemente
             if (previousCollidedObjects.Contains(collision.gameObject))
             {
                 // Aggiungi l'oggetto corrente alla lista degli oggetti precedenti
                 previousCollidedObjects.Remove(collision.gameObject);
 
-                // Avvia il conto alla rovescia solo se non è già stato avviato
+                // Avvia il conto alla rovescia solo se non ï¿½ giï¿½ stato avviato
+                
 
             }
 
         }
-        if (previousCollidedObjects.Count == 0)
-            StartCoroutine(CountUp(delay));
+        /*if (previousCollidedObjects.Count == 0)
+            StartCoroutine(CountUp(delay));*/
     }
 
     IEnumerator CountDown()
@@ -95,6 +97,12 @@ public class RaidManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+    IEnumerator RaidEnd()
+    {
+        yield return new WaitForSeconds(0.25f);
+        healthBar.DestroyHealthBar();
+        enabled = false;
+    }
     private void Update()
     {
         if (previousCollidedObjects.Count == 0 && countupStarted == false && countdownTime < originalCountdownTime)
@@ -103,7 +111,7 @@ public class RaidManager : MonoBehaviour
             StartCoroutine(CountUp(delay));
         }
 
-        if (countdownTime == 0 && raided == false)
+        if (countdownTime <= 0 && raided == false)
         {
             raided = true;
             //transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
@@ -125,16 +133,16 @@ public class RaidManager : MonoBehaviour
 
             tile.isRaidable = false;
             tile.isControlledByPlayer = true;
+            StartCoroutine(RaidEnd());
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
 
             GameObject playerObject = GameObject.FindWithTag("Player");
-            //sacrificio Henchmen
+            //sacrificio Henchmen ?
             for (int i = 0; i <= alliesRequired; i++)
             {
                     Destroy(playerObject.GetComponent<Player>().allies[i]);
             }
-                
             
         }
     }

@@ -38,6 +38,7 @@ public class TriggerTileUnlocker : MonoBehaviour
     }
 
 
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("!!!!!!!!!! LIVELLO: " + reputationSystem.GetLevelNumber() + "!!!!!!!!!!!!!! REP COST: "+ tileToUnlock.RepCost);
