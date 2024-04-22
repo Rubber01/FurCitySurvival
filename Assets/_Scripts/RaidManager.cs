@@ -67,8 +67,8 @@ public class RaidManager : MonoBehaviour
             }
 
         }
-        if (previousCollidedObjects.Count == 0)
-            StartCoroutine(CountUp(delay));
+        /*if (previousCollidedObjects.Count == 0)
+            StartCoroutine(CountUp(delay));*/
     }
 
     IEnumerator CountDown()
@@ -97,6 +97,12 @@ public class RaidManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+    IEnumerator RaidEnd()
+    {
+        yield return new WaitForSeconds(0.25f);
+        healthBar.DestroyHealthBar();
+        enabled = false;
+    }
     private void Update()
     {
         if (previousCollidedObjects.Count == 0 && countupStarted == false && countdownTime < originalCountdownTime)
@@ -105,7 +111,7 @@ public class RaidManager : MonoBehaviour
             StartCoroutine(CountUp(delay));
         }
 
-        if (countdownTime == 0 && raided == false)
+        if (countdownTime <= 0 && raided == false)
         {
             raided = true;
             //transform.GetComponentInChildren<CreditGeneration>().SetActive(true);
@@ -127,17 +133,16 @@ public class RaidManager : MonoBehaviour
 
             tile.isRaidable = false;
             tile.isControlledByPlayer = true;
-
+            StartCoroutine(RaidEnd());
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
 
             GameObject playerObject = GameObject.FindWithTag("Player");
-            //sacrificio Henchmen
+            //sacrificio Henchmen ?
             for (int i = 0; i <= alliesRequired; i++)
             {
                     Destroy(playerObject.GetComponent<Player>().allies[i]);
             }
-                
             
         }
     }

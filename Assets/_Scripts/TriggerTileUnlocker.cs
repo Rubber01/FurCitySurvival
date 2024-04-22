@@ -36,7 +36,7 @@ public class TriggerTileUnlocker : MonoBehaviour
     {
         this.reputationSystem = reputationSystem;
     }
-    
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -45,7 +45,7 @@ public class TriggerTileUnlocker : MonoBehaviour
         if (reputationSystem.GetLevelNumber() >= tileToUnlock.RepCost)
         {
             Debug.Log("Trigger Unlock");
-            // Controlla se il collider con cui si ï¿½ verificato il contatto ï¿½ il giocatore
+            // Controlla se il collider con cui si è verificato il contatto è il giocatore
             if (other.CompareTag("Player")) //if (other.CompareTag("Player"))
             {
                 //hexgrid.UpdateTile(new KeyValuePair<Vector2Int, Vector3>(tileToUnlock.GetComponent<BasicTile>().TileCoords, tileToUnlock.GetComponent<BasicTile>().TilePosition));
