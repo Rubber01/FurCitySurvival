@@ -19,6 +19,8 @@ public class BuildingActivator : MonoBehaviour
         hireHenchmen = parentObject.transform.GetComponentInChildren<HireHenchmen>();
         
     }
+
+    //da implementare ontriggerStay
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>()  /* && resources */)
@@ -57,4 +59,6 @@ public class BuildingActivator : MonoBehaviour
             
         }
     }
+
+    
 }

@@ -69,10 +69,21 @@ public class HireHenchmen : MonoBehaviour
         {
             
             PlayerManager.credits -= allyCost;
-            Instantiate(allyPrefab, spawnPoint.position, Quaternion.identity);
+            GameObject newAllyInstance = Instantiate(allyPrefab, spawnPoint.position, Quaternion.identity);
             //allyPrefab.GetComponent<AllyAI>().alreadyAttacked = true;
             allyPool -= 1;
             PlayerManager.currentHench += 1;
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            if (playerObject != null)
+            {
+                //Player.Instance.AddAlly(allyPrefab);
+                playerObject.GetComponent<Player>().allies.Add(newAllyInstance);
+            }
+            else
+            {
+                Debug.LogError("player not found");
+            }
+
             allyNumText.text = allyPool.ToString() + " / " + totalAllies;
             Debug.Log("HenchmenHired!");
 

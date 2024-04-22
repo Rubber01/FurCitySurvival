@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  allyPrefab: {fileID: 7026419196648989112, guid: 1e12fb2fb089faa45aa57a780523dfc8, type: 3}
+  allyPrefab: {fileID: 7026419196648989112, guid: 549beafb1c449b44fa35f85a5163ab06, type: 3}
   spawnPoint: {fileID: 8018539511914525590}
   allyPool: 3
   allyCost: 10
