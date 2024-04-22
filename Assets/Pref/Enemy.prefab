@@ -146,7 +146,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 2
+  m_Speed: 6
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -200,10 +200,10 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   damage: 2
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 2
   alreadyAttacked: 0
   attackRange: 2
-  lookRadius: 10
+  lookRadius: 12
   playerInSightRange: 0
   playerInAttackRange: 0
   target: {fileID: 0}

@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/ScenaProvePietro.unity
     guid: 1dd1781b8dc2de14783cd9b9be61ddfb
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Scene_Prototype.unity
     guid: fd4d7805fff8f924a98853d800debdcd
+  - enabled: 1
+    path: Assets/_Scenes/Test_Scenes/Test_Combat.unity
+    guid: 227c94447df9c374abf5db99190a0f49
   m_configObjects: {}
