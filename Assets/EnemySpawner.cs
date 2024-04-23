@@ -11,15 +11,22 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = 10f; // Frequenza di spawn
     private int enemiesSpawned = 0; // Contatore dei nemici spawnati
     public float nextSpawnTime = 0f; // Tempo prossimo spawn
+    private BasicTile parentTile;
 
     private void Start()
     {
         nextSpawnTime = Time.time + spawnRate;
+        parentTile = transform.parent.GetComponent<BasicTile>();
+        if (parentTile == null )
+        {
+            Debug.LogError("Parent Tile not found");
+        }
+        
     }
     void Update()
     {
         // Controlla se è il momento di spawnare un nemico
-        if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive)
+        if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive && !(parentTile.isLocked))
         {
             SpawnEnemy();
             nextSpawnTime = Time.time + spawnRate;
