@@ -128,6 +128,7 @@ public class RaidManager : MonoBehaviour
                 if (buildingActivator != null)
                 {
                     buildingActivator.gameObject.SetActive(true);
+                    transform.GetComponentInChildren<HireHenchmen>().EmptyAllyPool();
                 }
             }
 

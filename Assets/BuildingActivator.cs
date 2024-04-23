@@ -17,8 +17,9 @@ public class BuildingActivator : MonoBehaviour
         creditGeneration = parentObject.transform.GetComponentInChildren<CreditGeneration>();
 
         hireHenchmen = parentObject.transform.GetComponentInChildren<HireHenchmen>();
-        
+        hireHenchmen.StartAllyRegeneration();
     }
+
 
     //da implementare ontriggerStay
     private void OnTriggerStay(Collider other)

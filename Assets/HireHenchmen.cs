@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class HireHenchmen : MonoBehaviour
 {
@@ -11,9 +12,10 @@ public class HireHenchmen : MonoBehaviour
     private int totalAllies;
     public int allyPool = 3;
     public int allyCost;
-    public int respawnTime = 3;
+    //public int respawnTime = 3;
+    public float regenerationTimer = 5;
     private int startingTime;
-    private Coroutine allySpawnCoroutine;
+    private Coroutine regenAllyCoroutine;
     private TMP_Text allyNumText;
     private TMP_Text allyCostText;
 
@@ -22,27 +24,40 @@ public class HireHenchmen : MonoBehaviour
 
     private void Start()
     {
-        GameObject obj_allyNumText = GameObject.Find("AllyNumText");
-        if (obj_allyNumText != null)
+        Transform childTransform = transform.Find("AllyNumText");
+        if (childTransform != null)
         {
-            allyNumText = obj_allyNumText.GetComponent<TMP_Text>();
+            allyNumText = childTransform.GetComponentInChildren<TMP_Text>();
         }
-        //allyNumText = GetComponentInChildren<TMP_Text>();
-
-        GameObject obj = GameObject.Find("AllyCost");
-        if (obj != null)
+        else
         {
-            allyCostText = obj.GetComponent<TMP_Text>();
+            Debug.Log("AllyNumText not found");
         }
 
-        allyCostText.text += "\n" + allyCost.ToString();
+        Transform childTransform2 = transform.Find("AllyCost");
+        if (childTransform != null)
+        {
+            allyCostText = childTransform2.GetComponentInChildren<TMP_Text>();
+        }
+        else
+        {
+            Debug.Log("AllyNumText not found");
+        }
+        
+
+        allyCostText.text ="Recruit cost:"+ "\n" + allyCost.ToString();
         //allySpawnCoroutine = StartCoroutine(GenerateAlly());
 
         totalAllies = allyPool;
-        startingTime = respawnTime;
+        allyPool = 0;   
+        
+        //startingTime = respawnTime;
 
         allyNumText.text = allyPool.ToString() + " / " + totalAllies;
         isActive = true;
+
+        //regenAllyCoroutine = StartCoroutine(AllyRegeneration());
+
         //SpawnAlly();
     }
 
@@ -91,17 +106,42 @@ public class HireHenchmen : MonoBehaviour
         
     }
 
-    private IEnumerator StartRespawnCountdown()
+    private IEnumerator AllyRegeneration()
     {
-        // Avvia il conteggio alla rovescia
-        while (respawnTime > 0)
+        while (true)
         {
-            Debug.Log("Respawn in: " + respawnTime + " seconds");
-            yield return new WaitForSeconds(1f);
-            respawnTime--;
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!Regen ally: " + allyPool + " | " + totalAllies);
+            if (allyPool < totalAllies)
+            {
+                allyPool++;
+                
+            }
+            allyNumText.text = allyPool.ToString() + " / " + totalAllies;
+            yield return new WaitForSeconds(regenerationTimer);
         }
-
-        allyNumText.text = totalAllies + " / " + totalAllies;
-        yield break;
     }
+
+    public void StartAllyRegeneration()
+    {
+        regenAllyCoroutine = StartCoroutine(AllyRegeneration());
+    }
+
+    public void EmptyAllyPool()
+    {
+        allyPool = 0;
+    }
+
+    //private IEnumerator StartRespawnCountdown()
+    //{
+    //    // Avvia il conteggio alla rovescia
+    //    while (respawnTime > 0)
+    //    {
+    //        Debug.Log("Respawn in: " + respawnTime + " seconds");
+    //        yield return new WaitForSeconds(1f);
+    //        respawnTime--;
+    //    }
+
+    //    allyNumText.text = totalAllies + " / " + totalAllies;
+    //    yield break;
+    //}
 }
