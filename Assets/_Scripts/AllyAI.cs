@@ -38,15 +38,17 @@ public class AllyAI : MonoBehaviour
 		}
 		// Get the distance to the player
 		float distance = Vector3.Distance(target.position, transform.position);
-		//Debug.Log("Distanza " + distance);
-		// If inside the radius
-		_animatorController.PlayIdle();
+        //Debug.Log("Distanza " + distance);
+        // If inside the radius
+        if (!alreadyAttacked)
+            _animatorController.PlayIdle();
 		Debug.Log("CONTROLLO " + target.CompareTag("Player"));
 		if (distance <= lookRadius)
 		{
 			// Move towards the player
 			agent.SetDestination(target.position);
-			_animatorController.PlayRun();
+            if (!alreadyAttacked)
+                _animatorController.PlayRun();
 			if (distance <= agent.stoppingDistance /*|| distance <= attackRange*/)
 			{
                 //FARE CONTROLLO SE è PLAYER

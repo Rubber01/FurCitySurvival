@@ -1,4 +1,4 @@
-using AYellowpaper.SerializedCollections;
+﻿using AYellowpaper.SerializedCollections;
 using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,17 +19,23 @@ public class BasicTile : MonoBehaviour
     public bool isControlledByPlayer = false;
     public bool isRaidable = true;
 
-    
+    private ReputationSystem reputationSystem;
     private MeshCollider meshCollider;
-    
+    public void SetLevelSystem(ReputationSystem reputationSystem)
+    {
+        Debug.Log("Reputation System chiamato");
+        this.reputationSystem = reputationSystem;
+    }
 
 
     //[SerializedDictionary("Grid Coord", "TileObject")]
     //public SerializedDictionary<Vector2Int, GameObject> neighbourTiles;
 
-    private void Awake()
+    private void Start()
     {
         meshCollider = GetComponent<MeshCollider>();
+        if (RepCost > reputationSystem.GetLevelNumber())
+            TextPopup.Create(transform.position, "★"+RepCost);
         //gameData = GetComponent<GameData>();
     }
 
@@ -85,7 +91,7 @@ public class BasicTile : MonoBehaviour
     {
         adjacentTiles.Clear();
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 5f); // Considera un raggio di 1.1 unit� per trovare i tile adiacenti
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 5f); // Considera un raggio di 1.1 unità per trovare i tile adiacenti
 
         foreach (var collider in colliders)
         {
@@ -96,7 +102,7 @@ public class BasicTile : MonoBehaviour
                 {
                     adjacentTiles.Add(adjacentTile);
 
-                    // Calcola la posizione del trigger box a met� strada tra questo tile e il tile adiacente
+                    // Calcola la posizione del trigger box a metà strada tra questo tile e il tile adiacente
                     Vector3 triggerPosition = (transform.position + adjacentTile.transform.position) / 2f;
                     
 

@@ -9,6 +9,9 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private bool countdownStarted = false;
     [SerializeField] private bool countupStarted = false;
     [SerializeField] private int alliesRequired;
+    [SerializeField] private Material materialRaided;
+    [SerializeField] private Material materialNotRaided;
+    [SerializeField] private Renderer renderer;
     public bool raided = false;
     [SerializeField] private float delay = 2;
     [SerializeField] private float countdownTime = 10f;
@@ -25,6 +28,10 @@ public class RaidManager : MonoBehaviour
 
     private void Start()
     {
+        if (raided == false)
+        {
+            renderer.material = materialNotRaided;
+        }
         buildingActivator = transform.Find("BuildingActivator");
         healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
         tile = GetComponentInParent<BuildingTile>();
@@ -148,7 +155,7 @@ public class RaidManager : MonoBehaviour
             tile.isRaidable = false;
             tile.isControlledByPlayer = true;
             raided = true;
-
+            renderer.material = materialRaided;
             StartCoroutine(RaidEnd());
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
@@ -168,5 +175,6 @@ public class RaidManager : MonoBehaviour
         countdownStarted = false;
         countupStarted = false;
         countdownTime = originalCountdownTime;
+        renderer.material = materialNotRaided;
     }
 }

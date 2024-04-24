@@ -432,7 +432,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8432146271385396827, guid: 0db4017f7d791744aa2685b36c72648f, type: 3}
+  - {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -491,6 +491,9 @@ MonoBehaviour:
   previousCollidedObjects: []
   countdownStarted: 0
   countupStarted: 0
+  alliesRequired: 0
+  material: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
+  raided: 0
   delay: 2
   countdownTime: 30
   originalCountdownTime: 30

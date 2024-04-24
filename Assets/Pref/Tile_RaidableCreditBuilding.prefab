@@ -313,6 +313,7 @@ MonoBehaviour:
   creditPrefab: {fileID: 1958953447687724768, guid: 5087dfcab724b8b4b9254fc8bd7d14b2, type: 3}
   spawnPoint: {fileID: 3068659355152714936}
   coinGenerationTimer: 3
+  regenerationTimer: 5
   CoinsPool: 10
   respawnTime: 10
 --- !u!1 &1294799278317068149
@@ -642,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8432146271385396827, guid: 0db4017f7d791744aa2685b36c72648f, type: 3}
+  - {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -701,6 +702,9 @@ MonoBehaviour:
   previousCollidedObjects: []
   countdownStarted: 0
   countupStarted: 0
+  alliesRequired: 0
+  material: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
+  raided: 0
   delay: 2
   countdownTime: 30
   originalCountdownTime: 30
@@ -721,6 +725,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
+  RepCost: 0
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1

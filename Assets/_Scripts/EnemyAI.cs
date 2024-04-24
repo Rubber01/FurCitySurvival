@@ -43,12 +43,14 @@ public class EnemyAI : MonoBehaviour
 		float distance = Vector3.Distance(target.position, transform.position);
 		Debug.Log("Distanza "+ distance);
         // If inside the radius
-        _animatorController.PlayIdle();
+		if(!alreadyAttacked)
+			_animatorController.PlayIdle();
         if (distance <= lookRadius)
 		{
 			// Move towards the player
 			agent.SetDestination(target.position);
-            _animatorController.PlayRun();
+            if (!alreadyAttacked)
+                _animatorController.PlayRun();
             if (distance <= agent.stoppingDistance  || distance<= attackRange)
 			{
 				// Attack (animazioni e funzione che sottrae da player la vita)
@@ -102,6 +104,12 @@ public class EnemyAI : MonoBehaviour
 	}
 	private void DestroyEnemy()
 	{
-		Destroy(gameObject);
+		_animatorController.PlayIsDying();
+
+        Invoke(nameof(Death), 5);
 	}
+	private void Death()
+	{
+		Destroy(gameObject);
+    }
 }

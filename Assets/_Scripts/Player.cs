@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.Linq;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoSingleton<Player>
@@ -83,7 +84,7 @@ private GameData _gameData;
 
     public void CheckAllies()
     {
-        //allies = GameObject.FindGameObjectsWithTag("Ally");
+        allies=GameObject.FindGameObjectsWithTag("Ally").ToList();
         
     }
     private void Start()
@@ -204,7 +205,7 @@ private GameData _gameData;
                 CheckAllies();
                 foreach (GameObject ally in allies)
                 {
-                    Debug.Log("alleati " + ally.gameObject.name);
+                    Debug.Log("alleati " + ally.gameObject.name+ " Target "+ collision.gameObject.name);
                     ally.GetComponent<AllyAI>().SetTarget(collision.gameObject);
                 }
                 //collisonOccured = true;
