@@ -209,6 +209,7 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   target: {fileID: 0}
+  _animatorController: {fileID: 7989951303355552214}
 --- !u!95 &9050703163409218375
 Animator:
   serializedVersion: 5
