@@ -244,7 +244,7 @@ Rigidbody:
   m_GameObject: {fileID: 7026419196648989112}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 20
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -258,10 +258,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 116
-  m_CollisionDetection: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &2901479811544059065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 34beb902d41e63d46a726c637da4bfb0, type: 3}
   m_Controller: {fileID: 9100000, guid: bb0a1373ae551f84e9fb8fb2779a5635, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
