@@ -21,7 +21,9 @@ public class EnemyAI : MonoBehaviour
 	[SerializeField] Transform target;
 	NavMeshAgent agent;
 
-	void Start()
+    [SerializeField] private AnimatorController _animatorController;
+
+    void Start()
 	{
 		healthBar = GetComponentInChildren<HealthBar>();
 		healthBar.UpdateHealthBar(maxHealth, health);
@@ -40,12 +42,14 @@ public class EnemyAI : MonoBehaviour
 		// Get the distance to the player
 		float distance = Vector3.Distance(target.position, transform.position);
 		Debug.Log("Distanza "+ distance);
-		// If inside the radius
-		if (distance <= lookRadius)
+        // If inside the radius
+        _animatorController.PlayIdle();
+        if (distance <= lookRadius)
 		{
 			// Move towards the player
 			agent.SetDestination(target.position);
-			if (distance <= agent.stoppingDistance  || distance<= attackRange)
+            _animatorController.PlayRun();
+            if (distance <= agent.stoppingDistance  || distance<= attackRange)
 			{
 				// Attack (animazioni e funzione che sottrae da player la vita)
 				Debug.Log("chiamo attacco");
@@ -79,13 +83,15 @@ public class EnemyAI : MonoBehaviour
 			//animazione.start
 			Debug.Log("Attacco");
 			alreadyAttacked = true;
-			target.gameObject.GetComponent<Player>().TakeDamage(damage);
+            _animatorController.PlayHit();
+            target.gameObject.GetComponent<Player>().TakeDamage(damage);
 			Invoke(nameof(ResetAttack), timeBetweenAttacks);
 		}
 	}
 	private void ResetAttack()
 	{
-		alreadyAttacked = false;
+        _animatorController.PlayStopHit();
+        alreadyAttacked = false;
 	}
 	public void TakeDamage(int damage)
 	{
