@@ -274,10 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2b015ec192f9a489cc0ac97d92527e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
-  damage: 2
-  timeBetweenAttacks: 1
+  health: 3
+  maxHealth: 3
+  damage: 1
+  timeBetweenAttacks: 2
   alreadyAttacked: 0
   attackRange: 1.5
   lookRadius: 6
