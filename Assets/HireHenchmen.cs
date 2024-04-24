@@ -77,7 +77,7 @@ public class HireHenchmen : MonoBehaviour
 
     public void SpawnAlly()
     {
-        if (PlayerManager.credits >= allyCost && PlayerManager.currentHench < PlayerManager.henchmenSlots)
+        if (PlayerManager.credits >= allyCost && PlayerManager.currentHench < PlayerManager.henchmenSlots && allyPool > 0)
         {
             
             PlayerManager.credits -= allyCost;
