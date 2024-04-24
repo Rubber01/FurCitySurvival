@@ -9,7 +9,7 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private bool countdownStarted = false;
     [SerializeField] private bool countupStarted = false;
     [SerializeField] private int alliesRequired;
-    private bool raided = false;
+    public bool raided = false;
     [SerializeField] private float delay = 2;
     [SerializeField] private float countdownTime = 10f;
     [SerializeField] private float originalCountdownTime = 10f; // Memorizza il tempo di partenza originale
@@ -29,7 +29,14 @@ public class RaidManager : MonoBehaviour
         healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
         tile = GetComponentInParent<BuildingTile>();
     }
-
+    public bool GetRaided()
+    {
+        return raided;
+    }
+    public void SetRaided(bool raided)
+    {
+         this.raided=raided;
+    }
     private void OnCollisionStay(Collision collision)
     {
         Debug.Log("allies hitting " + previousCollidedObjects.Count);
@@ -84,6 +91,7 @@ public class RaidManager : MonoBehaviour
         }
 
     }
+    
     IEnumerator CountUp(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -102,6 +110,11 @@ public class RaidManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         healthBar.DestroyHealthBar();
         enabled = false;
+        
+    }
+    public GameObject GetGameObject()
+    {
+        return gameObject;
     }
     private void Update()
     {
@@ -134,6 +147,8 @@ public class RaidManager : MonoBehaviour
 
             tile.isRaidable = false;
             tile.isControlledByPlayer = true;
+            raided = true;
+
             StartCoroutine(RaidEnd());
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
@@ -146,5 +161,12 @@ public class RaidManager : MonoBehaviour
             }
             
         }
+    }
+    public void Restart()
+    {
+        raided=false;
+        countdownStarted = false;
+        countupStarted = false;
+        countdownTime = originalCountdownTime;
     }
 }

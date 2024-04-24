@@ -59,6 +59,7 @@ public class Player : MonoSingleton<Player>
     private Rigidbody _rigidbody;
 
     private Vector3 _moveVector;
+    [SerializeField] LoseBuisiness loseBuisiness;
 
 
 
@@ -136,6 +137,7 @@ private GameData _gameData;
             hasCollideWithEnemy = false;
             StartCoroutine(RestoreHealth());
         }
+
         /*if (_isMoving)
         {
             _ridigbody.velocity = _movePosition * _moveSpeed;
@@ -386,7 +388,13 @@ private GameData _gameData;
     {
         health -= damage;
         healthBar.UpdateHealthBar(maxHealth, health);
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            
+            _animatorController.PlayIsDying();
+            Debug.Log("Chiamo PlayerDeath");
+            loseBuisiness.PlayerDeath();
+        }
     }
 
     //public void AddAlly(GameObject newAlly)
