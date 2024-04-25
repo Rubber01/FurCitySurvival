@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private float reduceSpeed = 2;
     private float target = 1;
     private Camera cam;
+    [SerializeField] bool ui=false;
 
     public static HealthBar Create(Vector3 position, float maxHealth, float health)
     {
@@ -31,8 +32,12 @@ public class HealthBar : MonoBehaviour
     }
     private void Update()
     {
-        transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
+        if (!ui)
+        {
+            transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
+        }
         healthBarSprite.fillAmount = Mathf.MoveTowards(healthBarSprite.fillAmount, target, reduceSpeed * Time.deltaTime);
+        
     }
     public void UpdateHealthBar(float maxHealth, float currentHealth)
     {

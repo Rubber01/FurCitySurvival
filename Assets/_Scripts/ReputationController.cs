@@ -19,7 +19,8 @@ public class ReputationController : MonoBehaviour
         Debug.Log("bottone " + transform.Find("Experience5Btn").GetComponent<Button>());
         transform.Find("Experience50Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(50));
         transform.Find("Experience500Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(500));
-        levelText.text = "Level 5";
+        //levelText.text = "Level 5";
+
 
     }
     private void SetExperienceBarSize(float experinceNormalized)
