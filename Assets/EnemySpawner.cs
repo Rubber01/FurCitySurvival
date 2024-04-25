@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         // Controlla se è il momento di spawnare un nemico
-        if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive && !(parentTile.isLocked))
+        if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive && !(parentTile.isLocked) && !(parentTile.isControlledByPlayer))
         {
             SpawnEnemy();
             nextSpawnTime = Time.time + spawnRate;
