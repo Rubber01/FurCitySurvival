@@ -12852,7 +12852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &489941399
 Transform:
   m_ObjectHideFlags: 0
@@ -13897,7 +13897,7 @@ MonoBehaviour:
   tilePosition: {x: 11.691343, y: 0.3, z: 6.75}
   isLocked: 0
   unlockCost: 0
-  RepCost: 1
+  RepCost: 0
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -14566,7 +14566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileCoords: {x: 3, y: 0}
   tilePosition: {x: 23.382687, y: 0.3, z: 0}
-  isLocked: 0
+  isLocked: 1
   unlockCost: 0
   RepCost: 3
   resourceRequiredToUnlock: 0
@@ -14657,7 +14657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &613633779
 Transform:
   m_ObjectHideFlags: 0
@@ -33462,7 +33462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1330242674
 Transform:
   m_ObjectHideFlags: 0
@@ -49417,7 +49417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileCoords: {x: 2, y: 0}
   tilePosition: {x: 15.588457, y: 0.3, z: 0}
-  isLocked: 0
+  isLocked: 1
   unlockCost: 0
   RepCost: 2
   resourceRequiredToUnlock: 0
@@ -52806,7 +52806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileCoords: {x: 3, y: 1}
   tilePosition: {x: 27.2798, y: 0.3, z: 6.75}
-  isLocked: 0
+  isLocked: 1
   unlockCost: 0
   RepCost: 5
   resourceRequiredToUnlock: 0

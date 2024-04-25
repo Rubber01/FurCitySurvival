@@ -34,13 +34,25 @@ public class BasicTile : MonoBehaviour
 
     private void Start()
     {
+        
         lockedArea = this.transform.GetChild(0).gameObject;
-        meshCollider = GetComponent<MeshCollider>();
+        //meshCollider = GetComponent<MeshCollider>();
+
+        if (reputationSystem == null )
+        {
+            GameObject linker = GameObject.Find("FuncitionUpdater&ReputationLinker");
+            SetLevelSystem(linker.GetComponent<ReputationLinker>().reputationSystem);
+        }
+        
+
         if (RepCost > reputationSystem.GetLevelNumber())
         {
             TextPopup.Create(transform.position, "★" + RepCost);
-            lockedArea.transform.parent = null;
-            TileScaler(true, 0.5f);
+            if (isLocked)
+            {
+                lockedArea.transform.parent = null;
+                TileScaler(true, 0.5f);
+            }
         }
         //gameData = GetComponent<GameData>();
     }
@@ -155,4 +167,38 @@ public class BasicTile : MonoBehaviour
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 100f); // Il valore 5f è una velocità di interpolazione arbitraria, puoi regolarla a tuo piacimento
 
     }
+
+    public void TileControlLost()
+    {
+        
+        //temp[k].transform.Find("EnemySpawner").gameObject.SetActive(true);
+        isControlledByPlayer = false;
+        isRaidable = true;
+        Transform enemySpawner = transform.Find("EnemySpawner");
+        if (enemySpawner != null)
+        {
+            enemySpawner.gameObject.SetActive(true);
+
+            enemySpawner.GetComponent<EnemySpawner>().ResetSpawn();
+
+        }
+        else
+        {
+            Debug.LogError("ENEMYSPAWNER NOT FOUND!");
+        }
+
+        
+        Transform buildingActivator = transform.Find("BuildingActivator");
+        if (buildingActivator != null)
+        {
+            buildingActivator.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("BUILDINGACTIVATOR NOT FOUND!");
+        }
+        
+
+    }
+
 }

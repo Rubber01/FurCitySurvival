@@ -6,13 +6,14 @@ public class ReputationLinker : MonoBehaviour
 {
     [SerializeField] private ReputationController reputationController;
     //[SerializeField] private Player player;
-    [SerializeField] private RaidManager[] raidManager;
+    [SerializeField] public RaidManager[] raidManager;
     [SerializeField] public BasicTile[] basicTile;
     [SerializeField] private TriggerTileUnlocker[] tileUnlocker;
+    public ReputationSystem reputationSystem;
 
     private void Awake()
     {
-        ReputationSystem reputationSystem = new ReputationSystem();
+        reputationSystem = new ReputationSystem();
         reputationController.SetLevelSystem(reputationSystem);
         //raidManager.SetLevelSystem(reputationSystem);
         //player.SetLevelSystem(reputationSystem); 

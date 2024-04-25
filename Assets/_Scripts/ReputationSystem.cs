@@ -34,8 +34,10 @@ public class ReputationSystem
             {
                 foreach (BasicTile bt in replink.basicTile)
                 {
-                    
-                    bt.UnlockTile();
+                    if (bt.RepCost <= level+1 && bt.isLocked)
+                    {
+                        bt.UnlockTile();
+                    }
                 }
             }
             else
@@ -48,6 +50,7 @@ public class ReputationSystem
         }
         if (OnExperinceChanged != null) OnExperinceChanged(this, EventArgs.Empty);
     }
+    
     public int GetLevelNumber()
     {
         return level;

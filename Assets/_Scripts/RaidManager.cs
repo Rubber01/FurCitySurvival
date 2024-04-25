@@ -28,6 +28,13 @@ public class RaidManager : MonoBehaviour
 
     private void Start()
     {
+        if (reputationSystem == null)
+        {
+            GameObject linker = GameObject.Find("FuncitionUpdater&ReputationLinker");
+            SetLevelSystem(linker.GetComponent<ReputationLinker>().reputationSystem);
+        }
+
+
         if (raided == false)
         {
             renderer.material = materialNotRaided;

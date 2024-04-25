@@ -10,7 +10,7 @@ public class Player : MonoSingleton<Player>
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
-
+    public bool isDead = false;
     [SerializeField] private int damage;
     [SerializeField] private float timeBetweenAttacks;
     [SerializeField] bool alreadyAttacked = false;

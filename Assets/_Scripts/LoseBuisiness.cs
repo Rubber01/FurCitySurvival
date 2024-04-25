@@ -1,3 +1,5 @@
+using com.cyborgAssets.inspectorButtonPro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +8,20 @@ public class LoseBuisiness : MonoBehaviour
 {
     [SerializeField] private RaidManager[] raidManager;
     [SerializeField] private GameObject[] temp;
+    private ReputationLinker linker;
     public bool chiamato;
 
     private void Awake()
     {
         raidManager = GameObject.FindObjectsOfType<RaidManager>();
+        linker = transform.GetComponent<ReputationLinker>();
         temp = new GameObject[raidManager.Length];
 
         if (raidManager.Length > 0)
         {
-            for(int i = 0; i<raidManager.Length; i++)
+            for (int i = 0; i < raidManager.Length; i++)
             {
-                temp[i]= raidManager[i].GetGameObject();
+                temp[i] = raidManager[i].GetGameObject();
                 Debug.Log("iiii+ " + i);
                 Debug.Log("Oggetto con lo script raidManager trovato: " + raidManager[i].gameObject.name);
 
@@ -26,40 +30,55 @@ public class LoseBuisiness : MonoBehaviour
         }
         else
         {
-            
+
             //Debug.Log("Nessun oggetto con lo script raidManager trovato in scena.");
         }
     }
     //fai il metodo copia come in java
+    [ProButton]
     public void PlayerDeath()
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject.GetComponent<Player>().isDead)
+        {
+            return;
+        }
+        playerObject.GetComponent<Player>().isDead = true;
+
         chiamato = true;
         Debug.Log("PlayerDeath chiamato");
-        int k = Random.Range(0, raidManager.Length);
+        int k = UnityEngine.Random.Range(0, raidManager.Length);
         while (raidManager[k].GetRaided() == false)
         {
-            k = Random.Range(0, raidManager.Length);
+            k = UnityEngine.Random.Range(0, raidManager.Length);
         }
-        
-        Debug.Log("PlayerDeath k creato");
-        GameObject obj = raidManager[k].GetGameObject();
-        Destroy(obj);
-        
-        Debug.Log("PlayerDeath k distrutto");
-        Vector3 newPosition = new Vector3(temp[k].transform.position.x, temp[k].transform.position.y, temp[k].transform.position.z);
-        Transform newTransform = new GameObject().transform;
-        newTransform.position = newPosition;
-        Instantiate(temp[k], newTransform);
-        Debug.Log("PlayerDeath k creato");
-        temp[k].GetComponent<RaidManager>().enabled = true;
 
-        Debug.Log("Enemy Spawner????? "+ temp[k].name);
-        //temp[k].GetComponentInChildren<EnemySpawner>().gameObject.SetActive(true);
-        //temp[k].GetComponentInChildren<EnemySpawner>().ResetSpawn();
-        //temp[k].GetComponent<RaidManager>().Restart();
+        Debug.Log("PlayerDeath k creato");
+
+        GameObject obj = raidManager[k].GetGameObject();
+        if (obj == null)
+        {
+            Debug.Log("OnDeath - RAID MANAGER == NULL");
+        }
+        else
+        {
+            GameObject newTile = Instantiate(temp[k], obj.transform.parent);
+            raidManager[k] = newTile.GetComponent<RaidManager>();
+            Debug.Log("PlayerDeath k distrutto");
+            Debug.Log("PlayerDeath k creato");
+            newTile.GetComponent<RaidManager>().enabled = true;
+            newTile.GetComponent<BasicTile>().TileControlLost();
+            temp[k] = newTile;
+            //obj.SetActive(false);
+            int indice = Array.IndexOf(linker.raidManager, obj.GetComponent<RaidManager>());
+            linker.raidManager[indice] = raidManager[k];
+            int indice2 = Array.IndexOf(linker.basicTile, obj.GetComponent<BasicTile>());
+            linker.basicTile[indice2] = newTile.GetComponent<BasicTile>();
+            raidManager[k].Restart();
+            //temp[k].GetComponent<RaidManager>().Restart();
+            Destroy(obj);
+        }
 
 
     }
-    
-
 }
