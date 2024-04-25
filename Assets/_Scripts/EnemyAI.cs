@@ -107,6 +107,7 @@ public class EnemyAI : MonoBehaviour
 		_animatorController.PlayIsDying();
 
         Invoke(nameof(Death), 5);
+		agent.speed = 0;
 	}
 	private void Death()
 	{

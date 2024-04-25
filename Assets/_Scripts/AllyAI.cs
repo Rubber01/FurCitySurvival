@@ -122,10 +122,20 @@ public class AllyAI : MonoBehaviour
 	{
 		health -= damage;
 		healthBar.UpdateHealthBar(maxHealth, health);
-		if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+		if (health <= 0)
+		{
+			Invoke(nameof(DestroyEnemy), 0.5f);
+		}
 	}
-	private void DestroyEnemy()
-	{
-		Destroy(gameObject);
-	}
+    private void DestroyEnemy()
+    {
+        _animatorController.PlayIsDying();
+
+        Invoke(nameof(Death), 5);
+        agent.speed = 0;
+    }
+    private void Death()
+    {
+        Destroy(gameObject);
+    }
 }
