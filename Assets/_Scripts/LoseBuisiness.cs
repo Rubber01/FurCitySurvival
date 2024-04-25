@@ -42,7 +42,8 @@ public class LoseBuisiness : MonoBehaviour
         }
         
         Debug.Log("PlayerDeath k creato");
-        Destroy(raidManager[k].GetGameObject());
+        GameObject obj = raidManager[k].GetGameObject();
+        Destroy(obj);
         
         Debug.Log("PlayerDeath k distrutto");
         Vector3 newPosition = new Vector3(temp[k].transform.position.x, temp[k].transform.position.y, temp[k].transform.position.z);

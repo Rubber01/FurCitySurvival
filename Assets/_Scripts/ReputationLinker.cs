@@ -7,7 +7,7 @@ public class ReputationLinker : MonoBehaviour
     [SerializeField] private ReputationController reputationController;
     //[SerializeField] private Player player;
     [SerializeField] private RaidManager[] raidManager;
-    [SerializeField] private BasicTile[] basicTile;
+    [SerializeField] public BasicTile[] basicTile;
     [SerializeField] private TriggerTileUnlocker[] tileUnlocker;
 
     private void Awake()

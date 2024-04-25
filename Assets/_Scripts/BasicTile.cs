@@ -21,6 +21,7 @@ public class BasicTile : MonoBehaviour
 
     private ReputationSystem reputationSystem;
     private MeshCollider meshCollider;
+    private GameObject lockedArea;
     public void SetLevelSystem(ReputationSystem reputationSystem)
     {
         Debug.Log("Reputation System chiamato");
@@ -33,9 +34,14 @@ public class BasicTile : MonoBehaviour
 
     private void Start()
     {
+        lockedArea = this.transform.GetChild(0).gameObject;
         meshCollider = GetComponent<MeshCollider>();
         if (RepCost > reputationSystem.GetLevelNumber())
-            TextPopup.Create(transform.position, "★"+RepCost);
+        {
+            TextPopup.Create(transform.position, "★" + RepCost);
+            lockedArea.transform.parent = null;
+            TileScaler(true, 0.5f);
+        }
         //gameData = GetComponent<GameData>();
     }
 
@@ -64,11 +70,23 @@ public class BasicTile : MonoBehaviour
             
             //Debug.Log(LevelManager.Instance._GameData.Coins);
             Debug.Log("Tile Unlocked!");
-            GameObject childObject = this.transform.GetChild(0).gameObject;
-            
-            childObject.SetActive(false);
+            //GameObject childObject = this.transform.GetChild(0).gameObject;
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+            {
+                this.transform.GetChild(0).gameObject.SetActive(false);
+            }
+            else
+            {
+                lockedArea.SetActive(false);
+            }
+                
+#else
+            lockedArea.SetActive(false);
+#endif
             //LevelManager.Instance._GameData.Coins -= unlockCost;
             isLocked = false;
+            TileScaler(false, 1);
         }
     }
 
@@ -126,4 +144,15 @@ public class BasicTile : MonoBehaviour
         }
     }
 
+    [ProButton]
+    public void TileScaler(bool _isReduced, float _scaleFactor)
+    {
+        
+        // Definisci la scala finale in base a se l'oggetto deve essere rimpicciolito o meno
+        Vector3 targetScale = _isReduced ? Vector3.one * (100* _scaleFactor) : (Vector3.one * 100);
+
+        // Usa Lerp per interpolare gradualmente tra la scala corrente e la scala finale
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 100f); // Il valore 5f è una velocità di interpolazione arbitraria, puoi regolarla a tuo piacimento
+
+    }
 }

@@ -27,6 +27,22 @@ public class ReputationSystem
         while (experience >= experienceToNextLevel)
         {
             level++;
+            PlayerManager.henchmenSlots += 1;
+            GameObject linker = GameObject.Find("FuncitionUpdater&ReputationLinker");
+            ReputationLinker replink = linker.GetComponent<ReputationLinker>();
+            if (linker != null && replink != null)
+            {
+                foreach (BasicTile bt in replink.basicTile)
+                {
+                    
+                    bt.UnlockTile();
+                }
+            }
+            else
+            {
+                Debug.Log("linker not found");
+            }
+
             experience -= experienceToNextLevel;
             if (OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
         }
