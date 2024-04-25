@@ -67,7 +67,7 @@ public class BuildingActivator : MonoBehaviour
             }
             else
             {
-                Debug.LogError("CreditGeneration o HireHenchmen non trovati nel padre dell'oggetto corrente.");
+                Debug.Log("CreditGeneration o HireHenchmen non trovati nel padre dell'oggetto corrente.");
             }
             
         }

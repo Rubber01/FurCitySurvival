@@ -89,6 +89,9 @@ private GameData _gameData;
     }
     private void Start()
     {
+
+        //healthBar = GetComponentInChildren<HealthBar>();
+
         healthBar.UpdateHealthBar(maxHealth, health);
         _audioSource = GetComponent<AudioSource>();
         Debug.Log("Audiosource: "+_audioSource.name);

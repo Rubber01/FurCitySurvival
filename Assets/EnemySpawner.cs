@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
         parentTile = transform.parent.GetComponent<BasicTile>();
         if (parentTile == null )
         {
-            Debug.LogError("Parent Tile not found");
+            Debug.Log("Parent Tile not found");
         }
         
     }
@@ -45,5 +45,17 @@ public class EnemySpawner : MonoBehaviour
         {
             Debug.LogWarning("Prefab nemico o punto di spawn non impostati!");
         }
+    }
+
+    public void ResetSpawn()
+    {
+        // Resetta il contatore dei nemici spawnati
+        enemiesSpawned = 0;
+
+        // Resetta il tempo prossimo spawn
+        nextSpawnTime = Time.time + spawnRate;
+
+        // Riattiva lo spawner se non è già attivo
+        IsActive = true;
     }
 }

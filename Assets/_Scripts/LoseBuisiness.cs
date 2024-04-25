@@ -23,8 +23,6 @@ public class LoseBuisiness : MonoBehaviour
 
             }
 
-
-
         }
         else
         {
@@ -53,7 +51,13 @@ public class LoseBuisiness : MonoBehaviour
         Instantiate(temp[k], newTransform);
         Debug.Log("PlayerDeath k creato");
         temp[k].GetComponent<RaidManager>().enabled = true;
+
+        Debug.Log("Enemy Spawner????? "+ temp[k].name);
+        //temp[k].GetComponentInChildren<EnemySpawner>().gameObject.SetActive(true);
+        //temp[k].GetComponentInChildren<EnemySpawner>().ResetSpawn();
         //temp[k].GetComponent<RaidManager>().Restart();
+
+
     }
     
 

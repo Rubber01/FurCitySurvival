@@ -166,8 +166,16 @@ public class RaidManager : MonoBehaviour
             {
                     Destroy(playerObject.GetComponent<Player>().allies[i]);
             }
-            
-            transform.GetComponentInChildren<EnemySpawner>().GetComponent<EnemySpawner>().enabled = false;
+
+            EnemySpawner enemyspawner = transform.GetComponentInChildren<EnemySpawner>();
+            if (enemyspawner != null)
+            {
+                enemyspawner.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("no spawner found");
+            }
 
 
         }

@@ -56,7 +56,6 @@ public class BasicTile : MonoBehaviour
     public void UnlockTile()
     {
 
-        
         //Debug.Log("LevelManager + " + LevelManager.Instance._GameData.Coins);
 
         Debug.Log("Is it locked1? " + isLocked);

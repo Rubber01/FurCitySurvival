@@ -17,14 +17,14 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public static int plasticNumber;
     public static int chipNumber;
 
-    [SerializeField] private TextMeshProUGUI creditsText;
-    [SerializeField] private TextMeshProUGUI influencePointText;
-    [SerializeField] private TextMeshProUGUI henchmenSlotsText;
-    [SerializeField] private TextMeshProUGUI metalScrapText;
-    [SerializeField] private TextMeshProUGUI metalText;
-    [SerializeField] private TextMeshProUGUI plasticWasteText;
-    [SerializeField] private TextMeshProUGUI plasticText;
-    [SerializeField] private TextMeshProUGUI chipText;
+    public TextMeshProUGUI creditsText;
+    //[SerializeField] private TextMeshProUGUI influencePointText;
+    [SerializeField] public TextMeshProUGUI henchmenSlotsText;
+    //[SerializeField] private TextMeshProUGUI metalScrapText;
+    //[SerializeField] private TextMeshProUGUI metalText;
+    //[SerializeField] private TextMeshProUGUI plasticWasteText;
+    //[SerializeField] private TextMeshProUGUI plasticText;
+    //[SerializeField] private TextMeshProUGUI chipText;
 
     //public static PlayerManager Instance { get { return instance; } }
 
@@ -37,13 +37,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     private void Update()
     {
-        creditsText.text = "Cr:" + credits.ToString();
-        metalScrapText.text = "MS:" + metalScrapNumber.ToString();
-        metalText.text = "M:" + metalNumber.ToString();
-        plasticWasteText.text = "PW:" + plasticWasteNumber.ToString();
-        plasticText.text = "P:" + plasticNumber.ToString();
-        chipText.text = "Ch:" + chipNumber.ToString();
-        influencePointText.text = "Inf:" + influencePoints.ToString();
-        henchmenSlotsText.text = "\n" + "h_s:" + "\n" + currentHench + "/" + henchmenSlots.ToString();
+        creditsText.text = "x: " + credits.ToString();
+        //metalScrapText.text = "MS:" + metalScrapNumber.ToString();
+        //metalText.text = "M:" + metalNumber.ToString();
+        //plasticWasteText.text = "PW:" + plasticWasteNumber.ToString();
+        //plasticText.text = "P:" + plasticNumber.ToString();
+        //chipText.text = "Ch:" + chipNumber.ToString();
+        //influencePointText.text = "Inf:" + influencePoints.ToString();
+        henchmenSlotsText.text = currentHench + "/" + henchmenSlots.ToString();
     }
 }
