@@ -167,6 +167,9 @@ public class RaidManager : MonoBehaviour
                     Destroy(playerObject.GetComponent<Player>().allies[i]);
             }
             
+            transform.GetComponentInChildren<EnemySpawner>().GetComponent<EnemySpawner>().enabled = false;
+
+
         }
     }
     public void Restart()
