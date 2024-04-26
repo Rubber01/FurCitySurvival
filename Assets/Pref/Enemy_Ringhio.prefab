@@ -126,7 +126,7 @@ MonoBehaviour:
   health: 3
   maxHealth: 3
   damage: 1
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 3
   alreadyAttacked: 0
   attackRange: 2
   lookRadius: 12
