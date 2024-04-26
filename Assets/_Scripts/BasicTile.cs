@@ -3,6 +3,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BasicTile : MonoBehaviour
 {
@@ -51,6 +52,9 @@ public class BasicTile : MonoBehaviour
         {
             textPopup = TextPopup.Create(transform.position, "★" + RepCost);
             textPopup.transform.SetParent(transform, true);
+            Color color = new Color(123f / 255f, 138f / 255f, 249f / 255f);
+            textPopup.textMesh.color = color;//new Color(123, 138, 249);
+            
             if (isLocked)
             {
                 lockedArea.transform.parent = null;

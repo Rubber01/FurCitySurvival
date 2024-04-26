@@ -342,8 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d83e9874cceea44dbe576f821d6f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creditPrefab: {fileID: 1958953447687724768, guid: 5087dfcab724b8b4b9254fc8bd7d14b2, type: 3}
+  creditPrefab: {fileID: 1958953447687724768, guid: ad4499bc120da68478424cc7d6a212ae, type: 3}
   spawnPoint: {fileID: 8018539511914525590}
   coinGenerationTimer: 1
+  regenerationTimer: 5
   CoinsPool: 10
   respawnTime: 10

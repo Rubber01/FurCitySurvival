@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 public class TextPopup : MonoBehaviour
 {
-    private TextMeshPro textMesh;
-    private Color textColor;
+    public TextMeshPro textMesh;
+    public Color textColor;
     [SerializeField] private float disappearTimer;
     private bool disappearing = false;
     public static TextPopup Create(Vector3 position, int damageAmount)

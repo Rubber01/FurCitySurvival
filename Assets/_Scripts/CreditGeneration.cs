@@ -21,6 +21,7 @@ public class CreditGeneration : MonoBehaviour
     public Coroutine coinGenerationCoroutine;
     public Coroutine regenerationCoroutine;
     private TMP_Text coinText;
+    private GameObject p;
     //public bool inCooldown = false;
 
     public delegate void RespawnCompleted();
@@ -29,7 +30,7 @@ public class CreditGeneration : MonoBehaviour
     private void Start()
     {
         coinText = GetComponentInChildren<TMP_Text>();
-        
+        p = GameObject.FindGameObjectWithTag("Player");
         totalCoins = CoinsPool;
         CoinsPool = 0;
         coinText.text = CoinsPool.ToString() + " / " + totalCoins;
@@ -52,7 +53,9 @@ public class CreditGeneration : MonoBehaviour
 
     private void SpawnCredit()
     {
-        Instantiate(creditPrefab, spawnPoint.position, Quaternion.identity);
+        //Instantiate(creditPrefab, spawnPoint.position, Quaternion.identity);
+        Vector3 spawnPoint = p.transform.position + new Vector3(0, 5, 0);
+        Instantiate(creditPrefab, spawnPoint , Quaternion.identity);
         CoinsPool -= 1;
         coinText.text = CoinsPool.ToString() + " / " + totalCoins.ToString();
     }
