@@ -11,7 +11,7 @@ public class MeshController : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //bt = transform.parent.GetComponent<BasicTile>();
         catBuilding = this.transform.GetChild(0).gameObject;

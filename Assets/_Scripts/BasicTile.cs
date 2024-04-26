@@ -38,7 +38,12 @@ public class BasicTile : MonoBehaviour
 
     private void Start()
     {
-        mc = this.transform.GetComponentInChildren<MeshController>();
+        mc = transform.GetComponentInChildren<MeshController>();
+        if (mc != null)
+        {
+            mc.SwitchMesh(isControlledByPlayer);
+        }
+
         lockedArea = this.transform.GetChild(0).gameObject;
         //meshCollider = GetComponent<MeshCollider>();
 
@@ -182,6 +187,7 @@ public class BasicTile : MonoBehaviour
         
         //temp[k].transform.Find("EnemySpawner").gameObject.SetActive(true);
         isControlledByPlayer = false;
+        mc = transform.GetComponentInChildren<MeshController>();
         mc.SwitchMesh(isControlledByPlayer);
         isRaidable = true;
         Transform enemySpawner = transform.Find("EnemySpawner");

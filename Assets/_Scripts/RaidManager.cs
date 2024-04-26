@@ -44,7 +44,8 @@ public class RaidManager : MonoBehaviour
         healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
         tile = GetComponentInParent<BuildingTile>();
 
-        mc = this.transform.GetComponentInChildren<MeshController>();
+        
+        mc = transform.GetComponentInChildren<MeshController>();
     }
     public bool GetRaided()
     {
