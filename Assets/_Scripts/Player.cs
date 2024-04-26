@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using System.Linq;
+using TMPro;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoSingleton<Player>
@@ -29,7 +30,7 @@ public class Player : MonoSingleton<Player>
     //alleati
     //[SerializeField] public GameObject[] allies;
     [SerializeField] public List<GameObject> allies = new List<GameObject>();
-
+    [SerializeField] private GameOver gameOverText;
     //UI
     [SerializeField] private HealthBar healthBar;
 
@@ -398,16 +399,30 @@ private GameData _gameData;
     {
         health -= damage;
         healthBar.UpdateHealthBar(maxHealth, health);
-        if (health <= 0)
+        
+        if (health <= 0&& isDead==false)
         {
-            
+            isDead= true;
+            gameOverText.Restarting();
+            Debug.Log("Chiamo GameOver Text Restarting");
             _animatorController.PlayIsDying();
             Debug.Log("Chiamo PlayerDeath");
             loseBuisiness.PlayerDeath();
-
+            _joystick.gameObject.SetActive(false);
+            StartCoroutine(Respawning());
         }
     }
+    IEnumerator Respawning()
+    {
+        yield return new WaitForSeconds(gameOverText.GetTime());
+        health = maxHealth;
+        _rigidbody.position=new Vector3(19.5f, gameObject.transform.position.y, 6.75f);
+        isDead = false;
+        //yield return new WaitForSeconds(0.5f);
+        _joystick.gameObject.SetActive(true);
+        _animatorController.PlayIdle();
 
+    }
     //public void AddAlly(GameObject newAlly)
     //{
     //    allies[PlayerManager.currentHench] = newAlly;
