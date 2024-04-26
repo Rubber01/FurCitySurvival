@@ -492,7 +492,9 @@ MonoBehaviour:
   countdownStarted: 0
   countupStarted: 0
   alliesRequired: 0
-  material: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
+  materialRaided: {fileID: 2100000, guid: 0596eda1987d2704db68d6ab5df4c214, type: 2}
+  materialNotRaided: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
+  renderer: {fileID: 1278970003678052522}
   raided: 0
   delay: 2
   countdownTime: 30
