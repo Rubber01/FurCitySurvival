@@ -1,6 +1,10 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 public class HireHenchmen : MonoBehaviour
 {

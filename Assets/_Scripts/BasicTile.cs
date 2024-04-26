@@ -24,6 +24,7 @@ public class BasicTile : MonoBehaviour
     private MeshCollider meshCollider;
     private GameObject lockedArea;
     private TextPopup textPopup;
+    private MeshController mc;
 
     public void SetLevelSystem(ReputationSystem reputationSystem)
     {
@@ -37,7 +38,7 @@ public class BasicTile : MonoBehaviour
 
     private void Start()
     {
-        
+        mc = this.transform.GetComponentInChildren<MeshController>();
         lockedArea = this.transform.GetChild(0).gameObject;
         //meshCollider = GetComponent<MeshCollider>();
 
@@ -181,6 +182,7 @@ public class BasicTile : MonoBehaviour
         
         //temp[k].transform.Find("EnemySpawner").gameObject.SetActive(true);
         isControlledByPlayer = false;
+        mc.SwitchMesh(isControlledByPlayer);
         isRaidable = true;
         Transform enemySpawner = transform.Find("EnemySpawner");
         if (enemySpawner != null)

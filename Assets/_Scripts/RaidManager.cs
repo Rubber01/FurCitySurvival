@@ -21,6 +21,7 @@ public class RaidManager : MonoBehaviour
     private HealthBar healthBar;
     private BuildingTile tile;
     private Transform buildingActivator;
+    private MeshController mc;
     public void SetLevelSystem(ReputationSystem reputationSystem)
     {
         this.reputationSystem = reputationSystem;
@@ -42,6 +43,8 @@ public class RaidManager : MonoBehaviour
         buildingActivator = transform.Find("BuildingActivator");
         healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
         tile = GetComponentInParent<BuildingTile>();
+
+        mc = this.transform.GetComponentInChildren<MeshController>();
     }
     public bool GetRaided()
     {
@@ -160,7 +163,10 @@ public class RaidManager : MonoBehaviour
             }
 
             tile.isRaidable = false;
+
             tile.isControlledByPlayer = true;
+            mc.SwitchMesh(tile.isControlledByPlayer);
+
             raided = true;
             renderer.material = materialRaided;
             StartCoroutine(RaidEnd());
