@@ -7,6 +7,8 @@ public class ReputationSystem
 {
     public event EventHandler OnExperinceChanged;
     public event EventHandler OnLevelChanged;
+    public event EventHandler OnExperinceChangedLower;
+    public event EventHandler OnLevelChangedLower;
     private int coeff=2;
     private int level;
     private int experience;

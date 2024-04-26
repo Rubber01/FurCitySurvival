@@ -48,10 +48,17 @@ public class LoseBuisiness : MonoBehaviour
         chiamato = true;
         Debug.Log("PlayerDeath chiamato");
         int k = UnityEngine.Random.Range(0, raidManager.Length);
-        while (raidManager[k].GetRaided() == false)
+        for(int j=0; j<k; j++)
         {
-            k = UnityEngine.Random.Range(0, raidManager.Length);
+            if(raidManager[j].GetRaided() == true)
+            {
+                while (raidManager[k].GetRaided() == false)
+                {
+                    k = UnityEngine.Random.Range(0, raidManager.Length);
+                }
+            }
         }
+        
 
         Debug.Log("PlayerDeath k creato");
 

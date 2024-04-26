@@ -195,4 +195,8 @@ public class RaidManager : MonoBehaviour
         countdownTime = originalCountdownTime;
         renderer.material = materialNotRaided;
     }
+    public int GetRepCost()
+    {
+        return reputation;
+    }
 }

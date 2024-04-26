@@ -404,6 +404,7 @@ private GameData _gameData;
             _animatorController.PlayIsDying();
             Debug.Log("Chiamo PlayerDeath");
             loseBuisiness.PlayerDeath();
+
         }
     }
 

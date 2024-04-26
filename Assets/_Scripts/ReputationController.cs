@@ -51,6 +51,9 @@ public class ReputationController : MonoBehaviour
         levelSystemAnimated.OnExperinceChanged += LevelSystemAnimated_OnExperienceChanged;
         levelSystemAnimated.OnLevelChanged += LevelSystemAnimated_OnLevelChanged;
 
+        levelSystemAnimated.OnExperinceChangedLower += LevelSystemAnimated_OnExperienceChangedLower;
+        levelSystemAnimated.OnLevelChangedLower += LevelSystemAnimated_OnLevelChangedLower;
+
     }
     private void LevelSystemAnimated_OnLevelChanged(object sender, System.EventArgs e)
     {
@@ -62,5 +65,16 @@ public class ReputationController : MonoBehaviour
     {
         //se cambia l'esperienza, aggiorna la barra
         SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());   
+    }
+    private void LevelSystemAnimated_OnLevelChangedLower(object sender, System.EventArgs e)
+    {
+        //se cambia livello, aggiorna il testo
+        SetLevelNumber(levelSystemAnimated.GetLevelNumber());
+
+    }
+    private void LevelSystemAnimated_OnExperienceChangedLower(object sender, System.EventArgs e)
+    {
+        //se cambia l'esperienza, aggiorna la barra
+        SetExperienceBarSize(levelSystemAnimated.GetExperienceNormalized());
     }
 }

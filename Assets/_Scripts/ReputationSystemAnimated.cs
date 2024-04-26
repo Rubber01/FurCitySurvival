@@ -6,7 +6,8 @@ public class ReputationSystemAnimated
 {
     public event EventHandler OnExperinceChanged;
     public event EventHandler OnLevelChanged;
-
+    public event EventHandler OnExperinceChangedLower;
+    public event EventHandler OnLevelChangedLower;
     private ReputationSystem levelSystem;
     private bool isAnimating;
     private float updateTimer;
@@ -34,6 +35,8 @@ public class ReputationSystemAnimated
         experienceToNextLevel = levelSystem.GetExperienceToNextLevelNumber(levelSystem.GetLevelNumber());
         levelSystem.OnExperinceChanged += LevelSystem_OnExperienceChanged;
         levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
+        levelSystem.OnExperinceChangedLower += LevelSystem_OnExperienceChangedLower;
+        levelSystem.OnLevelChangedLower += LevelSystem_OnLevelChangedLower;
     }
     private void LevelSystem_OnExperienceChanged(object sender, System.EventArgs e)
     {
@@ -44,9 +47,19 @@ public class ReputationSystemAnimated
     {
         isAnimating = true;
     }
+    private void LevelSystem_OnExperienceChangedLower(object sender, System.EventArgs e)
+    {
+        isAnimating = true;
+
+    }
+    private void LevelSystem_OnLevelChangedLower(object sender, System.EventArgs e)
+    {
+        isAnimating = true;
+    }
     public void Update()
     {
-        Debug.Log("Update chiamato");
+
+        Debug.Log("Update Experience "+ experience+ " experience reale" + levelSystem.GetExperienceNumber());
         if (isAnimating)
         {
             updateTimer += Time.deltaTime;
@@ -66,6 +79,13 @@ public class ReputationSystemAnimated
             //livello locale<target level
             AddExperience();
         }
+        else if(level > levelSystem.GetLevelNumber())
+        {
+            RemoveExperience();
+        }else if(experience > levelSystem.GetExperienceNumber())
+        {
+            RemoveExperience();
+        }
         else
         {
             //livello locale=target level
@@ -78,6 +98,18 @@ public class ReputationSystemAnimated
                 isAnimating = false;
             }
         }
+    }
+    private void RemoveExperience()
+    {
+        experience--;
+        if (experience >= experienceToNextLevel)
+        {
+            level--;
+            experience = 100;
+            if (OnLevelChangedLower != null) OnLevelChangedLower(this, EventArgs.Empty);
+        }
+        if (OnExperinceChangedLower != null) OnExperinceChangedLower(this, EventArgs.Empty);
+
     }
     private void AddExperience()
     {
