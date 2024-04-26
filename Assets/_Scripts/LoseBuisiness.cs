@@ -47,18 +47,14 @@ public class LoseBuisiness : MonoBehaviour
         playerObject.GetComponent<Player>().isDead = true;
 
         chiamato = true;
-        Debug.Log("PlayerDeath chiamato");
         int k = UnityEngine.Random.Range(0, raidManager.Length);
         for(int j=0; j<k; j++)
         {
-            Debug.Log("PlayerDeath dentro for");
             if (raidManager[j].GetRaided() == true)
             {
-                Debug.Log("PlayerDeath dentro if");
 
                 while (raidManager[k].GetRaided() == false)
                 {
-                    Debug.Log("PlayerDeath dentro while");
 
                     k = UnityEngine.Random.Range(0, raidManager.Length);
                 }
@@ -66,7 +62,6 @@ public class LoseBuisiness : MonoBehaviour
         }
         
 
-        Debug.Log("PlayerDeath k creato");
 
         GameObject obj = raidManager[k].GetGameObject();
         if (obj == null)
@@ -77,8 +72,6 @@ public class LoseBuisiness : MonoBehaviour
         {
             GameObject newTile = Instantiate(temp[k], obj.transform.parent);
             raidManager[k] = newTile.GetComponent<RaidManager>();
-            Debug.Log("PlayerDeath k distrutto");
-            Debug.Log("PlayerDeath k creato");
             newTile.GetComponent<RaidManager>().enabled = true;
             newTile.GetComponent<BasicTile>().TileControlLost();
             temp[k] = newTile;
