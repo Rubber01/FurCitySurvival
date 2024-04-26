@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5515529512819114139}
   - component: {fileID: 103785103854229444}
   - component: {fileID: 2084291367655290986}
-  - component: {fileID: 3870182944775363815}
+  - component: {fileID: 6677523545589677318}
   m_Layer: 0
   m_Name: Casino
   m_TagString: Untagged
@@ -322,7 +322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6735295353305871822, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
+  - {fileID: 2100000, guid: d80bd0fe510887347b89f42f936a8870, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -365,7 +365,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.0500915, y: 6.587961, z: 4.995414}
   m_Center: {x: 0.091501355, y: 3.2939806, z: -0.45320952}
---- !u!114 &3870182944775363815
+--- !u!114 &6677523545589677318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,15 +374,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6174558209850770841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f468c3cacfe158408e1796a3fffb4c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d83e9874cceea44dbe576f821d6f665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
-  allyPrefab: {fileID: 7026419196648989112, guid: 549beafb1c449b44fa35f85a5163ab06, type: 3}
-  spawnPoint: {fileID: 5288585672419962478}
-  allyPool: 3
-  allyCost: 10
+  creditPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  coinGenerationTimer: 5
   regenerationTimer: 5
+  CoinsPool: 10
+  respawnTime: 10
 --- !u!1 &6388785500594059755
 GameObject:
   m_ObjectHideFlags: 0
