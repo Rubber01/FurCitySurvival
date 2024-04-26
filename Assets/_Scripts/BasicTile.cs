@@ -22,6 +22,8 @@ public class BasicTile : MonoBehaviour
     private ReputationSystem reputationSystem;
     private MeshCollider meshCollider;
     private GameObject lockedArea;
+    private TextPopup textPopup;
+
     public void SetLevelSystem(ReputationSystem reputationSystem)
     {
         Debug.Log("Reputation System chiamato");
@@ -47,7 +49,8 @@ public class BasicTile : MonoBehaviour
 
         if (RepCost > reputationSystem.GetLevelNumber())
         {
-            TextPopup.Create(transform.position, "★" + RepCost);
+            textPopup = TextPopup.Create(transform.position, "★" + RepCost);
+            textPopup.transform.SetParent(transform, true);
             if (isLocked)
             {
                 lockedArea.transform.parent = null;
@@ -99,6 +102,7 @@ public class BasicTile : MonoBehaviour
             //LevelManager.Instance._GameData.Coins -= unlockCost;
             isLocked = false;
             TileScaler(false, 1);
+            textPopup.gameObject.SetActive(false);
         }
     }
 
