@@ -18,6 +18,7 @@ public class HireHenchmen : MonoBehaviour
     private Coroutine regenAllyCoroutine;
     private TMP_Text allyNumText;
     private TMP_Text allyCostText;
+    
 
     public delegate void RespawnCompleted();
     public event RespawnCompleted OnRespawnCompleted;
