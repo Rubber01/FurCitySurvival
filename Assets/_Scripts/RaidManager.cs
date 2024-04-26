@@ -8,7 +8,7 @@ public class RaidManager : MonoBehaviour
     [SerializeField] private List<GameObject> previousCollidedObjects = new List<GameObject>();
     [SerializeField] private bool countdownStarted = false;
     [SerializeField] private bool countupStarted = false;
-    [SerializeField] private int alliesRequired;
+    [SerializeField] public int alliesRequired;
     [SerializeField] private Material materialRaided;
     [SerializeField] private Material materialNotRaided;
     [SerializeField] private Renderer renderer;
