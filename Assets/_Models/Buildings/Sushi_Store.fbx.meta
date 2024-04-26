@@ -3,7 +3,22 @@ guid: 0872f09fa6ffd8e46af3a3de3f35fc56
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SushiStore_Signboards
+    second: {fileID: 2100000, guid: 93b8b137557cc7b4fbbb1fe53fb61477, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SushiStore_block01
+    second: {fileID: 2100000, guid: 4d73f1f9b95607543834d71163274d22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SushiStore_block02
+    second: {fileID: 2100000, guid: fb9518bd4249e4143938cdaba58717f1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

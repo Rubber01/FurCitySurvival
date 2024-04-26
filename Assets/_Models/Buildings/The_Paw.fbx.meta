@@ -3,7 +3,17 @@ guid: a4c97c79695795d4ea4c1ace8dd46a65
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Base_Building
+    second: {fileID: 2100000, guid: bb0598b0f1a58424686307a200e8614a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: The_Paw_Signboards
+    second: {fileID: 2100000, guid: bb0e88e0d4347204c8eb4bcbfb59d4f0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
