@@ -212,6 +212,12 @@ private GameData _gameData;
                 }
                 //collisonOccured = true;
             }
+        if (collision.gameObject.CompareTag("CreditCoin"))
+        {
+            _audioSource.Play();
+            PlayerManager.credits++;
+            Destroy(collision.gameObject);
+        }
 
     }
     private void OnCollisionStay(Collision collision)
@@ -223,11 +229,12 @@ private GameData _gameData;
                 Debug.Log("Oggetto " + gameObject.name);
                 Attack(collision.gameObject);
                 break;
-            case "CreditCoin":
-                _audioSource.Play();
-                PlayerManager.credits++;
-                Destroy(collision.gameObject);
-               break;
+            //case "CreditCoin":
+            //    _audioSource.Play();
+            //    PlayerManager.credits++;
+            //    Destroy(collision.gameObject);
+            //   break;
+
         /*     case "MetalScrap":
                 _audioSource.Play();
                 PlayerManager.metalScrapNumber++;
