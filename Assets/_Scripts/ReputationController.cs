@@ -20,6 +20,7 @@ public class ReputationController : MonoBehaviour
         transform.Find("Experience50Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(50));
         transform.Find("Experience500Btn").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(500));
         //levelText.text = "Level 5";
+        transform.Find("Experience500BtnA").GetComponent<Button>().onClick.AddListener(() => levelSystem.AddExperience(-50));
 
 
     }

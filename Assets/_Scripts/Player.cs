@@ -402,7 +402,7 @@ private GameData _gameData;
         
         if (health <= 0&& isDead==false)
         {
-            isDead= true;
+            
             gameOverText.Restarting();
             Debug.Log("Chiamo GameOver Text Restarting");
             _animatorController.PlayIsDying();
@@ -410,6 +410,7 @@ private GameData _gameData;
             loseBuisiness.PlayerDeath();
             _joystick.gameObject.SetActive(false);
             StartCoroutine(Respawning());
+            
         }
     }
     IEnumerator Respawning()

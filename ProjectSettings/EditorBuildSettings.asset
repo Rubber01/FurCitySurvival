@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Test_Scenes/Test_Reputation.unity
     guid: 9f5a34a89883d2949bb2540aadaa83d5
+  - enabled: 0
+    path: Assets/_Scenes/Beta/MainScene.unity
+    guid: ec8ca6a54be60f0458ed78d713809a75
   m_configObjects: {}

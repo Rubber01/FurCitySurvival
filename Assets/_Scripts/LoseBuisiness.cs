@@ -2,6 +2,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class LoseBuisiness : MonoBehaviour
@@ -50,10 +51,15 @@ public class LoseBuisiness : MonoBehaviour
         int k = UnityEngine.Random.Range(0, raidManager.Length);
         for(int j=0; j<k; j++)
         {
-            if(raidManager[j].GetRaided() == true)
+            Debug.Log("PlayerDeath dentro for");
+            if (raidManager[j].GetRaided() == true)
             {
+                Debug.Log("PlayerDeath dentro if");
+
                 while (raidManager[k].GetRaided() == false)
                 {
+                    Debug.Log("PlayerDeath dentro while");
+
                     k = UnityEngine.Random.Range(0, raidManager.Length);
                 }
             }
@@ -81,6 +87,9 @@ public class LoseBuisiness : MonoBehaviour
             linker.raidManager[indice] = raidManager[k];
             int indice2 = Array.IndexOf(linker.basicTile, obj.GetComponent<BasicTile>());
             linker.basicTile[indice2] = newTile.GetComponent<BasicTile>();
+            Debug.Log("Numero " + linker.raidManager[indice].GetRepCost());
+            linker.reputationSystem.AddExperience(-(linker.raidManager[indice].GetRepCost()));
+
             raidManager[k].Restart();
             //temp[k].GetComponent<RaidManager>().Restart();
             Destroy(obj);
