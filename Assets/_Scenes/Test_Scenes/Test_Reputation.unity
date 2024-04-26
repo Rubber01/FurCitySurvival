@@ -2360,6 +2360,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4303273651224042769, guid: 7e748cadc327ece4094058dc00b691dc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1581206670}
+    - targetCorrespondingSourceObject: {fileID: 4303273651224042769, guid: 7e748cadc327ece4094058dc00b691dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1581206674}
   m_SourcePrefab: {fileID: 100100000, guid: 7e748cadc327ece4094058dc00b691dc, type: 3}
 --- !u!1 &155093973
 GameObject:
@@ -26649,9 +26652,8 @@ GameObject:
   - component: {fileID: 1132067201}
   - component: {fileID: 1132067203}
   - component: {fileID: 1132067202}
-  - component: {fileID: 1132067204}
   m_Layer: 7
-  m_Name: Respawing
+  m_Name: Respawning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26773,19 +26775,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132067200}
   m_CullTransparentMesh: 1
---- !u!114 &1132067204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132067200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49de1a68b093a4468851c8c0e7f3fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 3
 --- !u!1 &1135500139
 GameObject:
   m_ObjectHideFlags: 0
@@ -43185,6 +43174,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88011612cc9d5042bb8e831eda30c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1581206674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559614605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49de1a68b093a4468851c8c0e7f3fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 5
 --- !u!1 &1584569983
 GameObject:
   m_ObjectHideFlags: 0
@@ -57709,6 +57711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1943517220138572266, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81c9c2e1fe62c5d4aac1c9870344ea3b, type: 2}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: damage
       value: 2
@@ -57737,6 +57743,10 @@ PrefabInstance:
       propertyPath: _moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: gameOverText
+      value: 
+      objectReference: {fileID: 1581206674}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: loseBuisiness
       value: 
