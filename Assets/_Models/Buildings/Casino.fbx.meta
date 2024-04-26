@@ -3,7 +3,17 @@ guid: 8e0e988e50f55504d8d7dd9f5dc46b5e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Casino_Block
+    second: {fileID: 2100000, guid: d80bd0fe510887347b89f42f936a8870, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Casino_Signboards
+    second: {fileID: 2100000, guid: b6a0bd7601b39f24ca02d6f6d147e330, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
