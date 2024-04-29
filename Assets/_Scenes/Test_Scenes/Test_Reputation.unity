@@ -2013,7 +2013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &143349038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13487,7 +13487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &527744556
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34523,7 +34523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1395065483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41139,7 +41139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1494213005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48508,7 +48508,7 @@ Transform:
   m_GameObject: {fileID: 1739132732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0166, z: 0}
+  m_LocalPosition: {x: 0.0052, y: -0.0138, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56674,7 +56674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: health
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: _camera
@@ -56690,7 +56690,7 @@ PrefabInstance:
       objectReference: {fileID: 1891744394}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: _moveSpeed
@@ -56707,6 +56707,14 @@ PrefabInstance:
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: allies.Array.size
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: tickRestoringHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
+      propertyPath: healthRestoringOverTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3286085515612584484, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: m_Enabled
@@ -58239,7 +58247,7 @@ Transform:
   m_GameObject: {fileID: 2143906521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0277, y: 0, z: 0.00337}
+  m_LocalPosition: {x: -0.0215, y: -0.0165, z: 0.0034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58258,12 +58266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55f5f26a5b45394faf957c642292cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsActive: 0
+  IsActive: 1
   enemyPrefab: {fileID: 1875319844396722844, guid: 1c8cace817528754098794c89423756e, type: 3}
   spawnPoint: {fileID: 2143906522}
-  numberOfEnemiesToSpawn: 2
+  numberOfEnemiesToSpawn: 3
   spawnRate: 10
-  nextSpawnTime: 0
+  nextSpawnTime: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
