@@ -52,6 +52,7 @@ MonoBehaviour:
   _moveSpeed: 4
   health: 30
   maxHealth: 30
+  isDead: 0
   damage: 3
   timeBetweenAttacks: 2
   alreadyAttacked: 0
@@ -61,8 +62,11 @@ MonoBehaviour:
   enemyInAttackRange: 0
   hasCollideWithEnemy: 0
   outOfCombat: 5
+  healthRestoringOverTime: 0
+  tickRestoringHealth: 0
   enemy: {fileID: 0}
   allies: []
+  gameOverText: {fileID: 0}
   healthBar: {fileID: 0}
   _turnSpeed: 15
   _sellTime: 0.1
@@ -75,6 +79,7 @@ MonoBehaviour:
   _cameraStep: 2.5
   _joystick: {fileID: 0}
   _animatorController: {fileID: 3893241399966190913}
+  loseBuisiness: {fileID: 0}
 --- !u!114 &3893241399966190913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +236,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6429362841430901690, guid: a528a2afa5d537d4eaf7420675d30230, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81c9c2e1fe62c5d4aac1c9870344ea3b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
