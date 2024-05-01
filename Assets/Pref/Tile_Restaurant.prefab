@@ -5307,7 +5307,7 @@ Transform:
   m_GameObject: {fileID: 5409328955974569172}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.028186988, y: 0.00041967852, z: 0.0016000686}
+  m_LocalPosition: {x: -0.0005, y: 0.031, z: 0.0016}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -5633,7 +5633,7 @@ Transform:
   m_GameObject: {fileID: 6157761382784763408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0277, y: 0, z: 0.00337}
+  m_LocalPosition: {x: -0.0023, y: 0.0339, z: 0.00337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6009,7 +6009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3794093226908085193, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0087
       objectReference: {fileID: 0}
     - target: {fileID: 3794093226908085193, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6017,7 +6017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3794093226908085193, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.0015
       objectReference: {fileID: 0}
     - target: {fileID: 3794093226908085193, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6053,7 +6053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4572824838481794086, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5515529512819114139, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Mesh
@@ -6075,6 +6075,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -1004473626332334655, guid: 0872f09fa6ffd8e46af3a3de3f35fc56, type: 3}
+    - target: {fileID: 9040111836386759767, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040111836386759767, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.94
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

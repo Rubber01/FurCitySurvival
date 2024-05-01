@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 5482255067314016079}
   - component: {fileID: 6730420142281978052}
   - component: {fileID: 2461616909356397748}
+  - component: {fileID: 4879627109587120994}
   m_Layer: 0
   m_Name: L1_Credit_building 2(Clone)
   m_TagString: Untagged
@@ -316,6 +317,18 @@ MonoBehaviour:
   regenerationTimer: 5
   CoinsPool: 10
   respawnTime: 10
+--- !u!114 &4879627109587120994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028093069278865734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee39ca3ee7aced34a8731192915e541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1294799278317068149
 GameObject:
   m_ObjectHideFlags: 0
