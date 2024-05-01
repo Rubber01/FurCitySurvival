@@ -199,13 +199,22 @@ private GameData _gameData;
 
     private void OnCollisionEnter(Collision collision)
     {
+
         //if (collisonOccured)
         //    return;
 
         // Controlla se l'oggetto colliso ha il tag "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
             {
-                CheckAllies();
+
+                AudioManager.instance.Play("CatFight");
+                if (AudioManager.instance != null)
+                {
+                    Debug.Log("AudioManagerInstance Found");
+                }
+
+            CheckAllies();
+
                 foreach (GameObject ally in allies)
                 {
                     Debug.Log("alleati " + ally.gameObject.name+ " Target "+ collision.gameObject.name);
@@ -229,6 +238,7 @@ private GameData _gameData;
             case "Enemy":
                 Debug.Log("Oggetto " + gameObject.name);
                 Attack(collision.gameObject);
+                
                 break;
             //case "CreditCoin":
             //    _audioSource.Play();
@@ -267,8 +277,15 @@ private GameData _gameData;
     }
     private void OnCollisionExit(Collision collision)
     {
+        
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            AudioManager.instance.Stop("CatFight");
+            if (AudioManager.instance != null)
+            {
+                Debug.Log("AudioManagerInstance Found");
+            }
+
             hasCollideWithEnemy = true;
             timeCollidedWithEnemy = Time.time;
         }
@@ -374,8 +391,10 @@ private GameData _gameData;
     }
     private void Attack(GameObject enemy)
     {
+        
         if (!alreadyAttacked)
         {
+            
             _animatorController.PlayHit();
             enemy.gameObject.GetComponent<EnemyAI>().TakeDamage(damage);
             

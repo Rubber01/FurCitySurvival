@@ -20582,7 +20582,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703205096}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d7ffed7027ddaab4f89773ff768ae24f, type: 3}
@@ -22411,7 +22411,7 @@ MonoBehaviour:
   IsActive: 1
   enemyPrefab: {fileID: 1875319844396722844, guid: 1c8cace817528754098794c89423756e, type: 3}
   spawnPoint: {fileID: 915962773}
-  numberOfEnemiesToSpawn: 2
+  numberOfEnemiesToSpawn: 1
   spawnRate: 10
   nextSpawnTime: 0
 --- !u!1 &923693480
@@ -28033,7 +28033,6 @@ GameObject:
   - component: {fileID: 1443221595}
   - component: {fileID: 1443221594}
   - component: {fileID: 1443221593}
-  - component: {fileID: 1443221596}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -32866,102 +32865,6 @@ Transform:
   - {fileID: 1310660277}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1443221596
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443221592}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 28010f33ea28a5847a0b934fb14ef3c5, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1447154198
 GameObject:
   m_ObjectHideFlags: 0
@@ -42256,6 +42159,123 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950514441}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1951560663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951560665}
+  - component: {fileID: 1951560664}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1951560664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951560663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de977520e265dd84ca087e6e5a4d9759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Rain
+    clip: {fileID: 8300000, guid: 28010f33ea28a5847a0b934fb14ef3c5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - name: CatFight
+    clip: {fileID: 8300000, guid: f559f210e1e890542aaff752ebcd05f5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - name: DogFight
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: GeneralDogFight
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: BackgroundFight
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: HenchDeath
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: CollectingCoins
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: Alert
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: WinLevel
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: ConquerBuilding
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: AmbientMusic
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: TutorialSound
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: StartBtnSound
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  - name: MenuSound
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+  soundDictionary:
+    _serializedList: []
+--- !u!4 &1951560665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951560663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.485252, y: -0.112289734, z: 9.574581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958696234
 GameObject:
   m_ObjectHideFlags: 0
@@ -42571,7 +42591,7 @@ MonoBehaviour:
   IsActive: 1
   enemyPrefab: {fileID: 1875319844396722844, guid: 1c8cace817528754098794c89423756e, type: 3}
   spawnPoint: {fileID: 1993149132}
-  numberOfEnemiesToSpawn: 2
+  numberOfEnemiesToSpawn: 1
   spawnRate: 10
   nextSpawnTime: 0
 --- !u!1 &1995249185
@@ -43869,7 +43889,7 @@ MonoBehaviour:
   IsActive: 1
   enemyPrefab: {fileID: 1875319844396722844, guid: 1c8cace817528754098794c89423756e, type: 3}
   spawnPoint: {fileID: 2078013671}
-  numberOfEnemiesToSpawn: 2
+  numberOfEnemiesToSpawn: 1
   spawnRate: 10
   nextSpawnTime: 0
 --- !u!1 &2084019183
@@ -44449,3 +44469,4 @@ SceneRoots:
   - {fileID: 816432316}
   - {fileID: 1684848871}
   - {fileID: 1443221595}
+  - {fileID: 1951560665}
