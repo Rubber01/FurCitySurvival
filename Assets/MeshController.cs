@@ -51,6 +51,7 @@ public class MeshController : MonoBehaviour
         if (childTransform3 != null)
         {
             raidCostText = childTransform3.GetComponentInChildren<TMP_Text>();
+            //raidCostText = childTransform3.GetComponent<TMP_Text>();
             raidCostText.text = "" + rm.alliesRequired;
         }
         else
@@ -78,7 +79,10 @@ public class MeshController : MonoBehaviour
             catBuilding.SetActive(true);
             dogBuilding.SetActive(false);
 
-            raidCostText.gameObject.SetActive(false);
+            if (raidCostText != null)
+            {
+                raidCostText.gameObject.SetActive(false);
+            }
 
             if (allyNumText != null)
             {
@@ -99,7 +103,10 @@ public class MeshController : MonoBehaviour
             catBuilding.SetActive(false);
             dogBuilding.SetActive(true);
 
-            raidCostText.gameObject.SetActive(true);
+            if (raidCostText != null)
+            {
+                raidCostText.gameObject.SetActive(true);
+            }
 
             if (allyNumText != null)
             {

@@ -64,7 +64,8 @@ public class BasicTile : MonoBehaviour
             if (isLocked)
             {
                 lockedArea.transform.parent = null;
-                TileScaler(true, 0.5f);
+                //TileScaler(true, 0.5f);
+                StartCoroutine(TileScaler(true, 0.5f, 2.0f));
             }
         }
         //gameData = GetComponent<GameData>();
@@ -111,7 +112,8 @@ public class BasicTile : MonoBehaviour
 #endif
             //LevelManager.Instance._GameData.Coins -= unlockCost;
             isLocked = false;
-            TileScaler(false, 1);
+            //TileScaler(false, 1);
+            StartCoroutine(TileScaler(true, 1f, 2.0f));
             textPopup.gameObject.SetActive(false);
         }
     }
@@ -170,17 +172,38 @@ public class BasicTile : MonoBehaviour
         }
     }
 
-    [ProButton]
-    public void TileScaler(bool _isReduced, float _scaleFactor)
+    //[ProButton]
+    //public void TileScaler(bool _isReduced, float _scaleFactor)
+    //{
+
+    //    // Definisci la scala finale in base a se l'oggetto deve essere rimpicciolito o meno
+    //    Vector3 targetScale = _isReduced ? Vector3.one * (100* _scaleFactor) : (Vector3.one * 100);
+
+    //    // Usa Lerp per interpolare gradualmente tra la scala corrente e la scala finale
+    //    transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 100f); // Il valore 5f è una velocità di interpolazione arbitraria, puoi regolarla a tuo piacimento
+
+    //}
+
+    public IEnumerator TileScaler(bool _isReduced, float _scaleFactor, float duration)
     {
-        
         // Definisci la scala finale in base a se l'oggetto deve essere rimpicciolito o meno
-        Vector3 targetScale = _isReduced ? Vector3.one * (100* _scaleFactor) : (Vector3.one * 100);
+        Vector3 targetScale = _isReduced ? Vector3.one * (100 * _scaleFactor) : (Vector3.one * 100);
 
-        // Usa Lerp per interpolare gradualmente tra la scala corrente e la scala finale
-        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * 100f); // Il valore 5f è una velocità di interpolazione arbitraria, puoi regolarla a tuo piacimento
+        float timer = 0f;
+        Vector3 initialScale = transform.localScale;
 
+        // Continua ad aggiornare la scala fino a quando non viene raggiunta la scala target
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(initialScale, targetScale, timer / duration);
+            yield return null;
+        }
+
+        // Assicurati che la scala sia esattamente la scala target alla fine della coroutine
+        transform.localScale = targetScale;
     }
+
 
     public void TileControlLost()
     {
@@ -217,4 +240,5 @@ public class BasicTile : MonoBehaviour
 
     }
     
+
 }
