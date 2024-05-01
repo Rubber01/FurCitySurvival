@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     private TMP_Text text;
-    [SerializeField] private int time=5;
+    [SerializeField] private int time = 5; 
+    [SerializeField] bool disable=false;
 
     private void Awake()
     {

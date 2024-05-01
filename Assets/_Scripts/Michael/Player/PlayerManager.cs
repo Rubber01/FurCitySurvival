@@ -17,9 +17,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public static int plasticNumber;
     public static int chipNumber;
 
-    public TextMeshProUGUI creditsText;
+    [SerializeField] private TextMeshProUGUI creditsText;
     //[SerializeField] private TextMeshProUGUI influencePointText;
-    [SerializeField] public TextMeshProUGUI henchmenSlotsText;
+    [SerializeField] private TextMeshProUGUI henchmenSlotsText;
     //[SerializeField] private TextMeshProUGUI metalScrapText;
     //[SerializeField] private TextMeshProUGUI metalText;
     //[SerializeField] private TextMeshProUGUI plasticWasteText;
@@ -30,6 +30,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     private void Awake()
     {
+        //henchmenSlotsText = transform.Find("GangNumber").GetComponent<TextMeshProUGUI>();
+        //creditsText = transform.Find("CreditText").GetComponent<TextMeshProUGUI>();
+
         Application.targetFrameRate = 60;
     }
 
