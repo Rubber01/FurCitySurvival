@@ -124,18 +124,20 @@ public class AllyAI : MonoBehaviour
 		healthBar.UpdateHealthBar(maxHealth, health);
 		if (health <= 0)
 		{
+
 			Invoke(nameof(DestroyEnemy), 0.5f);
 		}
 	}
     private void DestroyEnemy()
     {
         _animatorController.PlayIsDying();
-
+		AudioManager.instance.Play("HenchDeath");
         Invoke(nameof(Death), 5);
         agent.speed = 0;
     }
     private void Death()
     {
+		AudioManager.instance.Stop("HenchDeath");
         Destroy(gameObject);
     }
 }

@@ -192,6 +192,7 @@ public class RaidManager : MonoBehaviour
                 Debug.Log("no spawner found");
             }
 
+            AudioManager.instance.Play("ConquerBuilding");
 
         }
     }

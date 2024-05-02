@@ -94,8 +94,8 @@ private GameData _gameData;
         //healthBar = GetComponentInChildren<HealthBar>();
 
         healthBar.UpdateHealthBar(maxHealth, health);
-        _audioSource = GetComponent<AudioSource>();
-        Debug.Log("Audiosource: "+_audioSource.name);
+        //_audioSource = GetComponent<AudioSource>();
+        //Debug.Log("Audiosource: "+_audioSource.name);
         
     }
 
@@ -208,6 +208,7 @@ private GameData _gameData;
             {
 
                 AudioManager.instance.Play("CatFight");
+                
                 if (AudioManager.instance != null)
                 {
                     Debug.Log("AudioManagerInstance Found");
@@ -224,7 +225,8 @@ private GameData _gameData;
             }
         if (collision.gameObject.CompareTag("CreditCoin"))
         {
-            _audioSource.Play();
+            //_audioSource.Play();
+            AudioManager.instance.Play("CollectingCoins");
             PlayerManager.credits++;
             Destroy(collision.gameObject);
         }
@@ -237,6 +239,7 @@ private GameData _gameData;
         {
             case "Enemy":
                 Debug.Log("Oggetto " + gameObject.name);
+                AudioManager.instance.Play("BackgroundFight");
                 Attack(collision.gameObject);
                 
                 break;
@@ -281,6 +284,7 @@ private GameData _gameData;
         if (collision.gameObject.CompareTag("Enemy"))
         {
             AudioManager.instance.Stop("CatFight");
+            AudioManager.instance.Stop("BackgroundFight");
             if (AudioManager.instance != null)
             {
                 Debug.Log("AudioManagerInstance Found");
