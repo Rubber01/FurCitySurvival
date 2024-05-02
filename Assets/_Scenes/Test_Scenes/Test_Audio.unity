@@ -7210,7 +7210,7 @@ GameObject:
   - component: {fileID: 181849815}
   - component: {fileID: 181849817}
   - component: {fileID: 181849816}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RaidCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8763,7 +8763,7 @@ GameObject:
   - component: {fileID: 253577615}
   - component: {fileID: 253577617}
   - component: {fileID: 253577616}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ThePaw_Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8951,7 +8951,7 @@ GameObject:
   - component: {fileID: 273446081}
   - component: {fileID: 273446083}
   - component: {fileID: 273446082}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Restaurant_Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12358,7 +12358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502325179}
   - component: {fileID: 502325180}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13256,7 +13256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 538654544}
   - component: {fileID: 538654545}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20671,7 +20671,7 @@ GameObject:
   - component: {fileID: 743487589}
   - component: {fileID: 743487588}
   - component: {fileID: 743487587}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Restaurant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22603,7 +22603,7 @@ GameObject:
   - component: {fileID: 961021995}
   - component: {fileID: 961021997}
   - component: {fileID: 961021996}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RaidCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25708,7 +25708,7 @@ GameObject:
   - component: {fileID: 1282955500}
   - component: {fileID: 1282955499}
   - component: {fileID: 1282955498}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ThePaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27913,7 +27913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437246134}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CoinSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39783,7 +39783,7 @@ GameObject:
   - component: {fileID: 1764437865}
   - component: {fileID: 1764437867}
   - component: {fileID: 1764437866}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CoinsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40088,7 +40088,7 @@ GameObject:
   - component: {fileID: 1771341811}
   - component: {fileID: 1771341813}
   - component: {fileID: 1771341812}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Restaurant_Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40760,7 +40760,7 @@ GameObject:
   - component: {fileID: 1836779836}
   - component: {fileID: 1836779838}
   - component: {fileID: 1836779837}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AllyCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42538,7 +42538,7 @@ GameObject:
   - component: {fileID: 1995249186}
   - component: {fileID: 1995249188}
   - component: {fileID: 1995249187}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AllyNumText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43340,7 +43340,7 @@ GameObject:
   - component: {fileID: 2038408238}
   - component: {fileID: 2038408240}
   - component: {fileID: 2038408239}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ThePaw_Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43644,7 +43644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2068949161}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AllySpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

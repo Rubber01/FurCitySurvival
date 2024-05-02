@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3493135913784013971}
   - component: {fileID: 6511135451259741370}
   - component: {fileID: 7508767200366787461}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CoinsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5520810810161617663}
   - component: {fileID: 6003908915348442270}
   - component: {fileID: 1295869528677870746}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Casino_Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8515850176274112750}
   - component: {fileID: 2101002868937254373}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9040111836386759767}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: CoinSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 2084291367655290986}
   - component: {fileID: 6677523545589677318}
   - component: {fileID: 4182045659564985665}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Casino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 5219786294741102967}
   - component: {fileID: 8526564367996619045}
   - component: {fileID: 4572824838481794086}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Casino_Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 7475782765345060080}
   - component: {fileID: 3455348550162008000}
   - component: {fileID: 7401025779714807593}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RaidCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}

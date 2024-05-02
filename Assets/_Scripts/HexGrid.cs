@@ -30,7 +30,7 @@ public class HexGrid : MonoSingleton<HexGrid>
 
     private void OnDrawGizmos()
     {
-        //DrawHexagons();
+        DrawHexagons();
     }
 
 
@@ -119,7 +119,7 @@ public class HexGrid : MonoSingleton<HexGrid>
 
                     hexData.Add(tileKey, new TileData(instantiatedTile, position, tileName,null));
                 
-                Debug.Log(instantiatedTile.GetComponent<BasicTile>().name);
+                //Debug.Log(instantiatedTile.GetComponent<BasicTile>().name);
                 instantiatedTile.GetComponent<BasicTile>().tileCoords = tileKey;
                 instantiatedTile.GetComponent<BasicTile>().tilePosition = position;
 

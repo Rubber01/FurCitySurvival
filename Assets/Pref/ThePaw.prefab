@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4432475281665850565}
   - component: {fileID: 8788032125994922156}
   - component: {fileID: 9153546864063751953}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ThePaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 8393744543785809677}
   - component: {fileID: 201416846488458931}
   - component: {fileID: 1316363659341018396}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AllyCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 2373493084000067805}
   - component: {fileID: 4224396868175903116}
   - component: {fileID: 9154883549206692961}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RaidCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 3379385427340411356}
   - component: {fileID: 4084930585952003606}
   - component: {fileID: 1928073451192654131}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AllyNumText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 8595416276699119047}
   - component: {fileID: 4339066297504373024}
   - component: {fileID: 6378414076331220956}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ThePaw_Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4013212509288260028}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: AllySpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 1142547163495265935}
   - component: {fileID: 8985376446159659243}
   - component: {fileID: 4083443458901549092}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ThePaw_Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448518171549664012}
   - component: {fileID: 5286710152757406311}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

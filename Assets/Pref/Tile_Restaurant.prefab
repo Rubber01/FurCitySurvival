@@ -5971,6 +5971,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: -107146741396660583, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
+    - target: {fileID: 788025076699107467, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 1295869528677870746, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5994,6 +5998,10 @@ PrefabInstance:
     - target: {fileID: 2360764834188333575, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Name
       value: Restaurant_Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360764834188333575, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3794093226908085193, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_LocalScale.x
@@ -6059,6 +6067,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 6359173179289327628, guid: 0872f09fa6ffd8e46af3a3de3f35fc56, type: 3}
+    - target: {fileID: 5531440668752051940, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5637185750284129515, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6003908915348442270, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -6067,9 +6083,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Restaurant
       objectReference: {fileID: 0}
+    - target: {fileID: 6174558209850770841, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7824140908712577443, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Name
       value: Restaurant_Cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824140908712577443, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433294635794628901, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8526564367996619045, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Mesh
