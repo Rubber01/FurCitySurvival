@@ -42104,7 +42104,7 @@ MonoBehaviour:
   sounds:
   - name: Rain
     clip: {fileID: 8300000, guid: 28010f33ea28a5847a0b934fb14ef3c5, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 1
     additive: 0
@@ -42169,10 +42169,10 @@ MonoBehaviour:
     loop: 0
     additive: 0
   - name: AmbientMusic
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
+    clip: {fileID: 8300000, guid: 2fda6aa71b8ee9d46823d4b7794e10db, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
     additive: 0
   - name: TutorialSound
     clip: {fileID: 0}
