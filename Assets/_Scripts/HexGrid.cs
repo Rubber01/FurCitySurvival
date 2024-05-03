@@ -111,7 +111,7 @@ public class HexGrid : MonoSingleton<HexGrid>
 
                     GameObject instantiatedTile = Instantiate(HexPrefab, position, Quaternion.identity);
                     instantiatedTile.transform.parent = transform;
-                    instantiatedTile.transform.Rotate(Vector3.right, -90f);
+                    //instantiatedTile.transform.Rotate(Vector3.right, -90f);
 
                     string tileName = "Tile_" + tileKey.x + "_" + tileKey.y;
 
@@ -175,7 +175,7 @@ public class HexGrid : MonoSingleton<HexGrid>
 
                 GameObject instantiatedPrefab = Instantiate(PrefabToLoad, position, Quaternion.identity);
                 instantiatedPrefab.transform.parent = tileData.instantiatedTile.transform;
-                instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
+                //instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
                 instantiatedPrefab.name = name;
                 tileData.instantiatedTile = instantiatedPrefab;
                 instantiatedPrefab.transform.SetParent(transform);
@@ -243,7 +243,7 @@ public class HexGrid : MonoSingleton<HexGrid>
             GameObject instantiatedPrefab = Instantiate(_tilePrefab, position, Quaternion.identity);
             instantiatedPrefab.name = tileData.name;
             instantiatedPrefab.transform.SetParent(transform);
-            instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
+            //instantiatedPrefab.transform.Rotate(Vector3.right, -90f);
 
             //Da aggiungere le coordinate della posizione
 

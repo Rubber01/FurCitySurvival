@@ -38,7 +38,14 @@ public class ReputationSystem
                 {
                     if (bt.RepCost <= level+1 && bt.isLocked)
                     {
-                        bt.UnlockTile();
+                        if (bt.RepCost < 0)
+                        {
+                            //Do Nothing
+                        }
+                        else
+                        {
+                            bt.UnlockTile();
+                        }
                     }
                 }
             }

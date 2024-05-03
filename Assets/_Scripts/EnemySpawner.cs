@@ -25,12 +25,19 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
-        // Controlla se è il momento di spawnare un nemico
-        if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive && !(parentTile.isLocked) && !(parentTile.isControlledByPlayer))
-        {
-            SpawnEnemy();
-            nextSpawnTime = Time.time + spawnRate;
-        }
+        
+            // Controlla se è il momento di spawnare un nemico
+            if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive && !(parentTile.isLocked) && !(parentTile.isControlledByPlayer))
+            {
+                SpawnEnemy();
+                nextSpawnTime = Time.time + spawnRate;
+            }
+
+            if (enemiesSpawned >= numberOfEnemiesToSpawn)
+            {
+                gameObject.SetActive(false);
+            }
+
     }
 
     void SpawnEnemy()
@@ -49,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void ResetSpawn()
     {
+        gameObject.SetActive(true);
         // Resetta il contatore dei nemici spawnati
         enemiesSpawned = 0;
 
@@ -56,6 +64,7 @@ public class EnemySpawner : MonoBehaviour
         nextSpawnTime = Time.time + spawnRate;
 
         // Riattiva lo spawner se non è già attivo
+
         IsActive = true;
     }
 }

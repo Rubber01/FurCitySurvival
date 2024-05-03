@@ -38,11 +38,12 @@ public class RaidManager : MonoBehaviour
 
         if (raided == false)
         {
-            renderer.material = materialNotRaided;
+            renderer.materials[1] = materialNotRaided;
         }
         buildingActivator = transform.Find("BuildingActivator");
         healthBar = HealthBar.Create(new Vector3(transform.position.x, transform.position.y + 4f, transform.position.z - 3f), originalCountdownTime, countdownTime);
         tile = GetComponentInParent<BuildingTile>();
+        
 
 
         mc = transform.GetComponentInChildren<MeshController>();
@@ -167,10 +168,15 @@ public class RaidManager : MonoBehaviour
             tile.isRaidable = false;
 
             tile.isControlledByPlayer = true;
+
+            if (mc == null)
+            {
+                mc = transform.GetComponentInChildren<MeshController>();
+            }
             mc.SwitchMesh(tile.isControlledByPlayer);
 
             raided = true;
-            renderer.material = materialRaided;
+            renderer.materials[1] = materialRaided;
             StartCoroutine(RaidEnd());
             reputationSystem.AddExperience(reputation);
             //buildingActivator = transform.Find("BuildingActivator");
@@ -202,7 +208,7 @@ public class RaidManager : MonoBehaviour
         countdownStarted = false;
         countupStarted = false;
         countdownTime = originalCountdownTime;
-        renderer.material = materialNotRaided;
+        renderer.materials[1] = materialNotRaided;
     }
     public int GetRepCost()
     {

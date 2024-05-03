@@ -23,6 +23,7 @@ public class BasicTile : MonoBehaviour
     private ReputationSystem reputationSystem;
     private MeshCollider meshCollider;
     private GameObject lockedArea;
+    private GameObject building;
     private TextPopup textPopup;
     private MeshController mc;
 
@@ -42,9 +43,12 @@ public class BasicTile : MonoBehaviour
         if (mc != null)
         {
             mc.SwitchMesh(isControlledByPlayer);
+            building = mc.gameObject;
         }
 
         lockedArea = this.transform.GetChild(0).gameObject;
+        
+
         //meshCollider = GetComponent<MeshCollider>();
 
         if (reputationSystem == null )
@@ -65,6 +69,7 @@ public class BasicTile : MonoBehaviour
             {
                 lockedArea.transform.parent = null;
                 //TileScaler(true, 0.5f);
+                Show_Hide_Building(false);
                 StartCoroutine(TileScaler(true, 0.5f, 2.0f));
             }
         }
@@ -113,8 +118,12 @@ public class BasicTile : MonoBehaviour
             //LevelManager.Instance._GameData.Coins -= unlockCost;
             isLocked = false;
             //TileScaler(false, 1);
+            Show_Hide_Building(true);
             StartCoroutine(TileScaler(true, 1f, 2.0f));
-            textPopup.gameObject.SetActive(false);
+            if (textPopup != null)
+            {
+                textPopup.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -187,7 +196,7 @@ public class BasicTile : MonoBehaviour
     public IEnumerator TileScaler(bool _isReduced, float _scaleFactor, float duration)
     {
         // Definisci la scala finale in base a se l'oggetto deve essere rimpicciolito o meno
-        Vector3 targetScale = _isReduced ? Vector3.one * (100 * _scaleFactor) : (Vector3.one * 100);
+        Vector3 targetScale = _isReduced ? Vector3.one * (1 * _scaleFactor) : (Vector3.one * 1); //(100 * _scaleFactor) : (Vector3.one * 100);
 
         float timer = 0f;
         Vector3 initialScale = transform.localScale;
@@ -240,5 +249,20 @@ public class BasicTile : MonoBehaviour
 
     }
     
+    private void Show_Hide_Building(bool _Toshow)
+    {
+        if (building != null)
+        {
+            if (_Toshow)
+            {
+                building.gameObject.SetActive(true);
+            }
+            else
+            {
+                building.gameObject.SetActive(false);
+            }
+            
+        }
+    }
 
 }
