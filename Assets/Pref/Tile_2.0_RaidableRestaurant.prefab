@@ -5609,9 +5609,13 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 103785103854229444, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2b4c635eaf71d643bfd5ed5dc52c7d8, type: 2}
+    - target: {fileID: 103785103854229444, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: -107146741396660583, guid: d98a3b2717a29804989906ec67097aa9, type: 3}
+      objectReference: {fileID: 2100000, guid: 4d73f1f9b95607543834d71163274d22, type: 2}
     - target: {fileID: 788025076699107467, guid: e1c46d264c606ac4193860a2daa9e580, type: 3}
       propertyPath: m_Layer
       value: 16
@@ -5812,7 +5816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
       propertyPath: m_Name
-      value: Tile_2.0_RaidableCasino 1
+      value: Tile_2.0_RaidableRestaurant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
       propertyPath: m_Layer
