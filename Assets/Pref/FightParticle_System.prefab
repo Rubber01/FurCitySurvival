@@ -4839,8 +4839,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8814135305249088802}
+  - component: {fileID: 5209901353363255791}
   m_Layer: 0
-  m_Name: Particle_System
+  m_Name: FightParticle_System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4862,3 +4863,18 @@ Transform:
   - {fileID: 4848084006948280072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5209901353363255791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188082370639168619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 557936310bceb5745a01ee86176582e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTag: Player
+  mainCamera: {fileID: 0}
+  distanceFromCamera: 2

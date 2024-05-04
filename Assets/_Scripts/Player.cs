@@ -20,6 +20,10 @@ public class Player : MonoSingleton<Player>
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private bool enemyInAttackRange = false;
     [SerializeField] private bool hasCollideWithEnemy = false;
+
+    private int _collidingEnemies = 0;
+
+    private GameObject fightParticleSystem;
     private float timeCollidedWithEnemy=0;
     [SerializeField] private float outOfCombat=5;
     [SerializeField] private float healthRestoringOverTime;
@@ -92,7 +96,21 @@ private GameData _gameData;
     }
     private void Start()
     {
+        // Find the GameObject named "FightParticle_System"
+        fightParticleSystem = GameObject.Find("FightParticle_System");
+        
 
+        // Check if the GameObject is found
+        if (fightParticleSystem != null)
+        {
+            fightParticleSystem.SetActive(false);
+            Debug.Log("Found the GameObject named 'FightParticle_System'");
+            // Now you can do whatever you want with the found GameObject
+        }
+        else
+        {
+            Debug.LogError("Could not find the GameObject named 'FightParticle_System'");
+        }
         //healthBar = GetComponentInChildren<HealthBar>();
 
         healthBar.UpdateHealthBar(maxHealth, health);
@@ -156,6 +174,7 @@ private GameData _gameData;
         }*/
         Move();
         
+       
     }
     IEnumerator RestoreHealth()
     {
@@ -208,13 +227,20 @@ private GameData _gameData;
         // Controlla se l'oggetto colliso ha il tag "Enemy"
         if (collision.gameObject.CompareTag("Enemy"))
             {
-
-                AudioManager.instance.Play("CatFight");
                 
-                if (AudioManager.instance != null)
+                AudioManager.instance.Play("CatFight");
+            
+
+            if (AudioManager.instance != null)
                 {
                     Debug.Log("AudioManagerInstance Found");
                 }
+
+            _collidingEnemies++;
+            if (_collidingEnemies == 1 && !fightParticleSystem.activeSelf)
+            {
+                fightParticleSystem.SetActive(true);
+            }
 
             CheckAllies();
 
@@ -240,6 +266,12 @@ private GameData _gameData;
         switch(collision.gameObject.tag)
         {
             case "Enemy":
+
+                //if (!fightParticleSystem.activeSelf)
+                //{
+                //    fightParticleSystem.SetActive(true);
+                //}
+
                 Debug.Log("Oggetto " + gameObject.name);
                 AudioManager.instance.Play("BackgroundFight");
                 Attack(collision.gameObject);
@@ -285,6 +317,13 @@ private GameData _gameData;
         
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            _collidingEnemies--;
+
+            if (_collidingEnemies == 0 && fightParticleSystem.activeSelf)
+            {
+                fightParticleSystem.SetActive(false);
+            }
+
             AudioManager.instance.Stop("CatFight");
             AudioManager.instance.Stop("BackgroundFight");
             if (AudioManager.instance != null)
