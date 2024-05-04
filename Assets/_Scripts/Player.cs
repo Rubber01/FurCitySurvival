@@ -12,6 +12,8 @@ public class Player : MonoSingleton<Player>
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
     public bool isDead = false;
+    public Vector2 respawningPoint= new Vector2(0f, 0f);
+
     [SerializeField] private int damage;
     [SerializeField] private float timeBetweenAttacks;
     [SerializeField] bool alreadyAttacked = false;
@@ -430,7 +432,17 @@ private GameData _gameData;
             Debug.Log("Chiamo GameOver Text Restarting");
             _animatorController.PlayIsDying();
             Debug.Log("Chiamo PlayerDeath");
-            loseBuisiness.PlayerDeath();
+            if (loseBuisiness != null)
+            {
+                loseBuisiness.PlayerDeath();
+            }
+            else
+            {
+                //GameOver Screen
+                Debug.Log("loseBuisiness not found");
+            }
+
+
             _joystick.gameObject.SetActive(false);
             StartCoroutine(Respawning());
             
@@ -440,7 +452,7 @@ private GameData _gameData;
     {
         yield return new WaitForSeconds(gameOverText.GetTime());
         health = maxHealth;
-        _rigidbody.position=new Vector3(19.5f, gameObject.transform.position.y, 6.75f);
+        _rigidbody.position=new Vector3(respawningPoint.x , gameObject.transform.position.y, respawningPoint.y);
         isDead = false;
         //yield return new WaitForSeconds(0.5f);
         _joystick.gameObject.SetActive(true);
