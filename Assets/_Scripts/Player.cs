@@ -21,7 +21,8 @@ public class Player : MonoSingleton<Player>
     [SerializeField] private bool enemyInAttackRange = false;
     [SerializeField] private bool hasCollideWithEnemy = false;
 
-    private int _collidingEnemies = 0;
+    //public int _collidingEnemies = 0;
+    bool enemiesInRangeForParticle = false;
 
     private GameObject fightParticleSystem;
     private float timeCollidedWithEnemy=0;
@@ -71,6 +72,7 @@ public class Player : MonoSingleton<Player>
 
 
 
+
 private GameData _gameData;
     public GameData GameData
     {
@@ -94,6 +96,49 @@ private GameData _gameData;
         allies=GameObject.FindGameObjectsWithTag("Ally").ToList();
         
     }
+
+    private void Update()
+    {
+        //if (_collidingEnemies >= 1 && !fightParticleSystem.activeSelf)
+        //{ 
+        //    fightParticleSystem.SetActive(true);
+        //}
+        //else if (_collidingEnemies <= 0)
+        //{
+        //    fightParticleSystem.SetActive(false);
+        //}
+
+        // Utilizza Physics.OverlapSphere per trovare i collider nella sfera
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 2f);
+
+        // Resetta lo stato di enemiesInRange a false all'inizio di ogni frame
+        enemiesInRangeForParticle = false;
+
+        // Controlla se ci sono collider nella sfera
+        if (colliders.Length > 0)
+        {
+            foreach (Collider col in colliders)
+            {
+                // Se un collider ha il tag "Enemy", imposta enemiesInRange a true e esci dal ciclo
+                if (col.CompareTag("Enemy"))
+                {
+                    EnemyAI enemy = col.gameObject.GetComponent<EnemyAI>();
+                    if (enemy != null && !enemy.isEnemyDead())
+                    {
+
+                        enemiesInRangeForParticle = true;
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Attiva o disattiva il GameObject in base allo stato di enemiesInRange
+        fightParticleSystem.SetActive(enemiesInRangeForParticle);
+
+
+    }
     private void Start()
     {
         // Find the GameObject named "FightParticle_System"
@@ -116,7 +161,9 @@ private GameData _gameData;
         healthBar.UpdateHealthBar(maxHealth, health);
         //_audioSource = GetComponent<AudioSource>();
         //Debug.Log("Audiosource: "+_audioSource.name);
+
         
+
     }
 
     /*public void Move(Vector3 newPosition)
@@ -173,8 +220,8 @@ private GameData _gameData;
             if (_state != PlayerState.Idle) StopAnim();
         }*/
         Move();
-        
-       
+
+      
     }
     IEnumerator RestoreHealth()
     {
@@ -236,11 +283,11 @@ private GameData _gameData;
                     Debug.Log("AudioManagerInstance Found");
                 }
 
-            _collidingEnemies++;
-            if (_collidingEnemies == 1 && !fightParticleSystem.activeSelf)
-            {
-                fightParticleSystem.SetActive(true);
-            }
+            //_collidingEnemies++;
+            //if (_collidingEnemies >= 1 && !fightParticleSystem.activeSelf)
+            //{
+            //    fightParticleSystem.SetActive(true);
+            //}
 
             CheckAllies();
 
@@ -317,12 +364,12 @@ private GameData _gameData;
         
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            _collidingEnemies--;
+            //_collidingEnemies--;
 
-            if (_collidingEnemies == 0 && fightParticleSystem.activeSelf)
-            {
-                fightParticleSystem.SetActive(false);
-            }
+            //if (_collidingEnemies == 0 && fightParticleSystem.activeSelf)
+            //{
+            //    fightParticleSystem.SetActive(false);
+            //}
 
             AudioManager.instance.Stop("CatFight");
             AudioManager.instance.Stop("BackgroundFight");

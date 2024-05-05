@@ -23,19 +23,29 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] private AnimatorController _animatorController;
 
+	private GameObject p;
+
+	//private bool collideWithPlayer = false;
+	//private bool alreadyCollideWithPlayer = false;
+
     void Start()
 	{
 		healthBar = GetComponentInChildren<HealthBar>();
 		healthBar.UpdateHealthBar(maxHealth, health);
 		agent = GetComponent<NavMeshAgent>();
-	}
+        p = GameObject.FindGameObjectWithTag("Player");
+		if (p == null)
+		{
+			Debug.Log("Player Not Found");
+		}
+    }
 
 	void Update()
 	{
 
 		if (target == null)
 		{
-			GameObject p = GameObject.FindGameObjectWithTag("Player");
+			
 			Debug.Log("in target null " + p.name);
 			target = p.transform;
 		}
@@ -55,7 +65,8 @@ public class EnemyAI : MonoBehaviour
 			{
 				// Attack (animazioni e funzione che sottrae da player la vita)
 				Debug.Log("chiamo attacco");
-				AttackPlayer();
+                
+                AttackPlayer();
 				FaceTarget();
 			}
 		}
@@ -81,9 +92,10 @@ public class EnemyAI : MonoBehaviour
 		Debug.Log("sono dentro attacco");
 		if (!alreadyAttacked)
 		{
-			//Player.TakeDamage()
-			//animazione.start
-			Debug.Log("Attacco");
+            
+            //Player.TakeDamage()
+            //animazione.start
+            Debug.Log("Attacco");
 			alreadyAttacked = true;
             _animatorController.PlayHit();
             target.gameObject.GetComponent<Player>().TakeDamage(damage);
@@ -100,18 +112,30 @@ public class EnemyAI : MonoBehaviour
 		health -= damage;
 		healthBar.UpdateHealthBar(maxHealth, health);
 		TextPopup.Create(new Vector3(transform.position.x + 1, transform.position.y + 1, transform.position.z), damage);
-		if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+		if (health <= 0)
+		{
+			
+			Invoke(nameof(DestroyEnemy), 0.5f);
+		
+		}
 	}
 	private void DestroyEnemy()
 	{
 		_animatorController.PlayIsDying();
         AudioManager.instance.Play("DogDeath");
+
+        
+            //p.GetComponent<Player>()._collidingEnemies -= 1;
+
+
         Invoke(nameof(Death), 5);
 		agent.speed = 0;
 	}
 	private void Death()
 	{
         AudioManager.instance.Stop("DogDeath");
+        
+
         Destroy(gameObject);
     }
 
@@ -119,6 +143,14 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+			//if (!alreadyCollideWithPlayer)
+			//{
+			//	collideWithPlayer = true;
+   //             p.GetComponent<Player>()._collidingEnemies += 1;
+			//	alreadyCollideWithPlayer = true;
+   //         }
+			
+
             AudioManager.instance.Play("DogFight");
         }
         
@@ -126,9 +158,21 @@ public class EnemyAI : MonoBehaviour
 
 	private void OnCollisionExit(Collision collision)
 	{
+
         if (collision.gameObject.CompareTag("Player"))
         {
+			
+			//collideWithPlayer = false;
             AudioManager.instance.Stop("DogFight");
         }
     }
+
+	public bool isEnemyDead()
+	{
+		if (health <= 0)
+		{
+			return true;
+		}
+		else return false;
+	}
 }
