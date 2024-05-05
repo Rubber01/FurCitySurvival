@@ -36222,10 +36222,10 @@ MonoBehaviour:
     loop: 1
     additive: 0
   - name: CatFight
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: e23fc24ba8b69e541a5533886565f542, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     additive: 0
   - name: DogFight
     clip: {fileID: 0}
@@ -36240,7 +36240,7 @@ MonoBehaviour:
     loop: 0
     additive: 0
   - name: DogDeath
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 4f87276badef089479ad9e9e37355b83, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -36252,9 +36252,9 @@ MonoBehaviour:
     loop: 0
     additive: 0
   - name: HenchDeath
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    clip: {fileID: 8300000, guid: f1f1198107c7f654890f8be96d0c424d, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     additive: 0
   - name: CollectingCoins
@@ -36276,7 +36276,7 @@ MonoBehaviour:
     loop: 0
     additive: 0
   - name: ConquerBuilding
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 66edd0b8bf1377b45bd6e6516a71e196, type: 3}
     volume: 1
     pitch: 1
     loop: 0
