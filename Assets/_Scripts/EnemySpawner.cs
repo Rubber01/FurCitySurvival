@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public bool IsActive = true;
+    public bool DoesHaveParentTile = true;
     public GameObject enemyPrefab; // Il prefab del nemico da spawnare
     public Transform spawnPoint; // Il punto di spawn
     public int numberOfEnemiesToSpawn = 1; // Numero di nemici da spawnare
@@ -16,28 +17,37 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         nextSpawnTime = Time.time + spawnRate;
-        parentTile = transform.parent.GetComponent<BasicTile>();
-        if (parentTile == null )
+        if (transform.parent != null)
         {
-            Debug.Log("Parent Tile not found");
+            parentTile = transform.parent.GetComponent<BasicTile>();
+            if (parentTile == null)
+            {
+                Debug.Log("Parent Tile not found");
+            }
         }
         
     }
     void Update()
     {
-        
+        if (DoesHaveParentTile)
+        {
             // Controlla se è il momento di spawnare un nemico
             if (Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive && !(parentTile.isLocked) && !(parentTile.isControlledByPlayer))
             {
                 SpawnEnemy();
                 nextSpawnTime = Time.time + spawnRate;
-            }
+            }  
+        }
+        else if (!DoesHaveParentTile && Time.time >= nextSpawnTime && enemiesSpawned < numberOfEnemiesToSpawn && IsActive)
+        {
+            SpawnEnemy();
+            nextSpawnTime = Time.time + spawnRate;
+        }
 
-            if (enemiesSpawned >= numberOfEnemiesToSpawn)
-            {
-                gameObject.SetActive(false);
-            }
-
+        if (enemiesSpawned >= numberOfEnemiesToSpawn)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void SpawnEnemy()
