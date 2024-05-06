@@ -128,6 +128,10 @@ public class RaidManager : MonoBehaviour
     IEnumerator RaidEnd()
     {
         yield return new WaitForSeconds(0.25f);
+
+        Player playerObject = GameObject.FindWithTag("Player").GetComponent<Player>();
+        playerObject.CheckAllies();
+
         healthBar.DestroyHealthBar();
         enabled = false;
         
@@ -185,7 +189,8 @@ public class RaidManager : MonoBehaviour
             //sacrificio Henchmen ?
             for (int i = 0; i < alliesRequired; i++)
             {
-                    Destroy(playerObject.GetComponent<Player>().allies[i]);
+                Destroy(playerObject.GetComponent<Player>().allies[i]);
+                PlayerManager.currentHench--;
             }
 
             EnemySpawner enemyspawner = transform.GetComponentInChildren<EnemySpawner>();
