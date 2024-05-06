@@ -4964,7 +4964,7 @@ MonoBehaviour:
   DoesHaveParentTile: 1
   enemyPrefab: {fileID: 1875319844396722844, guid: 1c8cace817528754098794c89423756e, type: 3}
   spawnPoint: {fileID: 3303686786354748612}
-  numberOfEnemiesToSpawn: 2
+  numberOfEnemiesToSpawn: 0
   spawnRate: 10
   nextSpawnTime: 0
 --- !u!1 &8187159922405726450
