@@ -129,7 +129,7 @@ MonoBehaviour:
   damage: 1
   timeBetweenAttacks: 3
   alreadyAttacked: 0
-  attackRange: 2
+  attackRange: 0.25
   lookRadius: 12
   playerInSightRange: 0
   playerInAttackRange: 0
