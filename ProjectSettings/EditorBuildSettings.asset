@@ -18,11 +18,11 @@ EditorBuildSettings:
     path: Assets/_Scenes/Tutorial/Third.unity
     guid: 7d02b058961740d4dab1c1f937d4275b
   - enabled: 1
-    path: Assets/_Scenes/Test_Scenes/Test_Tile2_0/Test_Tile2_0.unity
-    guid: 58ec70ea264c1ed41b4e1d82e6b8e847
-  - enabled: 1
     path: Assets/_Scenes/Levels/Map_01.unity
     guid: a3f4f690394480842bd9271aeb96cf71
+  - enabled: 0
+    path: Assets/_Scenes/Test_Scenes/Test_Tile2_0/Test_Tile2_0.unity
+    guid: 58ec70ea264c1ed41b4e1d82e6b8e847
   - enabled: 1
     path: Assets/_Scenes/Beta/SettingsMenu.unity
     guid: 81156de485bf476448a9c38be896c043
