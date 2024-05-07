@@ -96,7 +96,16 @@ public class AudioManager : MonoBehaviour
         return false;
     }
 
-    // Add more functions here as needed, such as Pause, Stop, etc.
+    public void SetMasterVolume(float volume)
+    {
+        foreach (Sound s in sounds)
+        {
+            if (soundDictionary.ContainsKey(s.name))
+            {
+                soundDictionary[s.name].volume = s.volume * volume;
+            }
+        }
+    }
 }
 
 [System.Serializable]

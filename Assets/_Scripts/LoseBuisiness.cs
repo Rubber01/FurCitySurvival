@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class LoseBuisiness : MonoBehaviour
 {
-    [SerializeField] private RaidManager[] raidManager;
+    [SerializeField] public RaidManager[] raidManager;
     [SerializeField] private GameObject[] temp;
     private ReputationLinker linker;
     public bool chiamato;
@@ -39,6 +39,7 @@ public class LoseBuisiness : MonoBehaviour
     [ProButton]
     public void PlayerDeath()
     {
+
         GameObject playerObject = GameObject.FindWithTag("Player");
         if (playerObject.GetComponent<Player>().isDead)
         {
@@ -87,7 +88,13 @@ public class LoseBuisiness : MonoBehaviour
             //temp[k].GetComponent<RaidManager>().Restart();
             Destroy(obj);
         }
-
-
+        if (WinCondition.Instance != null)
+        {
+            WinCondition.Instance.BuildingsOwned -= 1;
+        }
+        else
+        {
+            Debug.LogWarning("WinCondition non presente");
+        }
     }
 }

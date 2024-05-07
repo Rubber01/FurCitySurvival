@@ -22,6 +22,9 @@ public class RaidManager : MonoBehaviour
     private BuildingTile tile;
     private Transform buildingActivator;
     private MeshController mc;
+
+
+
     public void SetLevelSystem(ReputationSystem reputationSystem)
     {
         this.reputationSystem = reputationSystem;
@@ -204,6 +207,17 @@ public class RaidManager : MonoBehaviour
             }
 
             AudioManager.instance.Play("ConquerBuilding");
+
+            if (WinCondition.Instance != null)
+            {
+                WinCondition.Instance.BuildingsOwned += 1;
+                WinCondition.Instance.CheckWinCondition();
+            }
+            else
+            {
+                Debug.LogWarning("WinCondition non presente");
+            }
+
 
         }
     }

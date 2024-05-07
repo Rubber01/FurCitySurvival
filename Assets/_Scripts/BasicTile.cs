@@ -220,7 +220,14 @@ public class BasicTile : MonoBehaviour
         //temp[k].transform.Find("EnemySpawner").gameObject.SetActive(true);
         isControlledByPlayer = false;
         mc = transform.GetComponentInChildren<MeshController>();
-        mc.SwitchMesh(isControlledByPlayer);
+        if (mc != null)
+        {
+            mc.SwitchMesh(isControlledByPlayer);
+        }
+        else
+        {
+            Debug.LogWarning("Mesh Controller not found!");
+        }
         isRaidable = true;
         Transform enemySpawner = transform.Find("EnemySpawner");
         if (enemySpawner != null)

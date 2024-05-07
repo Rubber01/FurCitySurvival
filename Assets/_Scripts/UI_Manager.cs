@@ -11,6 +11,8 @@ public class UI_Manager : MonoBehaviour
     private bool isPaused = false;
     [SerializeField]
     private GameObject pauseMenuUI;
+    [SerializeField]
+    private GameObject SettingsMenuUI;
     private string activeSceneName;
 
     public void Awake()
@@ -85,6 +87,17 @@ public class UI_Manager : MonoBehaviour
         
     }
 
+
+    public void OpenSettingsMenu()
+    {
+        
+        SettingsMenuUI.SetActive(true);
+    }
+
+    public void CloseSettingsMenu()
+    {
+        SettingsMenuUI.SetActive(false);
+    }
 
     public void PauseGame()
     {
