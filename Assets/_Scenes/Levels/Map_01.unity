@@ -22691,6 +22691,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings_panel
       objectReference: {fileID: 0}
+    - target: {fileID: 6515625885814374436, guid: b918f17e299e4614eb3f594be8b0d2e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 270453248}
+    - target: {fileID: 6515625885814374436, guid: b918f17e299e4614eb3f594be8b0d2e9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSettingsMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7691292294542826013, guid: b918f17e299e4614eb3f594be8b0d2e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
