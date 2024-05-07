@@ -11,6 +11,7 @@ public class UI_Manager : MonoBehaviour
     private bool isPaused = false;
     [SerializeField]
     private GameObject pauseMenuUI;
+    private string activeSceneName;
 
     public void Awake()
     {
@@ -21,7 +22,7 @@ public class UI_Manager : MonoBehaviour
 
     void Update()
     {
-
+        activeSceneName = SceneManager.GetActiveScene().name;
         if (pauseMenuUI == null) //&& SceneManager.GetActiveScene().name != "MainMenu")
         {
             pauseMenuUI = GameObject.Find("PauseMenu");
@@ -54,13 +55,34 @@ public class UI_Manager : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
+        if (levelName == "MainMenu")
+        {
+            DestroyLevel();
+        }
+
         SceneManager.LoadScene(levelName , LoadSceneMode.Single);
+        
         ResumeGame();
     }
 
-    public void ReturnToMainMenu()
+    public void DestroyLevel()
     {
-        SceneManager.UnloadScene("NomeScena");
+        pauseMenuUI = null;
+        // Trova tutti i GameObject nella scena e li mette in un array
+        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+            // Itera su tutti gli oggetti e li distrugge
+            foreach (GameObject obj in allObjects)
+            {
+                
+                    Destroy(obj);
+                
+            }
+        
+
+        
+        SceneManager.UnloadSceneAsync(activeSceneName);
+        
     }
 
 
