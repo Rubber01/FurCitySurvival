@@ -126,11 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   maxHealth: 3
-  damage: 1
-  timeBetweenAttacks: 3
+  damage: 2
+  timeBetweenAttacks: 4
   alreadyAttacked: 0
   attackRange: 0.25
-  lookRadius: 12
+  lookRadius: 10
   playerInSightRange: 0
   playerInAttackRange: 0
   target: {fileID: 0}

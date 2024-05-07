@@ -22476,7 +22476,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: -1
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -27818,11 +27818,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: spawnRate
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: numberOfEnemiesToSpawn
-      value: 2
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28399,7 +28399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: numberOfEnemiesToSpawn
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31803,7 +31803,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: -1
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -41128,11 +41128,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: spawnRate
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: numberOfEnemiesToSpawn
-      value: 2
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51799,8 +51799,8 @@ MonoBehaviour:
   renderer: {fileID: 838193350}
   raided: 0
   delay: 2
-  countdownTime: 20
-  originalCountdownTime: 20
+  countdownTime: 10
+  originalCountdownTime: 10
   reputation: 50
 --- !u!64 &838193349
 MeshCollider:
@@ -52410,8 +52410,8 @@ MonoBehaviour:
   renderer: {fileID: 855455514}
   raided: 0
   delay: 2
-  countdownTime: 30
-  originalCountdownTime: 30
+  countdownTime: 10
+  originalCountdownTime: 10
   reputation: 50
 --- !u!64 &855455513
 MeshCollider:
@@ -55307,7 +55307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: spawnRate
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: DoesHaveParentTile
@@ -55315,7 +55315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: numberOfEnemiesToSpawn
-      value: 1
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62821,8 +62821,8 @@ MonoBehaviour:
   renderer: {fileID: 1059662114}
   raided: 0
   delay: 2
-  countdownTime: 25
-  originalCountdownTime: 25
+  countdownTime: 10
+  originalCountdownTime: 10
   reputation: 50
 --- !u!64 &1059662113
 MeshCollider:
@@ -92834,7 +92834,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: -1
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -94533,7 +94533,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: -1
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -94666,8 +94666,8 @@ MonoBehaviour:
   renderer: {fileID: 1426663567}
   raided: 0
   delay: 2
-  countdownTime: 20
-  originalCountdownTime: 20
+  countdownTime: 10
+  originalCountdownTime: 10
   reputation: 50
 --- !u!64 &1426663566
 MeshCollider:
@@ -100769,7 +100769,7 @@ MonoBehaviour:
   previousCollidedObjects: []
   countdownStarted: 0
   countupStarted: 0
-  alliesRequired: 8
+  alliesRequired: 6
   materialRaided: {fileID: 2100000, guid: 0596eda1987d2704db68d6ab5df4c214, type: 2}
   materialNotRaided: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
   renderer: {fileID: 1459051705}
@@ -106221,8 +106221,8 @@ MonoBehaviour:
   renderer: {fileID: 1481798860}
   raided: 0
   delay: 2
-  countdownTime: 10
-  originalCountdownTime: 10
+  countdownTime: 5
+  originalCountdownTime: 5
   reputation: 50
 --- !u!64 &1481798859
 MeshCollider:
@@ -115477,7 +115477,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: -1
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -117171,8 +117171,8 @@ MonoBehaviour:
   DoesHaveParentTile: 1
   enemyPrefab: {fileID: 1875319844396722844, guid: 1c8cace817528754098794c89423756e, type: 3}
   spawnPoint: {fileID: 1667989450}
-  numberOfEnemiesToSpawn: 4
-  spawnRate: 25
+  numberOfEnemiesToSpawn: 40
+  spawnRate: 60
   nextSpawnTime: 0
 --- !u!4 &1674861389 stripped
 Transform:
@@ -119743,7 +119743,7 @@ MonoBehaviour:
   tilePosition: {x: 0, y: 0, z: 0}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: -1
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -120688,8 +120688,8 @@ MonoBehaviour:
   renderer: {fileID: 1781767766}
   raided: 0
   delay: 2
-  countdownTime: 30
-  originalCountdownTime: 30
+  countdownTime: 10
+  originalCountdownTime: 10
   reputation: 50
 --- !u!64 &1781767765
 MeshCollider:
@@ -133381,7 +133381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913128150654058852, guid: 176f83c734eab454fb8bcfffcd8c8a25, type: 3}
       propertyPath: numberOfEnemiesToSpawn
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -133446,7 +133446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: health
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: _camera
@@ -133462,11 +133462,11 @@ PrefabInstance:
       objectReference: {fileID: 1891744394}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: _moveSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2471230720825287218, guid: 52151281b6903ef42adf4dfe7aa0e9dd, type: 3}
       propertyPath: gameOverText
@@ -135311,8 +135311,8 @@ MonoBehaviour:
   renderer: {fileID: 2083911439}
   raided: 0
   delay: 2
-  countdownTime: 20
-  originalCountdownTime: 20
+  countdownTime: 10
+  originalCountdownTime: 10
   reputation: 50
 --- !u!64 &2083911438
 MeshCollider:
