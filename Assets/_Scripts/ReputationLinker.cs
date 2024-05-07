@@ -10,11 +10,15 @@ public class ReputationLinker : MonoBehaviour
     [SerializeField] public BasicTile[] basicTile;
     [SerializeField] private TriggerTileUnlocker[] tileUnlocker;
     public ReputationSystem reputationSystem;
-
+    [SerializeField] public UI_Assistant UIAssistant;
+    [SerializeField] private bool UIAssistantExistence;
     private void Awake()
     {
         reputationSystem = new ReputationSystem();
         reputationController.SetLevelSystem(reputationSystem);
+        if(UIAssistantExistence)
+            UIAssistant.SetLevelSystem(reputationSystem);
+
         //raidManager.SetLevelSystem(reputationSystem);
         //player.SetLevelSystem(reputationSystem); 
         ReputationSystemAnimated levelSystemAnimated = new ReputationSystemAnimated(reputationSystem);

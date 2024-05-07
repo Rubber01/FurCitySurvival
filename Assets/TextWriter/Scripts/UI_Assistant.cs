@@ -10,10 +10,18 @@ public class UI_Assistant : MonoBehaviour {
     [SerializeField] private GameObject GameObjectText;
     private TextWriter.TextWriterSingle textWriterSingle;
     private AudioSource talkingAudioSource;
-    private int i = 0;
+    private int i = 0, j=0;
     private int l=1;
+    [SerializeField] string[] messageArraySF;
+    [SerializeField] string[] messageArrayLvlUp;
+    private bool called = false;
     [SerializeField] private GameObject ttp;
-    private void Awake() {
+    private ReputationSystem reputationSystem;
+    public void SetLevelSystem(ReputationSystem reputationSystem)
+    {
+        this.reputationSystem = reputationSystem;
+    }
+    private void Start() {
         messageText=GameObjectText.GetComponent<TMP_Text>();
         talkingAudioSource = transform.Find("talkingSound").GetComponent<AudioSource>();
         StopTalkingSound();
@@ -21,35 +29,64 @@ public class UI_Assistant : MonoBehaviour {
     }
     public void NextText()
     {
-        if (i < l) { 
-            if (textWriterSingle != null && textWriterSingle.IsActive())
+        if(reputationSystem.GetLevelNumber()>=1)
+        {
+            called = true;
+            l = messageArrayLvlUp.Length;
+            if (j < l)
             {
-                // Currently active TextWriter
-                textWriterSingle.WriteAllAndDestroy();
+                ttp.SetActive(false);
+                transform.Find("Button").gameObject.SetActive(true);
+                if (textWriterSingle != null && textWriterSingle.IsActive())
+                {
+                    // Currently active TextWriter
+                    textWriterSingle.WriteAllAndDestroy();
+                }
+                else
+                {
+                    // Rimuovi il testo attuale
+                    messageText.text = "";
+                    string message = messageArrayLvlUp[j];
+
+                    StartTalkingSound();
+                    textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true, StopTalkingSound);
+                    j++;
+                }
             }
             else
             {
-                // Rimuovi il testo attuale
-                messageText.text = "";
-
-                string[] messageArray = new string[] {
-                "Yo <color=#FFFF00>Shady</color>! <color=#FFFF00>Club Doggo</color> just claimed another <color=#FFFF00>Business</color>, meowmba.\r\nTonight, we'll teach them a lesson",
-                "But first, we have to make a name for ourselves. We gotta raise our <color=#FFFF00>Reputation</color>, so that everyone in this town will acknowledge <color=#FFFF00>Meow-Tang Clan</color>!",
-                "Fine",
-            };
-
-                string message = messageArray[i];
-                l = messageArray.Length;
-                StartTalkingSound();
-                textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true, StopTalkingSound);
-                i++;
+                transform.Find("Button").gameObject.SetActive(false);
             }
         }
         else
         {
-            ttp.SetActive(true);
+            l = messageArraySF.Length;
+
+            if (i < l)
+            {
+                if (textWriterSingle != null && textWriterSingle.IsActive())
+                {
+                    // Currently active TextWriter
+                    textWriterSingle.WriteAllAndDestroy();
+                }
+                else
+                {
+                    // Rimuovi il testo attuale
+                    messageText.text = "";
+                    string message = messageArraySF[i];
+
+                    StartTalkingSound();
+                    textWriterSingle = TextWriter.AddWriter_Static(messageText, message, .02f, true, true, StopTalkingSound);
+                    i++;
+                }
+            }
+            else
+            {
+                ttp.SetActive(true);
+                transform.Find("Button").gameObject.SetActive(false);
+
+            }
         }
-        
     }
     private void StartTalkingSound() {
         talkingAudioSource.Play();
@@ -59,8 +96,14 @@ public class UI_Assistant : MonoBehaviour {
         talkingAudioSource.Stop();
     }
 
-    private void Start() {
+    /*private void Start() {
         //TextWriter.AddWriter_Static(messageText, "This is the assistant speaking, hello and goodbye, see you next time!", .1f, true);
+    }*/
+    private void Update()
+    {
+        if (reputationSystem.GetLevelNumber() >= 1 && called==false)
+        {
+            NextText();
+        }
     }
-
 }
