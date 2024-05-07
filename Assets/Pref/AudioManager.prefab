@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3204342615774699045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8412680252236585391}
+  - component: {fileID: 1689077914655489815}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8412680252236585391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204342615774699045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.485252, y: -0.112289734, z: 9.574581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689077914655489815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204342615774699045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de977520e265dd84ca087e6e5a4d9759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Rain
+    clip: {fileID: 8300000, guid: 28010f33ea28a5847a0b934fb14ef3c5, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    additive: 0
+  - name: CatFight
+    clip: {fileID: 8300000, guid: e23fc24ba8b69e541a5533886565f542, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: DogFight
+    clip: {fileID: 0}
+    volume: 0.355
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: GeneralDogFight
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    additive: 0
+  - name: DogDeath
+    clip: {fileID: 8300000, guid: 4f87276badef089479ad9e9e37355b83, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: BackgroundFight
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: HenchDeath
+    clip: {fileID: 8300000, guid: 29dae0f27751bea458372095315e25f4, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: CollectingCoins
+    clip: {fileID: 8300000, guid: d7ffed7027ddaab4f89773ff768ae24f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 1
+  - name: Alert
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    additive: 0
+  - name: WinLevel
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    additive: 0
+  - name: ConquerBuilding
+    clip: {fileID: 8300000, guid: 66edd0b8bf1377b45bd6e6516a71e196, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: AmbientMusic
+    clip: {fileID: 8300000, guid: 2fda6aa71b8ee9d46823d4b7794e10db, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    additive: 0
+  - name: TutorialSound
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    additive: 0
+  - name: StartBtnSound
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: MenuSound
+    clip: {fileID: 8300000, guid: d7ffed7027ddaab4f89773ff768ae24f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  - name: HenchHiring
+    clip: {fileID: 8300000, guid: f243a92f4678fd341ac4e562f815d93c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    additive: 0
+  soundDictionary:
+    _serializedList: []

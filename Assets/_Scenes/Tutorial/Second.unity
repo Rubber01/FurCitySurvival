@@ -380,85 +380,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206677886}
   m_CullTransparentMesh: 1
---- !u!1 &246583465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 246583469}
-  - component: {fileID: 246583468}
-  - component: {fileID: 246583467}
-  - component: {fileID: 246583466}
-  m_Layer: 0
-  m_Name: FuncitionUpdater&ReputationLinker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &246583466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246583465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c99aa2160a9f44dae7a526954fda09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raidManager: []
-  temp: []
-  chiamato: 0
---- !u!114 &246583467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246583465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4ee81decae89244ea2d754ab0152248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reputationController: {fileID: 1158438681}
-  raidManager: []
-  basicTile: []
-  tileUnlocker: []
-  UIAssistant: {fileID: 1930242513}
-  UIAssistantExistence: 1
---- !u!114 &246583468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246583465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88011612cc9d5042bb8e831eda30c8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &246583469
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246583465}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 281.90286, y: 837.30066, z: 386.00214}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &265762559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +995,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: 3
   disable: 0
+--- !u!1 &415243550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415243554}
+  - component: {fileID: 415243552}
+  - component: {fileID: 415243551}
+  m_Layer: 0
+  m_Name: FuncitionUpdater&ReputationLinker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &415243551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415243550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c99aa2160a9f44dae7a526954fda09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raidManager: []
+  temp: []
+  chiamato: 0
+--- !u!114 &415243552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415243550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ee81decae89244ea2d754ab0152248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reputationController: {fileID: 1158438681}
+  raidManager: []
+  basicTile: []
+  tileUnlocker: []
+  UIAssistant: {fileID: 1930242513}
+  UIAssistantExistence: 1
+--- !u!4 &415243554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415243550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 281.90286, y: 837.30066, z: 386.00214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &442324044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,7 +1775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 516
+  m_text: Level 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 322886cda9eae8d469ab25f9739c1b93, type: 2}
   m_sharedMaterial: {fileID: -733023579191958866, guid: 322886cda9eae8d469ab25f9739c1b93, type: 2}
@@ -1815,7 +1802,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.55
+  m_fontSize: 41.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9661,8 +9648,7 @@ MonoBehaviour:
     lesson! '
   - But first, we have to make a name for ourselves. We gotta raise our <color=#FFFF00>Reputation</color>,
     so that everyone in this town will acknowledge <color=#FFFF00>Meow-Tang Clan</color>!
-  messageArrayLvlUp:
-  - end
+  messageArrayLvlUp: []
   ttp: {fileID: 313327776}
 --- !u!1 &2032363778
 GameObject:
@@ -10286,6 +10272,6 @@ SceneRoots:
   - {fileID: 1018259557}
   - {fileID: 647791558}
   - {fileID: 2139859580}
-  - {fileID: 246583469}
   - {fileID: 882614225}
   - {fileID: 4590168453312294424}
+  - {fileID: 415243554}
