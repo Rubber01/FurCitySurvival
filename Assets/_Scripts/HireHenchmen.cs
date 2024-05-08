@@ -18,13 +18,23 @@ public class HireHenchmen : MonoBehaviour
     private Coroutine regenAllyCoroutine;
     private TMP_Text allyNumText;
     private TMP_Text allyCostText;
-    
+    [SerializeField] private UI_Assistant UIAssistant;
 
     public delegate void RespawnCompleted();
     public event RespawnCompleted OnRespawnCompleted;
-
+    private void Awake()
+    {
+        GameObject boxJonny = GameObject.Find("BoxJonny");
+        if (boxJonny != null && boxJonny.GetComponent<UI_Assistant>() != null)
+        {
+            UIAssistant = boxJonny.GetComponent<UI_Assistant>();
+            //UIAssistant.gameObject.SetActive(false);
+        }
+    }
     private void Start()
     {
+        
+
         Transform childTransform = transform.Find("AllyNumText");
         if (childTransform != null)
         {
@@ -86,6 +96,7 @@ public class HireHenchmen : MonoBehaviour
             //allyPrefab.GetComponent<AllyAI>().alreadyAttacked = true;
             allyPool -= 1;
             PlayerManager.currentHench += 1;
+            if(UIAssistant!=null) { UIAssistant.gameObject.SetActive(true); }
             GameObject playerObject = GameObject.FindWithTag("Player");
             if (playerObject != null)
             {

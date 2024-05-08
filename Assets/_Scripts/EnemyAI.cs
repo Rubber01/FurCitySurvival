@@ -121,15 +121,17 @@ public class EnemyAI : MonoBehaviour
 	}
 	private void DestroyEnemy()
 	{
-		_animatorController.PlayIsDying();
+		//_animatorController.PlayIsDying();
         AudioManager.instance.Play("DogDeath");
 
-        
-            //p.GetComponent<Player>()._collidingEnemies -= 1;
+
+        //p.GetComponent<Player>()._collidingEnemies -= 1;
 
 
-        Invoke(nameof(Death), 5);
-		agent.speed = 0;
+        //Invoke(nameof(Death), 5);
+        Death();
+
+        agent.speed = 0;
 	}
 	private void Death()
 	{

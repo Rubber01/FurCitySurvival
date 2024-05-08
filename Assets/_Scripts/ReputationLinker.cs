@@ -10,14 +10,28 @@ public class ReputationLinker : MonoBehaviour
     [SerializeField] public BasicTile[] basicTile;
     [SerializeField] private TriggerTileUnlocker[] tileUnlocker;
     public ReputationSystem reputationSystem;
-    [SerializeField] public UI_Assistant UIAssistant;
-    [SerializeField] private bool UIAssistantExistence;
+    [SerializeField] public UI_Assistant[] UIAssistant;
     private void Awake()
     {
         reputationSystem = new ReputationSystem();
         reputationController.SetLevelSystem(reputationSystem);
-        if(UIAssistantExistence)
-            UIAssistant.SetLevelSystem(reputationSystem);
+        UIAssistant = GameObject.FindObjectsOfType<UI_Assistant>();
+        if (UIAssistant.Length > 0)
+        {
+            // Gli oggetti con lo script sono stati trovati
+            foreach (UI_Assistant obj in UIAssistant)
+            {
+                // Fai qualcosa con ogni oggetto trovato
+                obj.SetLevelSystem(reputationSystem);
+
+                Debug.Log("Oggetto con lo script UI_Assistant trovato: " + obj.gameObject.name);
+            }
+        }
+        else
+        {
+            // Nessun oggetto con lo script � stato trovato
+            Debug.Log("Nessun oggetto con lo script TriggerTileUnlocker trovato in scena.");
+        }
 
         //raidManager.SetLevelSystem(reputationSystem);
         //player.SetLevelSystem(reputationSystem); 
