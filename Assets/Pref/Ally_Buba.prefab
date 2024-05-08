@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buba_T-Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 2233971314388638608, guid: 9fb56454e0e13dc489e01a7b46363887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 476b4a1e345a20442850d8d4735a1735, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

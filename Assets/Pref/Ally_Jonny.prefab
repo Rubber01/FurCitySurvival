@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jonny_T-Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 3884412298912397523, guid: 34beb902d41e63d46a726c637da4bfb0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e83774f815483a4c8142e0cbbf26cde, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
