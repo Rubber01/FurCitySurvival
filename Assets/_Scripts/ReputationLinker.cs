@@ -15,6 +15,7 @@ public class ReputationLinker : MonoBehaviour
     {
         reputationSystem = new ReputationSystem();
         reputationController.SetLevelSystem(reputationSystem);
+
         UIAssistant = GameObject.FindObjectsOfType<UI_Assistant>();
         if (UIAssistant.Length > 0)
         {

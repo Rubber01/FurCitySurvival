@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UI_Assistant : MonoBehaviour {
 
@@ -14,7 +15,8 @@ public class UI_Assistant : MonoBehaviour {
     [SerializeField] string[] messageArraySF;
     [SerializeField] string[] messageArrayLvlUp; 
     [SerializeField] private int repCost;
-
+    [SerializeField] bool loadScene=false;
+    [SerializeField] int sceneToLoad=0;
     private bool called = false;
     [SerializeField] private GameObject ttp;
     private ReputationSystem reputationSystem;
@@ -66,7 +68,22 @@ public class UI_Assistant : MonoBehaviour {
             {
                 animator.Play("Close");
                 transform.Find("Button").gameObject.SetActive(false);
+                if (loadScene == true)
+                {
+                    GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+
+                    // Itera su tutti gli oggetti e li distrugge
+                    foreach (GameObject obj in allObjects)
+                    {
+
+                        Destroy(obj);
+
+                    }
+
+                    SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+                }
                 Destroy(1.2f);
+                
             }
         }
         else
@@ -113,6 +130,7 @@ public class UI_Assistant : MonoBehaviour {
     {
         yield return new WaitForSeconds(t);
         gameObject.SetActive(false);
+        
     }
     private void StopTalkingSound() {
         talkingAudioSource.Stop();

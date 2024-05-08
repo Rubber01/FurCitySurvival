@@ -9,8 +9,10 @@ public class TTP : MonoBehaviour
     public static bool isGameState=false;
     [SerializeField] private int sceneToLoad;
     [SerializeField] bool disable = false;
+    
     void Update()
     {
+
         if (disable == true)
         {
             if (Input.touchCount > 0)

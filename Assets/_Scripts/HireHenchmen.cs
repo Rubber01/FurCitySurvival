@@ -28,7 +28,7 @@ public class HireHenchmen : MonoBehaviour
         if (boxJonny != null && boxJonny.GetComponent<UI_Assistant>() != null)
         {
             UIAssistant = boxJonny.GetComponent<UI_Assistant>();
-            //UIAssistant.gameObject.SetActive(false);
+            UIAssistant.gameObject.SetActive(false);
         }
     }
     private void Start()
@@ -96,7 +96,7 @@ public class HireHenchmen : MonoBehaviour
             //allyPrefab.GetComponent<AllyAI>().alreadyAttacked = true;
             allyPool -= 1;
             PlayerManager.currentHench += 1;
-            if(UIAssistant!=null) { UIAssistant.gameObject.SetActive(true); }
+            if(UIAssistant!=null) { UIAssistant.gameObject.SetActive(true); UIAssistant.NextText(); }
             GameObject playerObject = GameObject.FindWithTag("Player");
             if (playerObject != null)
             {

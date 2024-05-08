@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaitActivition : MonoBehaviour
+public class WaitActivation : MonoBehaviour
 {
     [SerializeField] float time;
     private GameObject t;
-    
-    void Start()
+    void Awake()
     {
         t=transform.GetChild(0).gameObject;
         t.SetActive(false);
@@ -19,5 +18,5 @@ public class WaitActivition : MonoBehaviour
         t.SetActive(true);
 
     }
-   
+
 }

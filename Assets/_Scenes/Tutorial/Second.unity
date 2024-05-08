@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1044,8 +1044,8 @@ MonoBehaviour:
   raidManager: []
   basicTile: []
   tileUnlocker: []
-  UIAssistant: {fileID: 1930242513}
-  UIAssistantExistence: 1
+  UIAssistant:
+  - {fileID: 0}
 --- !u!4 &415243554
 Transform:
   m_ObjectHideFlags: 0
@@ -9642,6 +9642,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObjectText: {fileID: 1443894515}
+  i: 0
+  j: 0
+  l: 1
   messageArraySF:
   - 'Yo <color=#FFFF00>Shady</color>! <color=#FFFF00>Club Doggo</color> just claimed
     another <color=#FFFF00>Business</color>, meowmba.Tonight, we''ll teach them a
@@ -9649,6 +9652,7 @@ MonoBehaviour:
   - But first, we have to make a name for ourselves. We gotta raise our <color=#FFFF00>Reputation</color>,
     so that everyone in this town will acknowledge <color=#FFFF00>Meow-Tang Clan</color>!
   messageArrayLvlUp: []
+  repCost: 1
   ttp: {fileID: 313327776}
 --- !u!1 &2032363778
 GameObject:
@@ -9663,7 +9667,7 @@ GameObject:
   - component: {fileID: 2032363781}
   - component: {fileID: 2032363780}
   m_Layer: 0
-  m_Name: 'Button '
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10192,6 +10196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buba_T-Pose
       objectReference: {fileID: 0}
+    - target: {fileID: 2233971314388638608, guid: 9fb56454e0e13dc489e01a7b46363887, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 476b4a1e345a20442850d8d4735a1735, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
