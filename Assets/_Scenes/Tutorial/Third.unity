@@ -788,7 +788,7 @@ MonoBehaviour:
   tilePosition: {x: -19.705772, y: 0, z: -6.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -877,6 +877,7 @@ GameObject:
   - component: {fileID: 31036432}
   - component: {fileID: 31036434}
   - component: {fileID: 31036433}
+  - component: {fileID: 31036435}
   m_Layer: 16
   m_Name: ThePaw_Dog
   m_TagString: Untagged
@@ -949,6 +950,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31036431}
   m_Mesh: {fileID: 6300250347444781974, guid: a4c97c79695795d4ea4c1ace8dd46a65, type: 3}
+--- !u!95 &31036435
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31036431}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10059edfdc1d8e749ab3e2ec520253f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &31810522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1310,7 +1332,7 @@ MonoBehaviour:
   tilePosition: {x: 19.265373, y: 0, z: -6.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -7359,7 +7381,7 @@ MonoBehaviour:
   tilePosition: {x: -15.808657, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -7390,8 +7412,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7627,7 +7649,7 @@ MonoBehaviour:
   tilePosition: {x: -27.5, y: 0, z: -6.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -7658,8 +7680,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7697,14 +7719,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110726307}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 13.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1815281622}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &116395024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8874,7 +8896,7 @@ MonoBehaviour:
   tilePosition: {x: 15.368256, y: 0, z: 13.75}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -8905,8 +8927,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8944,14 +8966,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167241257}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.4848096, z: 0, w: 0.8746197}
   m_LocalPosition: {x: 42.868256, y: 0, z: 33.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 387097024}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 58, z: 0}
 --- !u!1 &182906208
 GameObject:
   m_ObjectHideFlags: 0
@@ -11183,7 +11205,7 @@ MonoBehaviour:
   tilePosition: {x: 19.265373, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -11214,8 +11236,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11253,7 +11275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325919113}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 46.765373, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12012,7 +12034,7 @@ MonoBehaviour:
   tilePosition: {x: -0.22019958, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -12043,8 +12065,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12530,7 +12552,7 @@ MonoBehaviour:
   tilePosition: {x: -19.705772, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -12561,8 +12583,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20090,6 +20112,7 @@ GameObject:
   - component: {fileID: 525300782}
   - component: {fileID: 525300784}
   - component: {fileID: 525300783}
+  - component: {fileID: 525300785}
   m_Layer: 16
   m_Name: ThePaw_Cat
   m_TagString: Untagged
@@ -20162,6 +20185,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525300781}
   m_Mesh: {fileID: 4359086447367701600, guid: a4c97c79695795d4ea4c1ace8dd46a65, type: 3}
+--- !u!95 &525300785
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525300781}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65971725e21a05645bb6134c09f5be6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &525406272
 GameObject:
   m_ObjectHideFlags: 0
@@ -20686,7 +20730,7 @@ MonoBehaviour:
   tilePosition: {x: -15.808657, y: 0, z: 0.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 1
+  RepCost: 2
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -22018,7 +22062,7 @@ MonoBehaviour:
   tilePosition: {x: -27.5, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -22049,8 +22093,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22088,14 +22132,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632461522}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 40.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2101039613}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &633864037
 GameObject:
   m_ObjectHideFlags: 0
@@ -22185,8 +22229,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22224,14 +22268,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633864037}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.49242353, z: 0, w: 0.8703557}
   m_LocalPosition: {x: 11.691343, y: 0, z: 33.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1241467122}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 59, z: 0}
 --- !u!1 &637829922
 GameObject:
   m_ObjectHideFlags: 0
@@ -22494,8 +22538,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22533,14 +22577,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650137068}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.5075384, z: 0, w: 0.8616291}
   m_LocalPosition: {x: 46.765373, y: 0, z: 27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441194002}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 61, z: 0}
 --- !u!1 &653456125
 GameObject:
   m_ObjectHideFlags: 0
@@ -23146,7 +23190,7 @@ MonoBehaviour:
   tilePosition: {x: 15.368256, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -23177,8 +23221,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23216,14 +23260,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679655678}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 42.868256, y: 0, z: 6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 968188377}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &680271396
 GameObject:
   m_ObjectHideFlags: 0
@@ -23470,7 +23514,7 @@ MonoBehaviour:
   tilePosition: {x: -11.911543, y: 0, z: -6.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 1
+  RepCost: 2
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -24476,7 +24520,7 @@ MonoBehaviour:
   tilePosition: {x: 3.6769142, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -24507,8 +24551,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34809,7 +34853,7 @@ MonoBehaviour:
   tilePosition: {x: -27.5, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -34840,8 +34884,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -34879,14 +34923,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808600789}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1586277600}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &819278265
 GameObject:
   m_ObjectHideFlags: 0
@@ -35582,7 +35626,7 @@ MonoBehaviour:
   tilePosition: {x: -19.705772, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -35613,8 +35657,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35652,14 +35696,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854596279}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 7.7942276, y: 0, z: 40.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1706205345}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &855270035
 GameObject:
   m_ObjectHideFlags: 0
@@ -41094,7 +41138,7 @@ MonoBehaviour:
   tilePosition: {x: 11.471142, y: 0, z: -6.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -41692,7 +41736,7 @@ MonoBehaviour:
   tilePosition: {x: 15.368256, y: 0, z: 0.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -41723,8 +41767,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41762,14 +41806,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910223276}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 42.868256, y: 0, z: 20.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1884076625}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &915035337
 GameObject:
   m_ObjectHideFlags: 0
@@ -42130,7 +42174,7 @@ MonoBehaviour:
   tilePosition: {x: -23.602886, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -42161,8 +42205,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48607,7 +48651,7 @@ MonoBehaviour:
   tilePosition: {x: -11.911543, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -48638,8 +48682,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49967,7 +50011,7 @@ MonoBehaviour:
   tilePosition: {x: 11.471142, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -49998,8 +50042,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -50037,14 +50081,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147569077}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 38.97114, y: 0, z: 40.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 584496835}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1157904929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50240,7 +50284,7 @@ MonoBehaviour:
   tilePosition: {x: -19.705772, y: 0, z: 7}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -50863,7 +50907,7 @@ MonoBehaviour:
   tilePosition: {x: -11.911543, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -50894,8 +50938,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -51416,7 +51460,7 @@ MonoBehaviour:
   tilePosition: {x: 23.162487, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -51447,8 +51491,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -51552,7 +51596,7 @@ MonoBehaviour:
   tilePosition: {x: 7.574028, y: 0, z: 13.75}
   isLocked: 1
   unlockCost: 0
-  RepCost: 2
+  RepCost: 3
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -52120,7 +52164,7 @@ MonoBehaviour:
   tilePosition: {x: -8.014429, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -52151,8 +52195,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -52190,14 +52234,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270349289}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 19.48557, y: 0, z: 6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1797904036}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1273591890
 GameObject:
   m_ObjectHideFlags: 0
@@ -53222,7 +53266,7 @@ MonoBehaviour:
   tilePosition: {x: -4.1173134, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -53253,8 +53297,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57018,7 +57062,7 @@ MonoBehaviour:
   tilePosition: {x: 19.265373, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -57049,8 +57093,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
+  - {fileID: 2100000, guid: 1b3840a385c43e14e887906baab7d8f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57154,7 +57198,7 @@ MonoBehaviour:
   tilePosition: {x: -27.5, y: 0, z: 7}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -57185,8 +57229,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57224,14 +57268,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504673192}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.5075384, z: 0, w: 0.8616291}
   m_LocalPosition: {x: 0, y: 0, z: 27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 693717897}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -61, z: 0}
 --- !u!1 &1505093828
 GameObject:
   m_ObjectHideFlags: 0
@@ -57586,7 +57630,7 @@ MonoBehaviour:
   tilePosition: {x: -4.1173134, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -57617,8 +57661,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60024,7 +60068,7 @@ MonoBehaviour:
   tilePosition: {x: 7.574028, y: 0, z: -13.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 4
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -60055,8 +60099,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60765,7 +60809,7 @@ MonoBehaviour:
   tilePosition: {x: 23.162487, y: 0, z: 0.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -60796,8 +60840,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60835,14 +60879,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709462821}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.008726465, z: 0, w: 0.999962}
   m_LocalPosition: {x: 50.662487, y: 0, z: 20.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 378949669}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1, z: 0}
 --- !u!1 &1712367295
 GameObject:
   m_ObjectHideFlags: 0
@@ -67601,7 +67645,7 @@ MonoBehaviour:
   tilePosition: {x: 3.6769142, y: 0, z: 20.5}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -67632,8 +67676,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69435,7 +69479,7 @@ MonoBehaviour:
   tilePosition: {x: -23.602886, y: 0, z: 0.25}
   isLocked: 1
   unlockCost: 0
-  RepCost: 3
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -69466,8 +69510,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 9442ccc302ae5494c8f9957e197402af, type: 2}
+  - {fileID: 2100000, guid: 9442ccc302ae5494c8f9957e197402af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70771,7 +70815,7 @@ MonoBehaviour:
   tilePosition: {x: 23.162487, y: 0, z: 13.75}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -70802,8 +70846,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70841,14 +70885,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038692942}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.5150381, z: 0, w: 0.85716736}
   m_LocalPosition: {x: 50.662487, y: 0, z: 33.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1889334562}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -62, z: 0}
 --- !u!1 &2041477614
 GameObject:
   m_ObjectHideFlags: 0
@@ -71686,7 +71730,7 @@ MonoBehaviour:
   tilePosition: {x: 11.471142, y: 0, z: -20}
   isLocked: 1
   unlockCost: 0
-  RepCost: 4
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -71717,8 +71761,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8959352661069087690, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
-  - {fileID: -8432146271385396827, guid: 29cd3b41d69279c45b8ff778540ca9ea, type: 3}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71908,7 +71952,7 @@ MonoBehaviour:
   tilePosition: {x: -23.602886, y: 0, z: 13.75}
   isLocked: 1
   unlockCost: 0
-  RepCost: 0
+  RepCost: 5
   resourceRequiredToUnlock: 0
   isControlledByPlayer: 0
   isRaidable: 1
@@ -71939,8 +71983,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
-  - {fileID: 2100000, guid: 841f01b28a8eb994bba4133fc8c19d70, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
+  - {fileID: 2100000, guid: 174b7ed84fec8de4e9c68bcd772be274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71978,14 +72022,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092393997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.5, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0, y: -0.86602545, z: 0, w: 0.49999994}
   m_LocalPosition: {x: 3.8971138, y: 0, z: 33.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 344753982}
   m_Father: {fileID: 89488726}
-  m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
 --- !u!1 &2094676936
 GameObject:
   m_ObjectHideFlags: 0
