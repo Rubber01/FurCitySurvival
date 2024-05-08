@@ -13426,6 +13426,7 @@ GameObject:
   - component: {fileID: 124442333}
   - component: {fileID: 124442335}
   - component: {fileID: 124442334}
+  - component: {fileID: 124442336}
   m_Layer: 16
   m_Name: ThePaw_Dog
   m_TagString: Untagged
@@ -13498,6 +13499,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124442332}
   m_Mesh: {fileID: 6300250347444781974, guid: a4c97c79695795d4ea4c1ace8dd46a65, type: 3}
+--- !u!95 &124442336
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124442332}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10059edfdc1d8e749ab3e2ec520253f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &127097164
 GameObject:
   m_ObjectHideFlags: 0
@@ -35950,6 +35972,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 602b07a791a78a640ad1fb6d78d83f12, type: 3}
+    - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263258, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 128
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40184,6 +40214,7 @@ GameObject:
   - component: {fileID: 607420918}
   - component: {fileID: 607420920}
   - component: {fileID: 607420919}
+  - component: {fileID: 607420921}
   m_Layer: 16
   m_Name: ThePaw_Cat
   m_TagString: Untagged
@@ -40256,6 +40287,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607420917}
   m_Mesh: {fileID: 4359086447367701600, guid: a4c97c79695795d4ea4c1ace8dd46a65, type: 3}
+--- !u!95 &607420921
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607420917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65971725e21a05645bb6134c09f5be6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &608211444
 GameObject:
   m_ObjectHideFlags: 0
@@ -80301,6 +80353,7 @@ GameObject:
   - component: {fileID: 1283170470}
   - component: {fileID: 1283170472}
   - component: {fileID: 1283170471}
+  - component: {fileID: 1283170473}
   m_Layer: 16
   m_Name: ThePaw_Cat
   m_TagString: Untagged
@@ -80373,6 +80426,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283170469}
   m_Mesh: {fileID: 4359086447367701600, guid: a4c97c79695795d4ea4c1ace8dd46a65, type: 3}
+--- !u!95 &1283170473
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283170469}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 65971725e21a05645bb6134c09f5be6c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1288706700
 GameObject:
   m_ObjectHideFlags: 0
@@ -101227,6 +101301,7 @@ GameObject:
   - component: {fileID: 1477656565}
   - component: {fileID: 1477656567}
   - component: {fileID: 1477656566}
+  - component: {fileID: 1477656568}
   m_Layer: 16
   m_Name: ThePaw_Dog
   m_TagString: Untagged
@@ -101299,6 +101374,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477656564}
   m_Mesh: {fileID: 6300250347444781974, guid: a4c97c79695795d4ea4c1ace8dd46a65, type: 3}
+--- !u!95 &1477656568
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477656564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10059edfdc1d8e749ab3e2ec520253f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1477997341
 GameObject:
   m_ObjectHideFlags: 0
