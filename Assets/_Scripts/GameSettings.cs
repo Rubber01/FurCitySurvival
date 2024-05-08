@@ -21,7 +21,8 @@ public class GameSettings : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", masterVolumeSlider.value);
         //PlayerPrefs.SetFloat("VFXVolume", vfxVolumeSlider.value);
         PlayerPrefs.SetInt("Fullscreen", fullscreenToggle.isOn ? 1 : 0);
-        audioManager.SetMasterVolume(masterVolumeSlider.value);
+        //audioManager.SetMasterVolume(masterVolumeSlider.value);
+        AudioManager.instance.SetMasterVolume(masterVolumeSlider.value);
         PlayerPrefs.Save();
     }
 
@@ -30,6 +31,7 @@ public class GameSettings : MonoBehaviour
         // Carica le impostazioni salvate o impostazioni predefinite se non esistono
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         audioManager.SetMasterVolume(masterVolumeSlider.value);
+        AudioManager.instance.SetMasterVolume(masterVolumeSlider.value);
         //vfxVolumeSlider.value = PlayerPrefs.GetFloat("VFXVolume", 0.5f);
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
     }
