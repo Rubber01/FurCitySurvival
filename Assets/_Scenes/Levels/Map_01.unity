@@ -31975,11 +31975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  allyPrefab: {fileID: 7026419196648989112, guid: 549beafb1c449b44fa35f85a5163ab06, type: 3}
+  allyPrefab: {fileID: 7026419196648989112, guid: 1e12fb2fb089faa45aa57a780523dfc8, type: 3}
   spawnPoint: {fileID: 443997873}
   allyPool: 3
-  allyCost: 10
-  regenerationTimer: 5
+  allyCost: 20
+  regenerationTimer: 40
 --- !u!65 &374995187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91960,7 +91960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
-  allyPrefab: {fileID: 7026419196648989112, guid: 549beafb1c449b44fa35f85a5163ab06, type: 3}
+  allyPrefab: {fileID: 7026419196648989112, guid: 1e12fb2fb089faa45aa57a780523dfc8, type: 3}
   spawnPoint: {fileID: 817855657}
   allyPool: 2
   allyCost: 20
@@ -100820,7 +100820,7 @@ MonoBehaviour:
   previousCollidedObjects: []
   countdownStarted: 0
   countupStarted: 0
-  alliesRequired: 6
+  alliesRequired: 5
   materialRaided: {fileID: 2100000, guid: 0596eda1987d2704db68d6ab5df4c214, type: 2}
   materialNotRaided: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
   renderer: {fileID: 1459051705}
@@ -117149,7 +117149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8001040895085465201, guid: 5ea4432d78926784cbaba2508d431a06, type: 3}
       propertyPath: alliesRequired
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8001040895085465201, guid: 5ea4432d78926784cbaba2508d431a06, type: 3}
       propertyPath: originalCountdownTime
@@ -120948,7 +120948,7 @@ MonoBehaviour:
   previousCollidedObjects: []
   countdownStarted: 0
   countupStarted: 0
-  alliesRequired: 4
+  alliesRequired: 3
   materialRaided: {fileID: 2100000, guid: 0596eda1987d2704db68d6ab5df4c214, type: 2}
   materialNotRaided: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
   renderer: {fileID: 1781767766}
@@ -135651,7 +135651,7 @@ MonoBehaviour:
   previousCollidedObjects: []
   countdownStarted: 0
   countupStarted: 0
-  alliesRequired: 3
+  alliesRequired: 2
   materialRaided: {fileID: 2100000, guid: 0596eda1987d2704db68d6ab5df4c214, type: 2}
   materialNotRaided: {fileID: 2100000, guid: a92418635630c2f4f82e9e643cfb5438, type: 2}
   renderer: {fileID: 2083911439}
@@ -136156,7 +136156,7 @@ MonoBehaviour:
   allyPrefab: {fileID: 7026419196648989112, guid: 549beafb1c449b44fa35f85a5163ab06, type: 3}
   spawnPoint: {fileID: 786548195}
   allyPool: 1
-  allyCost: 18
+  allyCost: 15
   regenerationTimer: 30
 --- !u!65 &2098241680
 BoxCollider:
